@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styles:[
     `
     .container{
-      margin: 10px;
+      margin: 10px
     }
     `
   ]

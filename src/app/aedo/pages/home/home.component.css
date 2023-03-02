@@ -1,6 +1,9 @@
 
 .sidenav-menu{
     width: 15%;
+    overflow: hidden;
+    height: 100%;
+    background-color: #B4DFEA;
 }
 
 .icono {
@@ -11,4 +14,14 @@
 
 .sidenav-text{
     vertical-align: middle;
+}
+
+.logo{
+    width: 30px;
+    margin-left: 20px;
+}
+
+.sidenav-toolbar{
+    background-color: #008589;
+    color: white;
 }
