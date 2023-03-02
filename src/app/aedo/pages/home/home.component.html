@@ -1,0 +1,32 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav class="sidenav-menu" #sidenav mode="push">
+        <mat-toolbar>
+        <span> Menú </span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        </mat-toolbar>
+        <mat-nav-list>
+        <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
+            <span class="sidenav-text"> Administrador </span>
+        </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <span>Aedo</span>
+        <img src="../../../../favicon.ico">
+
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
+  
