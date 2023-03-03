@@ -19,4 +19,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public go_home(){
+    
+}
+
 }

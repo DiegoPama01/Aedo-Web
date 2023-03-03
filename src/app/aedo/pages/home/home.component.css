@@ -6,6 +6,10 @@
     background-color: #B4DFEA;
 }
 
+.sidenav-content{
+    background-color: #B4DFEA;
+}
+
 .icono {
     margin-right: 10px;
     flex: auto;
@@ -24,4 +28,8 @@
 .sidenav-toolbar{
     background-color: #008589;
     color: white;
+}
+
+.toolbar-logo{
+    width: 150px;
 }
