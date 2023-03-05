@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "aedoapp"
+  },
+  "targets": {
+    "aedoapp": {
+      "hosting": {
+        "aedo-web": [
+          "aedoapp"
+        ]
+      }
+    }
   }
 }
