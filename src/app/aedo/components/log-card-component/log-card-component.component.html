@@ -1,0 +1,49 @@
+<mat-card class="log-card" *ngIf="visible">
+    <mat-card-title>Iniciar sesión</mat-card-title>
+    <mat-divider class="title-divider"></mat-divider>
+
+        <mat-form-field appearance="outline" class="log-form">
+            <mat-label>Correo electrónico</mat-label>
+            <input [formControl]="email" #correo matInput required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field  appearance="outline" class="log-form">
+            <mat-label>Contraseña</mat-label>
+            <input #password matInput [type]="hide ? 'password' : 'text'"  required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+
+    <div class="button-grid">
+        <button mat-button expanded (click)="logInWithEmail(correo.value, password.value)">
+            <mat-icon>
+                login
+            </mat-icon>
+            Iniciar sesión
+        </button>
+
+        <button mat-button expanded (click)="logInWithGoogle()">
+            <mat-icon>
+                Google
+            </mat-icon>
+            Google
+        </button>
+    
+        <button mat-button expanded (click)="logOut()">
+            <mat-icon>
+                personadd
+            </mat-icon>
+            Registrarse
+        </button>
+
+        <button mat-button expanded (click)="logInWithFacebook()">
+            <mat-icon>
+                Facebook
+            </mat-icon>
+            Facebook
+        </button>
+    </div>
+    
+</mat-card>

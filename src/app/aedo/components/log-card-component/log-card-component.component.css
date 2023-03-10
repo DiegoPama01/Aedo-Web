@@ -1,0 +1,24 @@
+
+.log-card{
+    margin-left: 40px;
+    margin-top:10px;
+    width: fit-content;
+    padding: 20px;
+}
+
+.title-divider{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual ancho */
+    gap: 10px; /* Agrega un espacio de 10px entre cada botón */
+  }
+
+  .button-img{
+    height: 20px;
+    align-self: center;
+    align-content: center;
+  }

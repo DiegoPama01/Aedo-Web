@@ -1,9 +1,10 @@
 
 .sidenav-menu{
-    width: 15%;
-    overflow: hidden;
+    width: 250px;
     height: 100%;
-    background-color: #B4DFEA;
+    background-color: #008589;
+    border-bottom-right-radius: 10px;
+    border: none;
 }
 
 .sidenav-content{
@@ -26,10 +27,25 @@
 }
 
 .sidenav-toolbar{
+    height: 60px;
     background-color: #008589;
     color: white;
 }
 
 .toolbar-logo{
     width: 150px;
+}
+
+.nav-group{
+    background-color: #B4DFEA;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.toolbar-button{
+    background-color: #008589;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: none !important;
+
 }
