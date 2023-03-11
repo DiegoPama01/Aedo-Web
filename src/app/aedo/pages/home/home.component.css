@@ -5,10 +5,13 @@
     background-color: #008589;
     border-bottom-right-radius: 10px;
     border: none;
+    overflow-y: hidden !important;
 }
 
-.sidenav-content{
+
+.sidenav-container{
     background-color: #B4DFEA;
+    overflow-y: hidden !important;
 }
 
 .icono {
@@ -30,6 +33,8 @@
     height: 60px;
     background-color: #008589;
     color: white;
+    width: auto;
+    overflow: hidden;
 }
 
 .toolbar-logo{
@@ -40,6 +45,7 @@
     background-color: #B4DFEA;
     margin: 10px;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .toolbar-button{
@@ -48,4 +54,14 @@
     border-radius: 5px;
     box-shadow: none !important;
 
+}
+
+.log-card{
+    margin-left: 40px;
+    margin-top:10px;
+    width: fit-content;
+    padding: 20px;
+}
+.sidenav-menu-container{
+    overflow-y: hidden !important;
 }

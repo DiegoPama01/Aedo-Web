@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/aedo/services/authentication.service';
 
 @Component({
   selector: 'app-log-card-component',
@@ -13,8 +13,6 @@ export class LogCardComponentComponent {
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
-
-
   visible: boolean = false;
   
   hide = true;
@@ -58,5 +56,9 @@ export class LogCardComponentComponent {
       console.log(response)
     })
     .catch(error => {console.log(error.Name)})
+  }
+
+  getUser(){
+    return this.authenticationService.getAuthenticatedUser()
   }
 }

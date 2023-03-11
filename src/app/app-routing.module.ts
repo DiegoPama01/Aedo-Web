@@ -4,7 +4,7 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 const routes: Routes = [
   {
-    path:"home",
+    path:"",
     loadChildren:()=> import("./aedo/aedo.module").then(m=>m.AedoModule)
   },
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "home"
+    redirectTo: ""
   }
 ];
 

@@ -8,6 +8,10 @@ export class AuthenticationService {
 
   constructor(private auth: Auth) { }
 
+  getAuthenticatedUser(){
+    return this.auth.currentUser
+  }
+
   register({email, password}:any){
     return createUserWithEmailAndPassword(this.auth, email,password);
   }

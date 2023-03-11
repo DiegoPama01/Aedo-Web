@@ -13,12 +13,6 @@
 
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual ancho */
-    gap: 10px; /* Agrega un espacio de 10px entre cada botón */
-  }
-
-  .button-img{
-    height: 20px;
-    align-self: center;
-    align-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
