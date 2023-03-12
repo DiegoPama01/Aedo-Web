@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/aedo/services/authentication.service';
 import { FirestoreService } from '../../services/firestore.service';
-import { Language } from '../../interfaces/language';
+import { Language } from '../../models/language.model';
 
 @Component({
   selector: 'app-log-card-component',
@@ -16,6 +16,7 @@ export class LogCardComponentComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
   visible: boolean = false;
+  language?: Language;
   
   hide = true;
   toggle() {
@@ -64,8 +65,8 @@ export class LogCardComponentComponent {
     return this.authenticationService.getAuthenticatedUser()
   }
 
-  addLang(){
-    const lang: Language = {item:"lang"}
-    this.firestore.addLanguage(lang)
+  async getLang(){
+    return this.firestore.getLanguageById("ESP").then(value => {this.language = value,
+    console.log(value)})
   }
 }

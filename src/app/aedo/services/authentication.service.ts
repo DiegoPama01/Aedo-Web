@@ -7,7 +7,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 export class AuthenticationService {
 
   constructor(private auth: Auth) { }
-
+ 
   getAuthenticatedUser(){
     return this.auth.currentUser
   }
