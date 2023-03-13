@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/aedo/services/authentication.service';
-import { FirestoreService } from '../../services/firestore.service';
 import { Language } from '../../models/language.model';
+import { LanguagesApiService } from '../../services/apis/languages-api.service';
 
 @Component({
   selector: 'app-log-card-component',
@@ -11,7 +11,7 @@ import { Language } from '../../models/language.model';
 })
 export class LogCardComponentComponent {
 
-  constructor(private authenticationService: AuthenticationService, private firestore: FirestoreService){}
+  constructor(private authenticationService: AuthenticationService, private languageApi: LanguagesApiService){}
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
@@ -66,7 +66,6 @@ export class LogCardComponentComponent {
   }
 
   async getLang(){
-    return this.firestore.getLanguageById("ESP").then(value => {this.language = value,
-    console.log(value)})
+    this.language = await this.languageApi.getById("ESP")
   }
 }
