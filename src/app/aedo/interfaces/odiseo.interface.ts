@@ -1,4 +1,5 @@
 export interface IOdiseo{
+    id:string;
     accountNumber:string;
     email: string;
     isAedo:boolean;
