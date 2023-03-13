@@ -8,75 +8,30 @@
             </mat-toolbar>
             <div class="nav-group">
                 <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
-                        <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
-                        <span class="sidenav-text"> Administrador </span>
+                    <a routerLink="./home" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon class="icono">home</mat-icon>
+                        <span class="sidenav-text"> Main page </span>
                     </a>
                 </mat-nav-list>
                 <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
-                        <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
-                        <span class="sidenav-text"> Administrador </span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
-                        <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
-                        <span class="sidenav-text"> Administrador </span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
+                    <a routerLink="./administrator" mat-list-item (click)="sidenav.toggle()">
                         <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
                         <span class="sidenav-text"> Administrador </span>
                     </a>
                 </mat-nav-list>
             </div>
-
             <div class="spacer"></div>
-
-            <div class="nav-group">
-                <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
-                        <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
-                        <span class="sidenav-text"> Administrador </span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
-                        <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
-                        <span class="sidenav-text"> Administrador </span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
-                        <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
-                        <span class="sidenav-text"> Administrador </span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list >
-                    <a routerLink="./administrador" mat-list-item (click)="sidenav.toggle()">
-                        <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
-                        <span class="sidenav-text"> Administrador </span>
-                    </a>
-                </mat-nav-list>
-            </div>
-            
         </div>
     </mat-sidenav>
-
     <mat-toolbar class="sidenav-toolbar">
         <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
         </button>
-
         <button class="toolbar-button" mat-fab extended (click)="logCard.toggle()" >
             <mat-icon>login</mat-icon>
             Acceder
         </button>
-
         <span class="spacer"></span>
-        
         <span >Aedo</span>
         <a routerLink="/home">
             <img  class="logo" src="../../../../assets/logo_cara.png">
