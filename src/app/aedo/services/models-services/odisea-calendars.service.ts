@@ -6,7 +6,7 @@ import { IOdiseaCalendar } from '../../interfaces/odisea-calendar.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class OdiseaCalendarsApiService {
+export class OdiseaCalendarsService {
 
   collection:string = "odiseaCalendars"
 

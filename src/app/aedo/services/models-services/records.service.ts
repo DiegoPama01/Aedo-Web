@@ -6,7 +6,7 @@ import { FirestoreService } from '../firestore.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RecordsApiService {
+export class RecordsService {
 
   collection:string = "records"
 

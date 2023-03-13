@@ -6,7 +6,7 @@ import { ILanguage } from '../../interfaces/language.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class LanguagesApiService {
+export class LanguagesService {
 
   collection:string = "languages"
 

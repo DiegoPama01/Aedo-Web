@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CommentsApiService {
+export class CommentsService {
 
   collection:string = "comments"
 

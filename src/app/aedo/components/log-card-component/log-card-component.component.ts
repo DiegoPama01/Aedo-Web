@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/aedo/services/authentication.service';
 import { Language } from '../../models/language.model';
-import { LanguagesApiService } from '../../services/apis/languages-api.service';
+import { LanguagesService } from '../../services/models-services/languages.service';
+
 
 @Component({
   selector: 'app-log-card-component',
@@ -11,7 +12,7 @@ import { LanguagesApiService } from '../../services/apis/languages-api.service';
 })
 export class LogCardComponentComponent {
 
-  constructor(private authenticationService: AuthenticationService, private languageApi: LanguagesApiService){}
+  constructor(private authenticationService: AuthenticationService, private languageApi: LanguagesService){}
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
