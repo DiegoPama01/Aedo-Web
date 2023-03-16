@@ -27,19 +27,16 @@
         <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
         </button>
-        <button class="toolbar-button" mat-fab extended (click)="logCard.toggle()" >
+        <button class="toolbar-button" mat-fab extended (click)="openLoginDialog()" >
             <mat-icon>login</mat-icon>
             Acceder
         </button>
         <span class="spacer"></span>
         <span >Aedo</span>
         <a routerLink="/home">
-            <img  class="logo" src="../../../../assets/logo_cara.png">
+            <img alt="logo" class="logo" src="../../../../assets/logo_cara.png">
         </a>
     </mat-toolbar>
-
-    <app-log-card-component #logCard class="log-card"></app-log-card-component>
-
 
     <div class="container">
         <router-outlet></router-outlet>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, sendEmailVerification, UserCredential } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,14 @@ export class AuthenticationService {
 
   constructor(private auth: Auth) { }
  
-  getAuthenticatedUser(){
-    return this.auth.currentUser
+  getCurrentUser(){
+    return this.auth.currentUser!
   }
 
-  register({email, password}:any){
-    return createUserWithEmailAndPassword(this.auth, email,password);
+  async register({email, password}:any){
+    await createUserWithEmailAndPassword(this.auth, email,password).then(
+      async () => await sendEmailVerification(this.auth.currentUser!)
+    )
   }
 
   login({email,password}:any){

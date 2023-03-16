@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog'
+import { LoginDialogComponent } from '../../components/login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -14,13 +16,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private matDialog:MatDialog){}
 
   ngOnInit(): void {
+    // TODO document why this method 'ngOnInit' is empty
   }
 
-  public go_home(){
-    
-}
-
+  openLoginDialog(){
+    this.matDialog.open(
+      LoginDialogComponent,)
+  }
 }

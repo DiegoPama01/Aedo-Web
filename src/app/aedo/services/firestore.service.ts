@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, collectionData, deleteDoc, doc, Firestore, getDoc, getDocs, query, updateDoc, where } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { ILanguage } from '../interfaces/language.interface';
-import { IComment } from '../interfaces/comment.interface';
+import { addDoc, collectionData, deleteDoc, doc, Firestore, getDoc, updateDoc, collection, setDoc} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -11,25 +8,31 @@ export class FirestoreService {
 
   constructor(private firestore: Firestore) { }
 
-  getCollection = (collection:any) => {
-    const collRef = collection(this.firestore, collection);
+  getCollection = (coll:any) => {
+    
+    const collRef = collection(this.firestore, coll);
     return collectionData(collRef,{idField:"id"})
   };
 
-  create = (collection:any, item:any) =>{
-    return addDoc(collection(this.firestore, collection), Object.assign({}, item));
+  create = (coll:any, item:any) =>{
+    return addDoc(collection(this.firestore, coll), Object.assign({}, item));
   }
 
-  update = (collection:string,item:any,id:string) => {
-    return updateDoc(doc(this.firestore, collection, id), Object.assign({}, item));
+  set = (coll:any, item:any) =>{
+    let {id:_,...rest} = item
+    return setDoc(doc(this.firestore, coll, item.id), Object.assign({}, rest));
   }
 
-  remove = (collection:any,id:string) => {
-    return deleteDoc(doc(this.firestore, collection, id));
+  update = (coll:string,item:any,id:string) => {
+    return updateDoc(doc(this.firestore, coll, id), Object.assign({}, item));
+  }
+
+  remove = (coll:string,id:string) => {
+    return deleteDoc(doc(this.firestore, coll, id));
   };
 
-  getById = async (collection:any,id:string) => {
-    const docRef = doc(this.firestore, collection, id);
+  getById = async (coll:string,id:string) => {
+    const docRef = doc(this.firestore, coll, id);
     const docSnap = await getDoc(docRef);
     return { ...docSnap.data(), id: docSnap.id };
   };

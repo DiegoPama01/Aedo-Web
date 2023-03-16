@@ -4,34 +4,26 @@ import { AuthenticationService } from 'src/app/aedo/services/authentication.serv
 import { Language } from '../../models/language.model';
 import { LanguagesService } from '../../services/models-services/languages.service';
 
+import { MatDialog } from '@angular/material/dialog'
+import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
 
 @Component({
-  selector: 'app-log-card-component',
-  templateUrl: './log-card-component.component.html',
-  styleUrls: ['./log-card-component.component.css']
+  selector: 'app-login-dialog',
+  templateUrl: './login-dialog.component.html',
+  styleUrls: ['./login-dialog.component.css']
 })
-export class LogCardComponentComponent {
-
-  constructor(private authenticationService: AuthenticationService, private languageApi: LanguagesService){}
-
+export class LoginDialogComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
   visible: boolean = false;
   language?: Language;
-  
   hide = true;
+
+  constructor(private authenticationService: AuthenticationService, private languageApi: LanguagesService, private matDialog:MatDialog){}
+
   toggle() {
     this.visible = !this.visible
   }
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Debes introducir el correo';
-    }
-
-    return this.email.hasError('email') ? 'No es válido' : '';
-  }
-
 
   logInWithEmail(email:string,password:string){
     this.authenticationService.login({email,password})
@@ -62,11 +54,9 @@ export class LogCardComponentComponent {
     .catch(error => {console.log(error.Name)})
   }
 
-  getUser(){
-    return this.authenticationService.getAuthenticatedUser()
-  }
 
-  async getLang(){
-    this.language = await this.languageApi.getById("ESP")
-  }
+  openRegisterDialog(){
+    this.matDialog.open(
+      RegisterDialogComponent,{width:"350px"})
+  } 
 }

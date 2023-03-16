@@ -8,12 +8,12 @@ import { FirestoreService } from '../firestore.service';
 })
 export class OdiseosService {
 
-  collection:string = "odiseas"
+  collection:string = "odiseos"
 
   constructor(private firestoreService:FirestoreService) { }
 
   create(odiseo: IOdiseo){
-    return this.firestoreService.create(this.collection,odiseo)
+    return this.firestoreService.set(this.collection,odiseo)
   }
 
   getCollection():Observable<IOdiseo[]>{

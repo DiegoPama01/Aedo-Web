@@ -13,7 +13,7 @@ export class LanguagesService {
   constructor(private firestoreService:FirestoreService) { }
 
   create(language: ILanguage){
-    return this.firestoreService.create(this.collection,language)
+    return this.firestoreService.set(this.collection,language)
   }
 
   getCollection():Observable<ILanguage[]>{

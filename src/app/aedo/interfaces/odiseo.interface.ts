@@ -6,4 +6,5 @@ export interface IOdiseo{
     name: string;
     phoneNumber:string;
     userName: string;
+    birthDate: Date;
 }
