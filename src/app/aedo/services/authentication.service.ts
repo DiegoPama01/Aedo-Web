@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, sendEmailVerification } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, sendEmailVerification, User } from '@angular/fire/auth';
+import { IOdiseo } from '../interfaces/odiseo.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,7 @@ export class AuthenticationService {
 
   async register({email, password}:any){
     await createUserWithEmailAndPassword(this.auth, email,password).then(
-      async () => await sendEmailVerification(this.auth.currentUser!)
-    )
+      async () => await sendEmailVerification(this.auth.currentUser!))
   }
 
   login({email,password}:any){
@@ -32,5 +32,10 @@ export class AuthenticationService {
 
   logout(){
     return signOut(this.auth);
+  }
+
+  userToOdiseo(user:User):IOdiseo{
+    let odiseo: IOdiseo = {userName:user.displayName!, id:user.uid, email: user.email!,accountNumber:"",isAedo:false,name:"",phoneNumber:"",birthDate:new Date()}
+    return odiseo;
   }
 }
