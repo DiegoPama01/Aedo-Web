@@ -1,15 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
-  Form,
+  FormBuilder,
   FormControl,
   FormGroup,
-  FormGroupDirective,
   Validators,
 } from '@angular/forms';
 import { IOdiseo } from '../../interfaces/odiseo.interface';
 import { AuthenticationService } from '../../services/authentication.service';
-import { LanguagesService } from '../../services/models-services/languages.service';
 import { OdiseosService } from '../../services/models-services/odiseos.service';
 
 @Component({
@@ -18,64 +15,84 @@ import { OdiseosService } from '../../services/models-services/odiseos.service';
   styleUrls: ['./register-dialog.component.css'],
 })
 export class RegisterDialogComponent {
-  formGroup: FormGroup = new FormGroup(
-    {
+  chipText: string = '';
+  hide: boolean = true;
+  formGroup: FormGroup;
+  error: boolean = false;
+
+  constructor(
+    private auth: AuthenticationService,
+    private odiseoService: OdiseosService,
+    private formBuilder: FormBuilder
+  ) {
+    this.formGroup = this.formBuilder.group({
       username: new FormControl('', [Validators.required]),
       name: new FormControl(''),
-      phoneNumber: new FormControl(''),
-      email: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', Validators.pattern("[679]{1}[0-9]{8}")),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-      'confirm-password': new FormControl('', [Validators.required, this.passwordMatchValidator]),
-      birthday: new FormControl(''),
-    },
-    {
-      validators: [this.passwordMatchValidator.bind(this)],
-    }
-  );
+      confirmPassword: new FormControl('', [Validators.required]),
+      birthday: new FormControl(new Date(2005, 0, 0), [Validators.required]),
+    });
+    this.formGroup
+      .get('confirmPassword')!
+      .setValidators([
+        Validators.required,
+        this.passwordMatchValidator.bind(this),
+      ]);
+  }
 
-  constructor(private auth: AuthenticationService, private odiseoService: OdiseosService, private langService: LanguagesService) {}
+  submit() {
+    let email = this.formGroup.controls['email'].value;
+    let name = this.formGroup.controls['name'].value;
+    let phoneNumber = this.formGroup.controls['phoneNumber'].value;
+    let userName = this.formGroup.controls['username'].value;
+    let birthDate = this.formGroup.controls['birthday'].value;
+    let password = this.formGroup.controls['password'].value;
 
-  chipText:string = "";
-  hide: boolean = true;
-
-  submit(register: FormGroupDirective) {
-    let email = register.form.controls['email'].value as string;
-    let name = register.form.controls['name'].value as string;
-    let phoneNumber = register.form.controls['phoneNumber'].value as string;
-    let userName = register.form.controls['username'].value as string;
-    let birthDate = register.form.controls['birthday'].value as Date;
-    let password = register.form.controls['password'].value as string;
-
-    if (register.valid) {
+    if (this.formGroup.valid) {
+      this.error = false;
       this.auth
-        .register({ email: email, password: password }).then(
-          value => { 
-            this.chipText = "Te hemos mandando un correo. Valida tu cuenta";
-            let newUser: IOdiseo = {
-              id: this.auth.getCurrentUser()!.uid,
-              accountNumber: '',
-              email: email,
-              isAedo: false,
-              name: name,
-              phoneNumber: phoneNumber,
-              userName: userName,
-              birthDate: birthDate,
-            };
-            this.odiseoService.create(newUser);
-        }
-        ).catch(error => console.log(error));
+        .register({ email: email, password: password })
+        .then((value) => {
+          this.chipText = 'Te hemos mandando un correo. Valida tu cuenta';
+          let newUser: IOdiseo = {
+            id: this.auth.getCurrentUser()!.uid,
+            accountNumber: '',
+            email: email,
+            isAedo: false,
+            name: name == null ? '' : name,
+            phoneNumber: phoneNumber == null ? '' : phoneNumber,
+            userName: userName,
+            birthDate: new Date(birthDate),
+          };
+          this.odiseoService.create(newUser);
+        })
+        .catch((error) => {
+          if (error.code === 'auth/email-already-in-use') {
+            this.chipText = "El correo ya tiene una cuenta asociada"
+          }
+        });
     }
   }
 
-  passwordMatchValidator(
-    control: AbstractControl
-  ): { [key: string]: any } | null {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirm-password');
-    return password &&
-      confirmPassword &&
-      password.value !== confirmPassword.value
-      ? { passwordMismatch: true }
-      : null;
+  passwordMatchValidator(control: FormControl) {
+    const password = control.parent?.get('password')!.value;
+    const confirmPassword = control.value;
+    if (password && confirmPassword && password !== confirmPassword) {
+      return { passwordMismatch: true };
+    }
+    return null;
   }
+
+  myFilter = (d: Date | null): boolean => {
+    const filterDay = new Date()
+    filterDay.setFullYear(filterDay. getFullYear()-16)
+    const day = (d || new Date());
+    // Prevent Saturday and Sunday from being selected.
+    return day.getFullYear() < filterDay.getFullYear()
+  };
 }
+
+
+

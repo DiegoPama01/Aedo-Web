@@ -16,26 +16,36 @@
     overflow-y: hidden;
   "
 >
-  <form
-    #register="ngForm"
-    (ngSubmit)="submit(register)"
-    [formGroup]="formGroup"
-  >
+  <form [formGroup]="formGroup">
     <mat-form-field style="width: 100%">
       <mat-label>Nombre de usuario</mat-label>
-      <input matInput required formControlName="username" ngModel />
+      <input matInput formControlName="username" />
+      <mat-error *ngIf="formGroup.get('username')!.hasError('required')">
+        Este campo es <strong>obligatorio</strong>
+      </mat-error>
     </mat-form-field>
     <mat-form-field style="width: 100%">
       <mat-label>Nombre</mat-label>
-      <input matInput formControlName="name" ngModel />
+      <input matInput formControlName="name" />
     </mat-form-field>
     <mat-form-field style="width: 100%">
       <mat-label>Número de telefono</mat-label>
-      <input matInput formControlName="phoneNumber" ngModel />
+      <input matInput formControlName="phoneNumber" />
     </mat-form-field>
     <mat-form-field style="width: 100%">
       <mat-label>Correo electrónico</mat-label>
-      <input matInput required formControlName="email" ngModel />
+      <input matInput required formControlName="email" />
+      <mat-error *ngIf="formGroup.get('email')!.hasError('required')">
+        Este campo es <strong>obligatorio</strong>
+      </mat-error>
+      <mat-error
+        *ngIf="
+          !formGroup.get('email')!.hasError('required') &&
+          formGroup.get('email')!.hasError('email')
+        "
+      >
+        El correo no es válido
+      </mat-error>
     </mat-form-field>
     <mat-form-field style="width: 100%">
       <mat-label>Contraseña</mat-label>
@@ -43,9 +53,10 @@
         formControlName="password"
         matInput
         [type]="hide ? 'password' : 'text'"
-        required
-        ngModel
       />
+      <mat-error *ngIf="formGroup.get('password')!.hasError('required')">
+        Este campo es <strong>obligatorio</strong>
+      </mat-error>
       <button
         mat-icon-button
         matSuffix
@@ -58,43 +69,39 @@
     </mat-form-field>
     <mat-form-field style="width: 100%">
       <mat-label>Repita la contraseña</mat-label>
-      <input
-        formControlName="confirm-password"
-        matInput
-        [type]="'password'"
-        required
-        ngModel
-      />
-      <mat-error *ngIf="register.control.hasError('passwordMismatch')">
+      <input formControlName="confirmPassword" matInput [type]="'password'" />
+      <mat-error *ngIf="formGroup.get('confirmPassword')!.hasError('required')">
+        Este campo es <strong>obligatorio</strong>
+      </mat-error>
+      <mat-error
+        *ngIf="formGroup.get('confirmPassword')!.hasError('passwordMismatch')"
+      >
         Las contraseñas no coinciden
       </mat-error>
     </mat-form-field>
     <mat-form-field style="width: 100%">
       <mat-label>Choose a date</mat-label>
-      <input
-        formControlName="birthday"
-        matInput
-        [matDatepicker]="picker"
-        ngModel
-        required
-      />
+      <input  [matDatepickerFilter]="myFilter" formControlName="birthday" matInput [matDatepicker]="picker" />
+      <mat-error *ngIf="formGroup.get('birthday')!.hasError('required')">
+        Este campo es <strong>obligatorio</strong>
+      </mat-error>
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle
         matIconSuffix
         [for]="picker"
       ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker  #picker></mat-datepicker>
     </mat-form-field>
     <mat-dialog-actions style="float: right">
-      <span style="text-align: center;">
-        {{chipText}}
+      <span style="text-align: center">
+        {{ chipText }}
       </span>
       <button
         *ngIf="chipText.length == 0"
         mat-raised-button
         type="submit"
         color="primary"
-        (click)="submit(register)"
+        (click)="submit()"
       >
         Registrarse
       </button>

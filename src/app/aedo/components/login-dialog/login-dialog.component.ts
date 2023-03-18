@@ -6,6 +6,7 @@ import { LanguagesService } from '../../services/models-services/languages.servi
 
 import { MatDialog } from '@angular/material/dialog'
 import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login-dialog',
@@ -19,7 +20,7 @@ export class LoginDialogComponent {
   language?: Language;
   hide = true;
 
-  constructor(private authenticationService: AuthenticationService, private languageApi: LanguagesService, private matDialog:MatDialog){}
+  constructor(private authenticationService: AuthenticationService, public dialogRef: MatDialogRef<LoginDialogComponent>, private matDialog:MatDialog){}
 
   toggle() {
     this.visible = !this.visible
@@ -28,21 +29,21 @@ export class LoginDialogComponent {
   logInWithEmail(email:string,password:string){
     this.authenticationService.login({email,password})
     .then(response =>{
-      console.log(response)
+      this.dialogRef.close(); 
     })
     .catch(error => {console.log(error.Name)})
   }
 
   logInWithGoogle(){
     this.authenticationService.loginWithGoogle().then(response =>{
-      console.log(response);
+      this.dialogRef.close(); 
     })
     .catch(error => {console.log(error.Name);})
   }
 
   logInWithFacebook(){
     this.authenticationService.loginWithFacebook().then(response =>{
-      console.log(response)
+      this.dialogRef.close(); 
     })
     .catch(error => {console.log(error.Name)})
   }
