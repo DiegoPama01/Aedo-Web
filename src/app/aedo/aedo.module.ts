@@ -1,16 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './pages/home/home.component';
-import { AedoRoutingModule } from './aedo-routing.module';
-import { MaterialModule } from '../material/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { RegisterComponent } from './pages/register/register.component';
 import { AdministratorComponent } from './pages/administrator/administrator.component';
+import { AedoRoutingModule } from './aedo-routing.module';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomeComponent } from './pages/home/home.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MaterialModule } from '../material/material.module';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { NgModule } from '@angular/core';
 import { OdiseaProfileComponent } from './pages/odisea-profile/odisea-profile.component';
 import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RegisterComponent } from './pages/register/register.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
-import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 
 
 
@@ -30,7 +36,13 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ]
 })
 export class AedoModule { }
