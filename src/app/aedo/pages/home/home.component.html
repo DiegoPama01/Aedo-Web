@@ -27,9 +27,13 @@
         <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
         </button>
-        <button class="toolbar-button" mat-fab extended (click)="openLoginDialog()" >
+        <button *ngIf="this.auth.getCurrentUser() == null" class="toolbar-button" mat-fab extended (click)="openLoginDialog()" >
             <mat-icon>login</mat-icon>
             Acceder
+        </button>
+        <button *ngIf="this.auth.getCurrentUser() != null" class="toolbar-button" mat-fab extended (click)="logout()" >
+            <mat-icon>logout</mat-icon>
+            Desconectar
         </button>
         <span class="spacer"></span>
         <span >Aedo</span>

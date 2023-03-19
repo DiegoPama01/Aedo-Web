@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
 import { LoginDialogComponent } from '../../components/login-dialog/login-dialog.component';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import { LoginDialogComponent } from '../../components/login-dialog/login-dialog
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private matDialog:MatDialog){}
+  constructor(private matDialog:MatDialog, public auth: AuthenticationService){
+  }
 
   ngOnInit(): void {
     // TODO document why this method 'ngOnInit' is empty
@@ -25,5 +27,9 @@ export class HomeComponent implements OnInit {
   openLoginDialog(){
     this.matDialog.open(
       LoginDialogComponent,)
+  }
+
+  logout(){
+    this.auth.logout()
   }
 }
