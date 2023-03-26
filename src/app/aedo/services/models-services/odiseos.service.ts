@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { collectionData } from '@angular/fire/firestore';
 import { query, where } from '@firebase/firestore';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { IOdiseo } from '../../interfaces/odiseo.interface';
 import { FirestoreService } from '../firestore.service';
 
@@ -20,6 +20,10 @@ export class OdiseosService {
 
   getCollection():Observable<IOdiseo[]>{
     return this.firestoreService.getCollection(this.collection) as Observable<IOdiseo[]>
+  }
+
+  getAdmin():Observable<IOdiseo[]>{ 
+    return this.firestoreService.getCollection(this.collection).pipe(map((data: any[]) => data.filter(item => item.isAedo === true)))
   }
 
   remove(odiseo: IOdiseo){

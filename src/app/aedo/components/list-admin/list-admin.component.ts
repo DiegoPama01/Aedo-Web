@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { IOdiseo } from '../../interfaces/odiseo.interface';
 import { OdiseosService } from '../../services/models-services/odiseos.service';
 
@@ -10,9 +11,8 @@ import { OdiseosService } from '../../services/models-services/odiseos.service';
 })
 export class ListAdminComponent {
   
-  private listOdiseo: Observable<IOdiseo[]> = this.odiseoService.getCollection();
+  private listOdiseo: Observable<IOdiseo[]> = this.odiseoService.getAdmin();
   constructor(private odiseoService: OdiseosService){
-    this.listOdiseo.subscribe(console.log)
   }
 
   public getList(): Observable<IOdiseo[]> {
