@@ -9,10 +9,11 @@ export class FirestoreService {
   constructor(private firestore: Firestore) { }
 
   getCollection = (coll:any) => {
-    
     const collRef = collection(this.firestore, coll);
     return collectionData(collRef,{idField:"id"})
   };
+
+
 
   create = (coll:any, item:any) =>{
     return addDoc(collection(this.firestore, coll), Object.assign({}, item));

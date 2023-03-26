@@ -1,1 +1,7 @@
-<p>list-admin works!</p>
+<div style="height: 60%;overflow: auto;margin:5px">
+  <mat-list>
+    <mat-list-item *ngFor="let odiseo of this.getList() | async">
+      <span matListItemTitle>{{ odiseo.userName }}</span>
+    </mat-list-item>
+  </mat-list>
+</div>

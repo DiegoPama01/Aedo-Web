@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { collectionData } from '@angular/fire/firestore';
+import { query, where } from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import { IOdiseo } from '../../interfaces/odiseo.interface';
 import { FirestoreService } from '../firestore.service';

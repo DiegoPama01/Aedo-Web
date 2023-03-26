@@ -18,6 +18,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
+import { ListUserComponent } from './components/list-user/list-user.component';
 
 
 
@@ -31,6 +32,7 @@ import { ListAdminComponent } from './components/list-admin/list-admin.component
     RegisterDialogComponent,
     LoginDialogComponent,
     ListAdminComponent,
+    ListUserComponent,
   ],
   imports: [
     CommonModule,
