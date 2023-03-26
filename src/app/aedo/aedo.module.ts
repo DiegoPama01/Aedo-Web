@@ -17,6 +17,7 @@ import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
+import { ListAdminComponent } from './components/list-admin/list-admin.component';
 
 
 
@@ -29,6 +30,7 @@ import { RegisterDialogComponent } from './components/register-dialog/register-d
     OdiseaRegisterComponent,
     RegisterDialogComponent,
     LoginDialogComponent,
+    ListAdminComponent,
   ],
   imports: [
     CommonModule,
