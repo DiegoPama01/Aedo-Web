@@ -19,8 +19,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
-
-
+import { ListLanguagesComponent } from './components/list-languages/list-languages.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +32,7 @@ import { ListUserComponent } from './components/list-user/list-user.component';
     LoginDialogComponent,
     ListAdminComponent,
     ListUserComponent,
+    ListLanguagesComponent,
   ],
   imports: [
     CommonModule,
@@ -46,7 +46,7 @@ import { ListUserComponent } from './components/list-user/list-user.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
-  ]
+    LayoutModule,
+  ],
 })
-export class AedoModule { }
+export class AedoModule {}
