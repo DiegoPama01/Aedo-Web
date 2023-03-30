@@ -20,4 +20,9 @@ export class ListLanguagesComponent implements OnInit {
   public getList(): Observable<ILanguage[]> {
     return this.listLanguages;
   }
+
+  removeLanguage(language: ILanguage): void {
+    console.log('idioma a borrar', language);
+    this.languagesService.remove(language);
+  }
 }
