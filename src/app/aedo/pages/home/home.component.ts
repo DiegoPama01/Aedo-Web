@@ -32,8 +32,4 @@ export class HomeComponent implements OnInit {
   logout() {
     this.auth.logout();
   }
-
-  mostrar() {
-    console.log('hola');
-  }
 }
