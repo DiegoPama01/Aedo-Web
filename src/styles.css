@@ -13,3 +13,7 @@ body {
 .spacer {
   flex: 1 1 auto;
 }
+
+.modal-backdrop {
+  z-index: 0 !important;
+}

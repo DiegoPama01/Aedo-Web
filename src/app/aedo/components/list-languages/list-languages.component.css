@@ -5,6 +5,3 @@ li {
 #addButton {
   border-radius: 20px;
 }
-.modal-backdrop {
-  z-index: 1020 !important;
-}
