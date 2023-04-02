@@ -5,3 +5,7 @@ li {
 #addButton {
   border-radius: 20px;
 }
+
+#warningLabel {
+  color: red;
+}
