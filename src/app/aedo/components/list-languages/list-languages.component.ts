@@ -6,6 +6,7 @@ import { LanguagesService } from '../../services/models-services/languages.servi
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import ISO6391 from 'iso-639-1';
 
 @Component({
   selector: 'app-list-languages',
@@ -42,17 +43,21 @@ export class ListLanguagesComponent implements OnInit {
 
   closeResult = '';
 
-  open(content: any) {
-    this.modalService
-      .open(content, { ariaLabelledBy: 'modal-basic-title' })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
+  //TODO - no abre el modal que toca
+  open(content: any, name: string, language: ILanguage = new Language('', '')) {
+    console.log('llamado con el nombre', name);
+    if (language.item) {
+      this.setSelectedLanguage(language);
+      console.log(ISO6391.getName(language.item.toLowerCase()));
+    }
+    this.modalService.open(content, { ariaLabelledBy: name }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
   }
 
   private getDismissReason(reason: any): string {

@@ -1,13 +1,14 @@
 <div class="d-flex flex-row justify-content-end">
     <button id="addButton" class="btn btn-primary btn-lg rounded-circle" data-bs-toggle="modal"
-        data-bs-target="#newLanguageModal" (click)="open(content)"><i class="bi bi-plus-lg"></i></button>
+        data-bs-target="#newLanguageModal" (click)="open(content, 'create-modal')"><i
+            class="bi bi-plus-lg"></i></button>
 </div>
 <ul class="list-group mt-4" *ngFor="let language of this.getList() | async">
     <li class="list-group-item border-0">
         <div class="container d-flex flex-row justify-content-center gap-2">
             <h3 class="col-10">{{language.item}}</h3>
-            <button class="col-1 btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#editLanguageModal"><i
-                    class="bi bi-pencil" (click)="setSelectedLanguage(language)"></i></button>
+            <button class="col-1 btn btn-success btn-sm" data-bs-toggle="modal"><i class="bi bi-pencil"
+                    (click)="open(content, 'edit-modal', language)"></i></button>
             <button class="col-1 btn btn-danger btn-sm " data-bs-toggle="modal" data-bs-target="#removeLanguageModal"
                 (click)="setSelectedLanguage(language)"><i class="bi bi-trash"></i></button>
         </div>
@@ -102,17 +103,46 @@
     </div>
 </div> -->
 
+<!-- Edit Language Modal -->
+
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h2 class="modal-title" id="modal-basic-title">Crear idioma</h2>
+        <h2 class="modal-title" id="edit-modal">Editar idioma</h2>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <form>
             <div class="mb-3">
-                <h3 for="dateOfBirth">Nombre del idioma</h3>
-                <div class="input-group">
-                    <input type="text" class="form-control mt-2" placeholder="Nombre del idioma"
+                <h2 for="dateOfBirth">Nombre del idioma</h2>
+                <h4 class="text-danger text-start fw-bold"> Se va a modificar el nombre del idioma
+                    {{getSelectedLanguage().item}}
+                </h4>
+                <div class="input-group" [formGroup]="editLanguageForm">
+                    <input type="text" class="form-control mt-2" placeholder="Nuevo nombre del idioma"
+                        formControlName="editLanguageItem" required />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
+    </div>
+</ng-template>
+
+<!-- New Language Modal  -->
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h2 class="modal-title" id="create-modal">Crear idioma</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <h3 for="languageInput">Nombre del idioma</h3>
+                <div class="input-group" [formGroup]="newLanguageForm">
+                    <input type="text" class="form-control mt-2" placeholder="Nombre del idioma" id="languageInput"
                         formControlName="newLanguageItem" required />
                 </div>
             </div>
