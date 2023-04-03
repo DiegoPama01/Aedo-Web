@@ -1,6 +1,6 @@
 <div class="d-flex flex-row justify-content-end">
     <button id="addButton" class="btn btn-primary btn-lg rounded-circle" data-bs-toggle="modal"
-        data-bs-target="#newLanguageModal"><i class="bi bi-plus-lg"></i></button>
+        data-bs-target="#newLanguageModal" (click)="open(content)"><i class="bi bi-plus-lg"></i></button>
 </div>
 <ul class="list-group mt-4" *ngFor="let language of this.getList() | async">
     <li class="list-group-item border-0">
@@ -18,7 +18,7 @@
 
 
 <!-- New Language Modal -->
-<div class="modal fade" id="newLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="newLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -44,12 +44,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
 <!-- Remove Language Modal -->
-<div class="modal fade" id="removeLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="removeLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -66,10 +66,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Edit Language Modal -->
-<div class="modal fade" id="editLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="editLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -100,4 +100,26 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h2 class="modal-title" id="modal-basic-title">Crear idioma</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <h3 for="dateOfBirth">Nombre del idioma</h3>
+                <div class="input-group">
+                    <input type="text" class="form-control mt-2" placeholder="Nombre del idioma"
+                        formControlName="newLanguageItem" required />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
+    </div>
+</ng-template>
