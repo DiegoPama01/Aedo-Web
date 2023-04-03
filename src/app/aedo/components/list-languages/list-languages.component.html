@@ -1,14 +1,14 @@
 <div class="d-flex flex-row justify-content-end">
-    <button id="addButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newLanguageModal"><i
-            class="bi bi-plus-lg"></i></button>
+    <button id="addButton" class="btn btn-primary btn-lg rounded-circle" data-bs-toggle="modal"
+        data-bs-target="#newLanguageModal"><i class="bi bi-plus-lg"></i></button>
 </div>
 <ul class="list-group mt-4" *ngFor="let language of this.getList() | async">
     <li class="list-group-item border-0">
         <div class="container d-flex flex-row justify-content-center gap-2">
-            <p class="col-10">{{language.item}}</p>
-            <button class="col-1 btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editLanguageModal"><i
+            <h3 class="col-10">{{language.item}}</h3>
+            <button class="col-1 btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#editLanguageModal"><i
                     class="bi bi-pencil" (click)="setSelectedLanguage(language)"></i></button>
-            <button class="col-1 btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#removeLanguageModal"
+            <button class="col-1 btn btn-danger btn-sm " data-bs-toggle="modal" data-bs-target="#removeLanguageModal"
                 (click)="setSelectedLanguage(language)"><i class="bi bi-trash"></i></button>
         </div>
         <hr>
@@ -26,16 +26,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h2>Introduzca el nombre del nuevo idioma</h2>
+                <h2 class="text-start">Introduzca el nombre del nuevo idioma</h2>
                 <form [formGroup]="newLanguageForm">
-                    <input type="text" class="form-control" placeholder="Nuevo idioma"
-                        formControlName="newLanguageItem">
+                    <input type="text" id="newLanguageItem" class="form-control" placeholder="Nuevo idioma"
+                        formControlName="newLanguageItem" required>
                 </form>
+                <h4 class="text-danger text-start mt-3"
+                    *ngIf="newLanguageItem && newLanguageItem.invalid && newLanguageItem.touched">Debe
+                    introducir un
+                    nombre
+                    para el idioma</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" (click)="createLanguage()"
-                    data-bs-dismiss="modal">Crear</button>
+                <button type="submit" class="btn btn-primary" (click)="createLanguage()"
+                    [disabled]="newLanguageForm.invalid" id="closeNewLanguageModal">Crear</button>
             </div>
         </div>
     </div>
@@ -68,23 +73,30 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Eliminar Idioma</h3>
+                <h3 class="modal-title" id="exampleModalLabel">Editar Idioma</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h2>Introduzca el nuevo nombre del idioma seleccionado</h2>
-                <h3 id="warningLabel">¡ Atención, la modificación de un idioma, supone la eliminación del idioma actual
+                <h2 class="text-center">Introduzca el nuevo nombre del idioma seleccionado</h2>
+                <h3 class="text-danger text-center">¡ Atención, la modificación de un idioma, supone la eliminación del
+                    idioma
+                    actual
                     y la creación de
                     un idioma nuevo !</h3>
                 <form [formGroup]="editLanguageForm">
                     <input type="text" class="form-control" placeholder="Nuevo idioma"
-                        formControlName="editLanguageItem" value=selectedLanguage.item>
+                        formControlName="editLanguageItem" value=selectedLanguage.item required>
                 </form>
+                <h4 class="text-danger text-center mt-3"
+                    *ngIf="editLanguageItem && editLanguageItem.invalid && editLanguageItem.touched">Debe
+                    introducir un
+                    nombre
+                    para el idioma</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" (click)="editLanguage()"
-                    data-bs-dismiss="modal">Aceptar</button>
+                <button type="button" class="btn btn-primary" (click)="editLanguage()" data-bs-dismiss="modal"
+                    [disabled]="editLanguageForm.invalid">Aceptar</button>
             </div>
         </div>
     </div>

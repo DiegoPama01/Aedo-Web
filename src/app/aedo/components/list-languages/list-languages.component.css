@@ -1,11 +1,3 @@
 li {
   list-style: none;
 }
-
-#addButton {
-  border-radius: 20px;
-}
-
-#warningLabel {
-  color: red;
-}
