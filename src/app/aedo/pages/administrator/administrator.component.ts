@@ -4,6 +4,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { OdiseaRegisterComponent } from '../odisea-register/odisea-register.component';
 import { ListAdminComponent } from '../../components/list-admin/list-admin.component';
 import { ListLanguagesComponent } from '../../components/list-languages/list-languages.component';
+import { ListCategoriesComponent } from '../../components/list-categories/list-categories.component';
 
 @Component({
   selector: 'app-administrator',
@@ -35,10 +36,10 @@ export class AdministratorComponent {
             component: ListLanguagesComponent,
           },
           {
-            title: 'Cosas',
+            title: 'Categorias',
             cols: 1,
             rows: 1,
-            component: OdiseaRegisterComponent,
+            component: ListCategoriesComponent,
           },
         ];
       }
@@ -63,10 +64,10 @@ export class AdministratorComponent {
           component: ListLanguagesComponent,
         },
         {
-          title: 'Cosas',
+          title: 'Categorías',
           cols: 1,
           rows: 1,
-          component: OdiseaRegisterComponent,
+          component: ListCategoriesComponent,
         },
       ];
     })

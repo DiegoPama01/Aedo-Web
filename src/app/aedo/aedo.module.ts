@@ -20,6 +20,7 @@ import { RegisterDialogComponent } from './components/register-dialog/register-d
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { ListLanguagesComponent } from './components/list-languages/list-languages.component';
+import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ListLanguagesComponent } from './components/list-languages/list-languag
     ListAdminComponent,
     ListUserComponent,
     ListLanguagesComponent,
+    ListCategoriesComponent,
   ],
   imports: [
     CommonModule,
