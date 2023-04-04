@@ -21,18 +21,18 @@ export class CategoryService {
     >;
   }
 
-  remove(category: ICategory) {
-    return this.firestoreService.remove(this.collection, category.id);
-  }
+  // remove(category: ICategory) {
+  //   return this.firestoreService.remove(this.collection, category.id);
+  // }
 
-  async update(category: ICategory) {
-    this.firestoreService.update(this.collection, category, category.id);
-  }
+  // async update(category: ICategory) {
+  //   this.firestoreService.update(this.collection, category, category.id);
+  // }
 
-  async getById(id: string): Promise<ICategory> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as ICategory;
-  }
+  // async getById(id: string): Promise<ICategory> {
+  //   return (await this.firestoreService.getById(
+  //     this.collection,
+  //     id
+  //   )) as ICategory;
+  // }
 }
