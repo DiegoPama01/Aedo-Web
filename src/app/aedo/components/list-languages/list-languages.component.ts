@@ -6,6 +6,7 @@ import { LanguagesService } from '../../services/models-services/languages.servi
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { langToLang, getLanguageName } from 'language-name-to-language-name';
 import ISO6391 from 'iso-639-1';
 
 @Component({
@@ -41,18 +42,52 @@ export class ListLanguagesComponent implements OnInit {
     });
   }
 
+  private languagesCodes = this.getLanguagesNames();
+
   closeResult = '';
 
-  //TODO - no abre el modal que toca
-  open(content: any, name: string, language: ILanguage = new Language('', '')) {
-    console.log('llamado con el nombre', name);
+  public getLanguagesNames(): any {
+    const languagesCodes: any = [];
+    const languagesNames: any = langToLang('es');
+    for (const code of Object.keys(languagesNames)) {
+      languagesCodes.push({
+        code: code,
+        name: languagesNames[code].name,
+      });
+    }
+    return languagesCodes;
+  }
+
+  public getFilteredNamesNew(): any {
+    return this.languagesCodes.filter((language: any) => {
+      return language.name
+        .toLowerCase()
+        .includes(this.newLanguageForm.value.newLanguageItem.toLowerCase());
+    });
+  }
+
+  public getFilteredNamesEdit(): any {
+    return this.languagesCodes.filter((language: any) => {
+      return language.name
+        .toLowerCase()
+        .includes(this.editLanguageForm.value.editLanguageItem.toLowerCase());
+    });
+  }
+
+  open(content: any, language: ILanguage = new Language('', '')) {
     if (language.item) {
       this.setSelectedLanguage(language);
-      console.log(ISO6391.getName(language.item.toLowerCase()));
     }
-    this.modalService.open(content, { ariaLabelledBy: name }).result.then(
+    this.modalService.open(content, { ariaLabelledBy: 'modal' }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
+        if (result === 'createLanguage') {
+          this.createLanguage();
+        } else if (result === 'removeLanguage') {
+          this.removeLanguage();
+        } else if (result === 'editLanguage') {
+          this.editLanguage();
+        }
       },
       (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -90,10 +125,11 @@ export class ListLanguagesComponent implements OnInit {
 
   public async createLanguage(): Promise<void> {
     this.newLanguage.item = this.newLanguageForm.value.newLanguageItem;
-    const id = this.newLanguage.item.toUpperCase().substring(0, 3);
+    const id = this.newLanguageForm.value.newLanguageItem
+      .split(' - ')[0]
+      .toUpperCase();
     this.newLanguage.id = id;
     await this.languagesService.getById(id).then((res) => {
-      console.log('el resultado es: ' + res.id);
       try {
         if (res.item) {
           throw new Error('Language already exists');
@@ -114,6 +150,14 @@ export class ListLanguagesComponent implements OnInit {
     this.selectedLanguage = language;
   }
 
+  public setNewLanguageItem(code: string, name: string): void {
+    this.newLanguageForm.setValue({ newLanguageItem: code + ' - ' + name });
+  }
+
+  public setEditLanguageItem(code: string, name: string): void {
+    this.editLanguageForm.setValue({ editLanguageItem: code + ' - ' + name });
+  }
+
   public removeLanguage(): void {
     this.languagesService.remove(this.selectedLanguage);
     this.selectedLanguage = new Language('', '');
@@ -122,9 +166,9 @@ export class ListLanguagesComponent implements OnInit {
   public editLanguage(): void {
     this.languagesService.remove(this.selectedLanguage);
     this.selectedLanguage.item = this.editLanguageForm.value.editLanguageItem;
-    this.selectedLanguage.id = this.selectedLanguage.item
-      .toUpperCase()
-      .substring(0, 3);
+    this.selectedLanguage.id = this.editLanguageForm.value.editLanguageItem
+      .split(' - ')[0]
+      .toUpperCase();
     this.languagesService.create(this.selectedLanguage);
     this.selectedLanguage = new Language('', '');
   }
