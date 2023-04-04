@@ -83,7 +83,8 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)="modal.close('createLanguage')">Crear</button>
+        <button type="button" class="btn btn-primary" (click)="modal.close('createLanguage')"
+            [disabled]=newLanguageForm.invalid>Crear</button>
     </div>
 </ng-template>
 

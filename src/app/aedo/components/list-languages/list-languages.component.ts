@@ -42,9 +42,20 @@ export class ListLanguagesComponent implements OnInit {
     });
   }
 
-  private languagesCodes = this.getLanguagesNames();
+  private languagesCodeName = this.getLanguagesNames();
+  private languagesCodes = this.getLanguagesCodes();
 
   closeResult = '';
+
+  public getLanguagesCodes(): any {
+    var languagesCodes: any = [];
+    this.listLanguages.subscribe((languages) => {
+      languages.forEach((language) => {
+        languagesCodes.push(language.id);
+      });
+    });
+    return languagesCodes;
+  }
 
   public getLanguagesNames(): any {
     const languagesCodes: any = [];
@@ -59,20 +70,27 @@ export class ListLanguagesComponent implements OnInit {
   }
 
   public getFilteredNamesNew(): any {
-    return this.languagesCodes.filter((language: any) => {
-      return language.name
-        .toLowerCase()
-        .includes(this.newLanguageForm.value.newLanguageItem.toLowerCase());
+    return this.languagesCodeName.filter((language: any) => {
+      return (
+        language.name
+          .toLowerCase()
+          .includes(this.newLanguageForm.value.newLanguageItem.toLowerCase()) &&
+        this.languagesCodes.indexOf(language.code.toUpperCase()) === -1
+      );
     });
   }
 
-  public getFilteredNamesEdit(): any {
-    return this.languagesCodes.filter((language: any) => {
-      return language.name
-        .toLowerCase()
-        .includes(this.editLanguageForm.value.editLanguageItem.toLowerCase());
-    });
-  }
+  // public getFilteredNamesEdit(): any {
+  //   return this.languagesCodeName.filter((language: any) => {
+  //     return (
+  //       language.name
+  //         .toLowerCase()
+  //         .includes(
+  //           this.editLanguageForm.value.editLanguageItem.toLowerCase()
+  //         ) && language.code !== this.selectedLanguage.id
+  //     );
+  //   });
+  // }
 
   open(content: any, language: ILanguage = new Language('', '')) {
     if (language.item) {
