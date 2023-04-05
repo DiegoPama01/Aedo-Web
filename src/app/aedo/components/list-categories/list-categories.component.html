@@ -1,4 +1,34 @@
 <div class="mb-3">
     <label for="formFile" class="form-label">Default file input example</label>
     <input class="form-control" type="file" id="formFile" />
+    <ul class="list-group mt-4" *ngFor="let category of this.getListCategories() | async">
+        <li class="list-group-item border-0">
+            <div class="container d-flex flex-row justify-content-center gap-2">
+                <h3 class="col-10">{{category.name}}</h3>
+                <button class="col-1 btn btn-danger btn-sm " (click)="open(removeModal, language)"><i
+                        class="bi bi-trash"></i></button>
+            </div>
+            <hr>
+        </li>
+    </ul>
 </div>
+
+
+<ng-template #removeModal let-modal>
+    <div class="modal-header">
+        <h2 class="modal-title" id="remove-modal">Eliminar categoria</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <h3 for="languageInput">Está segur@ de que desea eliminar la categoria {{getSelectedCategory().name}} ?
+                </h3>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('removeCategory')">Eliminar</button>
+    </div>
+</ng-template>
