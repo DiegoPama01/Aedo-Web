@@ -6,4 +6,8 @@ export class Category implements ICategory {
   constructor(item: string) {
     this.name = item;
   }
+
+  public getName(): string {
+    return this.name;
+  }
 }

@@ -9,6 +9,7 @@ import {
   updateDoc,
   collection,
   setDoc,
+  getDocs,
 } from '@angular/fire/firestore';
 
 @Injectable({
@@ -20,6 +21,12 @@ export class FirestoreService {
   getCollection = (coll: any) => {
     const collRef = collection(this.firestore, coll);
     return collectionData(collRef, { idField: 'id' });
+  };
+
+  getCollection2 = (coll: any) => {
+    const collRef = collection(this.firestore, coll);
+    const docs = getDocs(collRef);
+    return docs;
   };
 
   create = (coll: any, item: any) => {

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ICategory } from '../../interfaces/category.interface';
 import { ListLanguagesComponent } from '../list-languages/list-languages.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategoryDto } from '../../dto/category.dto';
 
 @Component({
   selector: 'app-list-categories',
@@ -12,19 +13,18 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./list-categories.component.css'],
 })
 export class ListCategoriesComponent implements OnInit {
-
   closeResult: string = '';
-  SelectedCategory: ICategory = new Category('');
+  SelectedCategory: CategoryDto = new CategoryDto('', new Category(''));
 
   constructor(
     private categoryService: CategoryService,
     private modalService: NgbModal
   ) {}
 
-  private listCategories: Observable<ICategory[]> =
+  private listCategories: Observable<CategoryDto[]> =
     this.categoryService.getCollection();
 
-  public getListCategories(): Observable<ICategory[]> {
+  public getListCategories(): Observable<CategoryDto[]> {
     return this.listCategories;
   }
 
@@ -34,28 +34,28 @@ export class ListCategoriesComponent implements OnInit {
     });
   }
 
-  open(content: any, category: ICategory = new Category('')) {
-    if (category.name) {
-      this.setSelectedCategory(category);
+  open(content: any, categoryDto: CategoryDto) {
+    if (categoryDto.getCategory().name) {
+      this.setSelectedCategory(categoryDto);
     }
-    this.modalService.open(content, { ariaLabelledBy: 'modal' }).result.then(
-      (result) => {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal' })
+      .result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
         if (result === 'removeCategory') {
-          this.removeCategory(category.id);
+          this.removeCategory(categoryDto);
         }
-      }
-    );
+      });
   }
-  setSelectedCategory(category: ICategory) {
-    this.SelectedCategory = category;
+  setSelectedCategory(categoryDto: CategoryDto) {
+    this.SelectedCategory = categoryDto;
   }
 
-  public async removeCategory(id: string): Promise<void> {
-    await this.categoryService.remove(id);
+  public async removeCategory(categoryDto: CategoryDto): Promise<void> {
+    await this.categoryService.remove(categoryDto);
   }
 
   getSelectedCategory() {
-    return this.SelectedCategory; 
-    }
+    return this.SelectedCategory;
+  }
 }
