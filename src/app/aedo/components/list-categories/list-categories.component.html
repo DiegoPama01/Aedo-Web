@@ -1,20 +1,21 @@
 <div class="mb-3">
-    <label for="formFile" class="form-label">Default file input example</label>
-    <input class="form-control" type="file" id="formFile" />
+    <label for="formFile" class="form-label">Seleccione el icono de la categoría</label>
+    <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">
     <ul class="list-group mt-4" *ngFor="let category of this.getListCategories() | async">
         <li class="list-group-item border-0">
-            <div class="container d-flex flex-row justify-content-center gap-2">
+            <!-- <div class="container d-flex flex-row justify-content-center gap-2">
                 <h3 class="col-10">{{category.name}}</h3>
-                <!-- <button class="col-1 btn btn-danger btn-sm " (click)="open(removeModal, language)"><i
-                        class="bi bi-trash"></i></button> -->
+                <button class="col-1 btn btn-danger btn-sm " (click)="open(removeModal, category)"><i
+                        class="bi bi-trash"></i></button>
             </div>
-            <hr>
+            <hr> -->
+            <app-categories-card [category]="category"></app-categories-card>
         </li>
     </ul>
 </div>
 
 
-<ng-template #removeModal let-modal>
+<!-- <ng-template #removeModal let-modal>
     <div class="modal-header">
         <h2 class="modal-title" id="remove-modal">Eliminar categoria</h2>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
@@ -32,4 +33,4 @@
         <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('removeCategory')">Eliminar</button>
     </div>
-</ng-template>
+</ng-template> -->

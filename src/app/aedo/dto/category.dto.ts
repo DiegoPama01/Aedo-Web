@@ -2,18 +2,22 @@ import { Category } from '../models/category.model';
 
 export class CategoryDto {
   id: string;
-  category: Category;
+  name: string;
 
-  constructor(id: string, category: Category) {
+  constructor(id: string, name: string) {
     this.id = id;
-    this.category = category;
+    this.name = name;
   }
 
   public getId(): string {
     return this.id;
   }
 
+  public getName(): string {
+    return this.name;
+  }
+
   public getCategory(): Category {
-    return this.category;
+    return new Category(this.name);
   }
 }

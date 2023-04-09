@@ -26,7 +26,7 @@ export class CategoryService {
   }
 
   remove(categoryDto: CategoryDto) {
-    return this.firestoreService.remove(this.collection, categoryDto.getId());
+    return this.firestoreService.remove(this.collection, categoryDto.id);
   }
 
   async update(categoryDto: CategoryDto) {

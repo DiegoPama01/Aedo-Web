@@ -23,12 +23,6 @@ export class FirestoreService {
     return collectionData(collRef, { idField: 'id' });
   };
 
-  getCollection2 = (coll: any) => {
-    const collRef = collection(this.firestore, coll);
-    const docs = getDocs(collRef);
-    return docs;
-  };
-
   create = (coll: any, item: any) => {
     return addDoc(collection(this.firestore, coll), Object.assign({}, item));
   };
