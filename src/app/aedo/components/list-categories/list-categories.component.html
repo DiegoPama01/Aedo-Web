@@ -1,6 +1,6 @@
 <div class="mb-3">
     <label for="formFile" class="form-label">Seleccione el icono de la categoría</label>
-    <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">
+    <input class="form-control" type="file" id="formFile" (change)="getFile($event)">
     <ul class="list-group mt-4" *ngFor="let category of this.getListCategories() | async">
         <li class="list-group-item border-0">
             <!-- <div class="container d-flex flex-row justify-content-center gap-2">

@@ -8,10 +8,10 @@ export class ImagesService {
   constructor(private storage: StorageService) {}
 
   uploadImage = async (fileName: string, uploadUri: string) => {
-    return await this.storage.uploadFile('images/' + fileName, uploadUri);
+    return await this.storage.uploadFile('icons/' + fileName, uploadUri);
   };
 
   downloadImage = async (fileName: string) => {
-    return await this.storage.downloadFile('images/' + fileName);
+    return await this.storage.downloadFile('icons/' + fileName);
   };
 }

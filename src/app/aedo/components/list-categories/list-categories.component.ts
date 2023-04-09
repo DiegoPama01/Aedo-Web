@@ -33,11 +33,10 @@ export class ListCategoriesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public uploadImage(event: any): void {}
-
-  onFileSelected($event: Event) {
-    const file = ($event.target as HTMLInputElement).files[0];
-    this.categoryIcon = file.name;
-    this.imagesService.uploadImage(file.name, file);
+  getFile(event: any) {
+    console.log('llamando a metodo');
+    const file = event.target.files[0];
+    const fileName = file.name;
+    this.imagesService.uploadImage(fileName, file);
   }
 }
