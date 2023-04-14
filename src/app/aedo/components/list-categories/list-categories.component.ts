@@ -37,6 +37,7 @@ export class ListCategoriesComponent implements OnInit {
     console.log('llamando a metodo');
     const file = event.target.files[0];
     const fileName = file.name;
-    this.imagesService.uploadImage(fileName, file);
+    this.imagesService.uploadIcon(fileName, file);
+    console.log('el file es: ', file);
   }
 }
