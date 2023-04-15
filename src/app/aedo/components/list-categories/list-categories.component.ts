@@ -15,9 +15,9 @@ import { ImagesService } from '../../services/models-services/images.service';
 })
 export class ListCategoriesComponent implements OnInit {
   closeResult: string = '';
-  SelectedCategory: CategoryDto = new CategoryDto('', '');
-  categoryIcon: string = '';
-  selectedCategoryIcon: string = '';
+  categoryIcon: any;
+  categoryName: string = '';
+  categoryToCreate: CategoryDto = new CategoryDto('', '');
 
   constructor(
     private categoryService: CategoryService,
@@ -33,11 +33,22 @@ export class ListCategoriesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getFile(event: any) {
+  setFile(event: any) {
     console.log('llamando a metodo');
-    const file = event.target.files[0];
-    const fileName = file.name;
-    this.imagesService.uploadIcon(fileName, file);
-    console.log('el file es: ', file);
+    this.categoryIcon = event.target.files[0];
+  }
+
+  createCategory() {
+    this.categoryToCreate.name = this.categoryName;
+    this.categoryService
+      .create(this.categoryToCreate)
+      .then((res) => {
+        console.log('res: ', res);
+        return res.id;
+      })
+      .then((id) => {
+        console.log('el id creado es: ', id);
+        this.imagesService.uploadIcon(id, this.categoryIcon);
+      });
   }
 }

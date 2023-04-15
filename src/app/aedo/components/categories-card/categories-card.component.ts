@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryService } from 'src/app/aedo/services/models-services/category.service';
 import { CategoryDto } from '../../dto/category.dto';
+import { ImagesService } from '../../services/models-services/images.service';
 
 @Component({
   selector: 'app-categories-card',
@@ -12,12 +13,19 @@ export class CategoriesCardComponent implements OnInit {
   closeResult: string = '';
   constructor(
     private modalService: NgbModal,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private imagesService: ImagesService
   ) {}
 
   @Input() category: any;
 
-  ngOnInit(): void {}
+  iconUrl = '';
+
+  ngOnInit(): void {
+    this.imagesService.downloadImage(this.category.id).then((url) => {
+      this.iconUrl = url;
+    });
+  }
 
   removeCategory() {
     this.categoryService.remove(this.category);
