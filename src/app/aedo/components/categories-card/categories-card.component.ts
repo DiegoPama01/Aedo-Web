@@ -22,12 +22,13 @@ export class CategoriesCardComponent implements OnInit {
   iconUrl = '';
 
   ngOnInit(): void {
-    this.imagesService.downloadImage(this.category.id).then((url) => {
+    this.imagesService.downloadIcon(this.category.id).then((url) => {
       this.iconUrl = url;
     });
   }
 
   removeCategory() {
+    this.imagesService.deleteIcon(this.category.id);
     this.categoryService.remove(this.category);
   }
 

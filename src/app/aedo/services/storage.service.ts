@@ -5,6 +5,7 @@ import {
   ref,
   uploadBytes,
   getDownloadURL,
+  deleteObject,
 } from '@angular/fire/storage';
 
 @Injectable({
@@ -29,5 +30,10 @@ export class StorageService {
     const storage = getStorage();
     const storageRef = ref(storage, fileName);
     return await getDownloadURL(storageRef);
+  };
+  removeFile = async (fileName: string) => {
+    const storage = getStorage();
+    const storageRef = ref(storage, fileName);
+    await deleteObject(storageRef);
   };
 }

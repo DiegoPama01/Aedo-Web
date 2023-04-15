@@ -11,11 +11,21 @@ export class ImagesService {
     return await this.storage.uploadIcon('icons/' + fileName, file);
   };
 
-  downloadImage = async (fileName: string) => {
+  downloadIcon = async (fileName: string) => {
     return await this.storage.downloadFile('icons/' + fileName);
+  };
+
+  downloadImage = async (fileName: string) => {
+    return await this.storage.downloadFile('images/' + fileName);
   };
 
   uploadImage = async (fileName: string, uploadUri: string) => {
     return await this.storage.uploadFile('images/' + fileName, uploadUri);
+  };
+  deleteIcon = async (fileName: string) => {
+    return await this.storage.removeFile('icons/' + fileName);
+  };
+  deleteImage = async (fileName: string) => {
+    return await this.storage.removeFile('images/' + fileName);
   };
 }
