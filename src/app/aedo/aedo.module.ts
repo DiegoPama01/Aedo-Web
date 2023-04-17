@@ -19,6 +19,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
+import { OdiseaViewComponent } from './pages/odisea-view/odisea-view.component';
+import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 
 
 
@@ -33,6 +35,8 @@ import { ListUserComponent } from './components/list-user/list-user.component';
     LoginDialogComponent,
     ListAdminComponent,
     ListUserComponent,
+    OdiseaViewComponent,
+    ProfileViewComponent,
   ],
   imports: [
     CommonModule,

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListUserComponent } from './list-user.component';
+import { OdiseaViewComponent } from './odisea-view.component';
 
-describe('ListUserComponent', () => {
-  let component: ListUserComponent;
-  let fixture: ComponentFixture<ListUserComponent>;
+describe('OdiseaViewComponent', () => {
+  let component: OdiseaViewComponent;
+  let fixture: ComponentFixture<OdiseaViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListUserComponent ]
+      declarations: [ OdiseaViewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListUserComponent);
+    fixture = TestBed.createComponent(OdiseaViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
