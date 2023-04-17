@@ -3,13 +3,13 @@ import { ILanguage } from "./language.interface";
 
 export interface IOdiseaCalendar {
     id:string;
-    calendarType: caledarType;
+    calendarType: calendarType;
     dates: Array<string> | {endDate:Timestamp,startDate:Timestamp} | Timestamp;
     language:ILanguage;
     odiseaID:string;
 }
 
-enum caledarType{
+export enum calendarType{
     frequencyDatesCalendar = "frequencyDatesCalendar",
     multiplesDatesCalendar = "multiplesDatesCalendar",
     rangeDatesCalendar = "rangeDatesCalendar",
