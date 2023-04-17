@@ -18,6 +18,9 @@
   <mat-form-field style="width: 100%">
     <mat-label>Correo electrónico</mat-label>
     <input [formControl]="email" #correo matInput required />
+    <mat-error *ngIf="errorVisible">
+      Fallo al conectar
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field style="width: 100%">
@@ -34,6 +37,8 @@
     </button>
   </mat-form-field>
 </mat-dialog-content>
+
+
 
 <mat-dialog-actions class="button-grid">
   <button

@@ -21,6 +21,7 @@ export class LoginDialogComponent {
   visible: boolean = false;
   language?: Language;
   hide = true;
+  errorVisible= false;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -41,6 +42,7 @@ export class LoginDialogComponent {
       })
       .catch((error) => {
         console.log(error.Name);
+        this.errorVisible= true;
       });
   }
 
