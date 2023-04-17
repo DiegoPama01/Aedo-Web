@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdministratorComponent } from './pages/administrator/administrator.component';
 
 import { HomeComponent } from './pages/home/home.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register.component';
+
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
       },
       {
         path:"registration",
-        component:RegisterComponent
+        component:OdiseaRegisterComponent
       },
 
     ],

@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Registrar actividad</h1>
+  <form [formGroup]="odiseaForm">
+    <mat-form-field style="width: 100%">
+      <mat-label>Nombre de la actividad</mat-label>
+      <input matInput formControlName="name" ngModel />
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Descripción de la actividad</mat-label>
+      <textarea matInput cdkTextareaAutosize formControlName="description" ngModel></textarea>
+    </mat-form-field>
+    <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="submit()"
+      >
+        Registrar actividad
+      </button>
+  </form>
+</div>

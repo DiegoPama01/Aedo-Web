@@ -15,19 +15,18 @@ import { NgModule } from '@angular/core';
 import { OdiseaProfileComponent } from './pages/odisea-profile/odisea-profile.component';
 import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RegisterComponent } from './pages/register/register.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { OdiseaViewComponent } from './pages/odisea-view/odisea-view.component';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
+import { OdiseaFormComponent } from './components/odisea-form/odisea-form.component';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    RegisterComponent,
     AdministratorComponent,
     OdiseaProfileComponent,
     OdiseaRegisterComponent,
@@ -37,6 +36,7 @@ import { ProfileViewComponent } from './pages/profile-view/profile-view.componen
     ListUserComponent,
     OdiseaViewComponent,
     ProfileViewComponent,
+    OdiseaFormComponent,
   ],
   imports: [
     CommonModule,
