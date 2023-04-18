@@ -22,6 +22,7 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { ListLanguagesComponent } from './components/list-languages/list-languages.component';
 import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
 import { CategoriesCardComponent } from './components/categories-card/categories-card.component';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CategoriesCardComponent } from './components/categories-card/categories
     MatIconModule,
     MatButtonModule,
     LayoutModule,
+    NgbAlertModule,
   ],
 })
 export class AedoModule {}

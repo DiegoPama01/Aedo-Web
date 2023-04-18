@@ -6,12 +6,14 @@
             placeholder="Nombre de la categoria">
         <label for="formName" class="form-label mt-2 d-flex text-start">Seleccione el icono de la categoría</label>
         <input class="form-control" type="file" id="formFile" (change)="setFile($event)">
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end mb-2">
             <button class="btn btn-primary mt-2" (click)="createCategory()">Crear</button>
         </div>
+        <ngb-alert *ngIf="categoryCreated" type="success" (closed)="categoryCreated = false">
+            Categoria creada con exito </ngb-alert>
     </div>
     <h3 class="text-start mt-3 text-secondary">Lista de categorias</h3>
-    <ul class="list-group mt-4" *ngFor="let category of this.getListCategories() | async">
+    <ul class="list-group mt-2" *ngFor="let category of this.getListCategories() | async">
         <li class="list-group-item border-0 ">
             <app-categories-card [category]="category"></app-categories-card>
         </li>

@@ -18,6 +18,7 @@ export class ListCategoriesComponent implements OnInit {
   categoryIcon: any;
   categoryName: string = '';
   categoryToCreate: CategoryDto = new CategoryDto('', '');
+  categoryCreated = false;
 
   constructor(
     private categoryService: CategoryService,
@@ -49,6 +50,9 @@ export class ListCategoriesComponent implements OnInit {
       .then((id) => {
         console.log('el id creado es: ', id);
         this.imagesService.uploadIcon(id, this.categoryIcon);
+      })
+      .then(() => {
+        this.categoryCreated = true;
       });
   }
 }

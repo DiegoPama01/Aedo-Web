@@ -1,11 +1,11 @@
-<div class="card mb-3 w-100 h-50">
+<div class="card mb-2 w-100 h-100">
     <div class="row g-0">
         <div class="col-md-3 align-self-center">
-            <img src={{this.iconUrl}} class="img-fluid rounded-start" alt="category icon">
+            <img [src]="this.iconUrl" class="img-fluid rounded-start h-25 w-25" alt="category icon">
         </div>
         <div class="col-md-9 align-self-center">
             <div class="row card-body m-2">
-                <h2 class="col-11 card-title align-self-center">{{this.category.name}}</h2>
+                <h2 class="col-11 card-title text-center">{{this.category.name}}</h2>
                 <button class="col-1 btn btn-danger" (click)="open(removeModal)"><i class="bi bi-trash"></i></button>
             </div>
         </div>
