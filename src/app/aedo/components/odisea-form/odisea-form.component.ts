@@ -8,7 +8,9 @@ import {FormBuilder} from '@angular/forms';
 })
 export class OdiseaFormComponent {
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder){
+    this.odiseaForm.disable();
+  }
 
   odiseaForm = this.formBuilder.group({
     name:[""],

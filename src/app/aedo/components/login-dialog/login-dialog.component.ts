@@ -8,7 +8,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { OdiseosService } from '../../services/models-services/odiseos.service';
-import { IOdiseo } from '../../interfaces/odiseo.interface';
 
 @Component({
   selector: 'app-login-dialog',

@@ -65,6 +65,7 @@ export class RegisterDialogComponent {
             phoneNumber: phoneNumber == null ? '' : phoneNumber,
             userName: userName,
             birthDate: new Date(birthDate),
+            isAdmin: false
           };
           this.odiseoService.create(newUser);
         })

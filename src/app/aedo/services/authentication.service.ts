@@ -23,11 +23,12 @@ export class AuthenticationService {
   constructor(private auth: Auth, private odiseoService: OdiseosService) {
     onAuthStateChanged(auth, (usuarioFirebase) => {
       if (usuarioFirebase) {
-        this.getRol(usuarioFirebase.uid).then((rol) => {
+        this.isAdmin(usuarioFirebase.uid).then((isAdmin) => {
           const userData = {
             uid: usuarioFirebase?.uid,
             email: usuarioFirebase?.email,
-            rol: rol,
+            username: usuarioFirebase?.displayName,
+            isAdmin: isAdmin
           };
           this.user = userData;
           console.log(this.user)
@@ -40,14 +41,22 @@ export class AuthenticationService {
     });
   }
 
-  async getRol(uid: string):Promise<boolean> {
-    return await (
+  getAuth(){
+    return this.auth;
+  }
+
+  async isAdmin(uid: string):Promise<boolean> {
+    return (
       await this.odiseoService.getById(uid)
-    ).isAedo;
+    ).isAdmin;
   }
 
   getCurrentUser() {
     return this.user;
+  }
+
+  userIsAdmin(){
+    return this.user.isAdmin
   }
 
   async register({ email, password }: any) {
@@ -82,6 +91,7 @@ export class AuthenticationService {
       name: '',
       phoneNumber: '',
       birthDate: new Date(),
+      isAdmin:false
     };
     return odiseo;
   }

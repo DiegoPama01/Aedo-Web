@@ -4,6 +4,7 @@ import { AdministratorComponent } from './pages/administrator/administrator.comp
 
 import { HomeComponent } from './pages/home/home.component';
 import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register.component';
+import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 
 
 
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path:"registration",
         component:OdiseaRegisterComponent
+      },
+      {
+        path:"profile",
+        component:ProfileViewComponent
       },
 
     ],

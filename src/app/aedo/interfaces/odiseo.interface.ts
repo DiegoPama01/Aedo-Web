@@ -7,4 +7,5 @@ export interface IOdiseo{
     phoneNumber:string;
     userName: string;
     birthDate: Date;
+    isAdmin:boolean;
 }

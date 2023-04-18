@@ -1,1 +1,45 @@
-<p>profile-view works!</p>
+<form [formGroup]="userForm" >
+    <mat-form-field style="width: 100%">
+      <mat-label>Nombre de usuario</mat-label>
+      <input matInput formControlName="username" [readonly]="modifyInputs"/>
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" [readonly]="modifyInputs"/>
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Número de telefono</mat-label>
+      <input matInput formControlName="phoneNumber" [readonly]="modifyInputs"/>
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Correo electrónico</mat-label>
+      <input matInput formControlName="email" readonly/>
+    </mat-form-field>
+    <mat-dialog-actions style="float: right">
+      <button
+        *ngIf="modifyInputs"
+        mat-raised-button
+        color="primary"
+        (click)="activarInputs()"
+      >
+        Modificar
+      </button>
+      <button
+        *ngIf="!modifyInputs"
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="guardarCambios()"
+      >
+        Guardar Cambios
+      </button>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="cambiarContrasena()"
+      >
+        Cambiar contraseña
+      </button>
+    </mat-dialog-actions>
+  </form>

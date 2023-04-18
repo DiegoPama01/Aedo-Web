@@ -6,6 +6,10 @@
             <span> Menú </span>
             <span class="spacer"></span>
             </mat-toolbar>
+            <div class="nav-group" *ngIf="this.auth.getCurrentUser() != null">
+                <app-user-status></app-user-status>
+            </div>
+        
             <div class="nav-group">
                 <mat-nav-list >
                     <a routerLink="./home" mat-list-item (click)="sidenav.toggle()">
@@ -13,7 +17,7 @@
                         <span class="sidenav-text"> Main page </span>
                     </a>
                 </mat-nav-list>
-                <mat-nav-list >
+                <mat-nav-list *ngIf="this.auth.getCurrentUser().isAdmin == true">
                     <a routerLink="./administrator" mat-list-item (click)="sidenav.toggle()">
                         <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
                         <span class="sidenav-text"> Administrador </span>

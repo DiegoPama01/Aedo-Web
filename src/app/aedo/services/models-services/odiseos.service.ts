@@ -23,7 +23,7 @@ export class OdiseosService {
   }
 
   getAdmin():Observable<IOdiseo[]>{ 
-    return this.firestoreService.getCollection(this.collection).pipe(map((data: any[]) => data.filter(item => item.isAedo === true)))
+    return this.firestoreService.getCollection(this.collection).pipe(map((data: any[]) => data.filter(item => item.isAdmin === true)))
   }
 
   remove(odiseo: IOdiseo){
