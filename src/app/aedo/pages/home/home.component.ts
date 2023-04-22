@@ -32,4 +32,13 @@ export class HomeComponent implements OnInit {
   logout(){
     this.auth.logout()
   }
+
+  isUserAdmin(){
+    try{
+      return this.auth.getCurrentUser().isAdmin
+    }
+    catch{
+      return false
+    }
+  }
 }
