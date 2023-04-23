@@ -33,7 +33,6 @@ export class ProfileViewComponent {
       if (usuarioFirebase) {
         this.odiseoService.getById(usuarioFirebase.uid).then((odiseo) => {
           this.odiseo = odiseo;
-          console.log(new Date(this.odiseo.birthDate.toDate()))
           this.userForm.setValue({name: this.odiseo.name,phoneNumber: this.odiseo.phoneNumber,birthday: new Date(this.odiseo.birthDate.toDate())})
         });
       }
