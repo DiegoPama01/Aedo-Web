@@ -22,6 +22,9 @@ import { OdiseaViewComponent } from './pages/odisea-view/odisea-view.component';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 import { OdiseaFormComponent } from './components/odisea-form/odisea-form.component';
 import { UserStatusComponent } from './components/user-status/user-status.component';
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { ResetEmailDialogComponent } from './components/reset-email-dialog/reset-email-dialog.component';
+import { ResetPasswordDialogComponent } from './components/reset-password-dialog/reset-password-dialog.component';
 
 
 
@@ -39,6 +42,9 @@ import { UserStatusComponent } from './components/user-status/user-status.compon
     ProfileViewComponent,
     OdiseaFormComponent,
     UserStatusComponent,
+    ProfileCardComponent,
+    ResetEmailDialogComponent,
+    ResetPasswordDialogComponent,
   ],
   imports: [
     CommonModule,

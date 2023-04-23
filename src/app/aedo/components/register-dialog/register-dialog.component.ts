@@ -8,6 +8,7 @@ import {
 import { IOdiseo } from '../../interfaces/odiseo.interface';
 import { AuthenticationService } from '../../services/authentication.service';
 import { OdiseosService } from '../../services/models-services/odiseos.service';
+import { Timestamp } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-register-dialog',
@@ -30,7 +31,7 @@ export class RegisterDialogComponent {
       name: new FormControl(''),
       phoneNumber: new FormControl('', Validators.pattern("[679]{1}[0-9]{8}")),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*["\/@$!%*?&])[A-Za-z\d"\/@$!%*?&]{6,}$')]),
       confirmPassword: new FormControl('', [Validators.required]),
       birthday: new FormControl(new Date(2005, 0, 0), [Validators.required]),
     });
@@ -38,7 +39,7 @@ export class RegisterDialogComponent {
       .get('confirmPassword')!
       .setValidators([
         Validators.required,
-        this.passwordMatchValidator.bind(this),
+        this.passwordMatchValidator.bind
       ]);
   }
 
@@ -65,7 +66,9 @@ export class RegisterDialogComponent {
             phoneNumber: phoneNumber == null ? '' : phoneNumber,
             userName: userName,
             birthDate: new Date(birthDate),
-            isAdmin: false
+            isAdmin: false,
+            isEducative:false,
+            avatar:{assetId:"orange-aedo.png"}
           };
           this.odiseoService.create(newUser);
         })
@@ -83,7 +86,7 @@ export class RegisterDialogComponent {
     if (password && confirmPassword && password !== confirmPassword) {
       return { passwordMismatch: true };
     }
-    return null;
+    return { passwordMismatch: false }
   }
 
   myFilter = (d: Date | null): boolean => {

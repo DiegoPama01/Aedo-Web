@@ -1,0 +1,47 @@
+<mat-dialog-content>
+    <header>
+      <button mat-icon-button style="float: right" matDialogClose>
+        <mat-icon>close</mat-icon>
+      </button>
+      <h1>Cambiar correo</h1>
+    </header>
+</mat-dialog-content>
+
+<mat-dialog-content
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+  "
+>
+  <form [formGroup]="formGroup">
+    <mat-form-field style="width: 100%">
+      <mat-label>Nuevo correo electrónico</mat-label>
+      <input matInput required formControlName="email" />
+      <mat-error *ngIf="formGroup.get('email')!.hasError('required')">
+        Este campo es <strong>obligatorio</strong>
+      </mat-error>
+      <mat-error
+        *ngIf="
+          !formGroup.get('email')!.hasError('required') &&
+          formGroup.get('email')!.hasError('email')
+        "
+      >
+        El correo no es válido
+      </mat-error>
+    </mat-form-field>
+    
+    <mat-dialog-actions style="float: right">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="submit()"
+      >
+        Cambiar correo
+      </button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

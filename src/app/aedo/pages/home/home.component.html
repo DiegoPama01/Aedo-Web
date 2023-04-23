@@ -6,7 +6,7 @@
             <span> Menú </span>
             <span class="spacer"></span>
             </mat-toolbar>
-            <div class="nav-group" *ngIf="this.auth.getCurrentUser() != null">
+            <div class="nav-group" *ngIf="getUser()!=null">
                 <app-user-status></app-user-status>
             </div>
         
@@ -31,11 +31,11 @@
         <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
         </button>
-        <button *ngIf="this.auth.getCurrentUser() == null" class="toolbar-button" mat-fab extended (click)="openLoginDialog()" >
+        <button *ngIf="getUser() == null" class="toolbar-button" mat-fab extended (click)="openLoginDialog()" >
             <mat-icon>login</mat-icon>
             Acceder
         </button>
-        <button *ngIf="this.auth.getCurrentUser() != null" class="toolbar-button" mat-fab extended (click)="logout()" >
+        <button *ngIf="getUser() != null" class="toolbar-button" mat-fab extended (click)="logout()" >
             <mat-icon>logout</mat-icon>
             Desconectar
         </button>
