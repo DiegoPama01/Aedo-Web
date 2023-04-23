@@ -34,10 +34,10 @@ export class HomeComponent implements OnInit {
   }
 
   isUserAdmin(){
-    try{
+    if(this.auth.getCurrentUser()){
       return this.auth.getCurrentUser().isAdmin
     }
-    catch{
+    else{
       return false
     }
   }

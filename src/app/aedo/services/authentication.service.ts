@@ -40,10 +40,8 @@ export class AuthenticationService {
     return this.auth;
   }
 
-  async isAdmin(uid: string):Promise<boolean> {
-    return (
-      await this.odiseoService.getById(uid)
-    ).isAdmin;
+  async isAdmin(){
+    return this.user.isAdmin
   }
 
   getCurrentUser() {
