@@ -24,7 +24,7 @@ export class ProfileCardComponent {
         this.odiseoService.getById(user.uid).then((odiseo) => {
           this.username = odiseo.userName;
           this.email = odiseo.email;
-          storageService.downloadFile(odiseo.avatar.assetId).then((url) => {
+          storageService.downloadFile("images/avatars/"+odiseo.avatar.assetId).then((url) => {
             this.avatar=url
           })
         });
