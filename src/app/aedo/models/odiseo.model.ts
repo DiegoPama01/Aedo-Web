@@ -10,6 +10,9 @@ export class Odiseo implements IOdiseo {
     phoneNumber:string;
     userName: string;
     birthDate: Date;
+    isAdmin:boolean;
+    isEducative:boolean;
+    avatar: any;
 
   constructor(
     id: string,
@@ -20,6 +23,7 @@ export class Odiseo implements IOdiseo {
     phoneNumber:string,
     userName: string,
     birthDate: Date,
+    avatar:any
   ) {
     this.id = id;
     this.accountNumber = accountNumber;
@@ -29,5 +33,8 @@ export class Odiseo implements IOdiseo {
     this.phoneNumber = phoneNumber;
     this.userName = userName;
     this.birthDate = birthDate;
+    this.isAdmin = false;
+    this.isEducative = false;
+    this.avatar = avatar;
   }
 }

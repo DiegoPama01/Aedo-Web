@@ -19,16 +19,10 @@ export class AdministratorComponent {
       if (matches) {
         return [
           {
-            title: 'Cosas nazis',
+            title: 'Lista de usuarios',
             cols: 1,
             rows: 1,
-            component: OdiseaRegisterComponent,
-          },
-          {
-            title: 'Usuarios administrador',
-            cols: 1,
-            rows: 1,
-            component: ListAdminComponent,
+            component: ListUserComponent,
           },
           {
             title: 'Idiomas',
@@ -47,16 +41,10 @@ export class AdministratorComponent {
 
       return [
         {
-          title: 'Cosas nazis',
-          cols: 2,
-          rows: 1,
-          component: OdiseaRegisterComponent,
-        },
-        {
-          title: 'Usuarios administrador',
+          title: 'Lista de usuarios',
           cols: 1,
-          rows: 1,
-          component: ListAdminComponent,
+          rows: 2,
+          component: ListUserComponent,
         },
         {
           title: 'Idiomas',
@@ -67,7 +55,7 @@ export class AdministratorComponent {
         {
           title: 'Categorías',
           cols: 1,
-          rows: 1,
+          rows: 2,
           component: ListCategoriesComponent,
         },
       ];

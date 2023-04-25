@@ -2,60 +2,17 @@
     <button id="addButton" class="btn btn-primary btn-lg rounded-circle" (click)="open(createModal)"><i
             class="bi bi-plus-lg"></i></button>
 </div>
-<ul class="list-group mt-4" *ngFor="let language of this.getList() | async">
+<ul class="list-group " *ngFor="let language of this.getList() | async">
     <li class="list-group-item border-0">
         <div class="container d-flex flex-row justify-content-center gap-2">
             <h3 class="col-10">{{language.item.split(' - ')[1]}}</h3>
-            <!-- <button class="col-1 btn btn-success btn-sm" (click)="open(editModal, language)"><i
-                    class="bi bi-pencil"></i></button> -->
+
             <button class="col-1 btn btn-danger btn-sm " (click)="open(removeModal, language)"><i
                     class="bi bi-trash"></i></button>
         </div>
         <hr>
     </li>
 </ul>
-
-
-<!-- Edit Language Modal -->
-
-<!-- <ng-template #editModal let-modal>
-    <div class="modal-header">
-        <h2 class="modal-title" id="edit-modal">Editar idioma</h2>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-        <form>
-            <div class="mb-3">
-                <h2 for="dateOfBirth" class="text-center">Nombre del idioma</h2>
-                <h3 class="text-danger text-center">¡ Atención, la modificación de un idioma, supone la eliminación del
-                    idioma
-                    actual
-                    y la creación de
-                    un idioma nuevo !</h3>
-                <h4 class="text-danger text-center fw-bold"> Se va a modificar el nombre del idioma
-                    {{getSelectedLanguage().item}}
-                </h4>
-                <div class="input-group" [formGroup]="editLanguageForm">
-                    <input type="text" class="form-control mt-2" placeholder="Nuevo nombre del idioma"
-                        formControlName="editLanguageItem" required value={{editLanguageItem}} />
-                </div>
-                <div class="list-group" *ngIf="editLanguageItem && editLanguageItem.valid && editLanguageItem.touched">
-                    <button type="button" class="list-group-item list-group-item-action"
-                        *ngFor="let languageName of getFilteredNamesEdit()"
-                        (click)="setEditLanguageItem(languageName.code, languageName.name)">
-                        {{languageName.code}} -
-                        {{languageName.name}} </button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('editLanguage')">Editar</button>
-    </div>
-</ng-template> -->
-
-<!-- New Language Modal  -->
 
 <ng-template #createModal let-modal>
     <div class="modal-header">
@@ -87,9 +44,6 @@
             [disabled]=newLanguageForm.invalid>Crear</button>
     </div>
 </ng-template>
-
-
-<!-- Remove Language Modal  -->
 
 <ng-template #removeModal let-modal>
     <div class="modal-header">

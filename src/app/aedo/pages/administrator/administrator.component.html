@@ -1,9 +1,9 @@
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-list cols="3" rowHeight="400px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card overflow-auto">
         <mat-card-header>
-          <mat-card-title>
+          <mat-card-title style="margin-bottom: 10px;">
             {{card.title}}
           </mat-card-title>
 

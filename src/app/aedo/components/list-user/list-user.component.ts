@@ -18,4 +18,15 @@ export class ListUserComponent {
     return this.listOdiseo
   }
 
+  displayedColumns: string[] = ["name","isAdmin","isEducative"];
+  dataSource= this.listOdiseo;
+
+  setEducativePrivileges(odiseo:IOdiseo){
+    this.odiseoService.update({...odiseo, isEducative:!odiseo.isEducative})
+  }
+
+  setAdminPrivileges(odiseo:IOdiseo){
+
+    this.odiseoService.update({...odiseo, isAdmin:!odiseo.isAdmin})
+  }
 }

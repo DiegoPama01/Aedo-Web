@@ -18,4 +18,6 @@ export class ListAdminComponent {
   public getList(): Observable<IOdiseo[]> {
     return this.listOdiseo
   }
+  displayedColumns: string[] = ["name","isAdmin","isEducative"];
+  dataSource= this.listOdiseo;
 }

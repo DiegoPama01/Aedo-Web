@@ -11,13 +11,13 @@
         
             <div class="nav-group">
                 <mat-nav-list>
-                    <a routerLink="./home" mat-list-item (click)="sidenav.toggle()">
+                    <a routerLink="./home" mat-list-item>
                         <mat-icon mat-list-icon class="icono">home</mat-icon>
                         <span class="sidenav-text"> Main page </span>
                     </a>
                 </mat-nav-list>
                 <mat-nav-list *ngIf="isUserAdmin()">
-                    <a routerLink="./administrator" mat-list-item (click)="sidenav.toggle()">
+                    <a routerLink="./administrator" mat-list-item>
                         <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>
                         <span class="sidenav-text"> Administrador </span>
                     </a>
@@ -48,7 +48,7 @@
     <div class="container-fluid">
         <router-outlet></router-outlet>
     </div>
-    <!-- Edit Language Modal -->
+    
     <div class="modal fade" id="editLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
