@@ -25,8 +25,10 @@ import { UserStatusComponent } from './components/user-status/user-status.compon
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 import { ResetEmailDialogComponent } from './components/reset-email-dialog/reset-email-dialog.component';
 import { ResetPasswordDialogComponent } from './components/reset-password-dialog/reset-password-dialog.component';
-
-
+import { ListLanguagesComponent } from './components/list-languages/list-languages.component';
+import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
+import { CategoriesCardComponent } from './components/categories-card/categories-card.component';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,9 @@ import { ResetPasswordDialogComponent } from './components/reset-password-dialog
     LoginDialogComponent,
     ListAdminComponent,
     ListUserComponent,
+    ListLanguagesComponent,
+    ListCategoriesComponent,
+    CategoriesCardComponent,
     OdiseaViewComponent,
     ProfileViewComponent,
     OdiseaFormComponent,
@@ -58,7 +63,8 @@ import { ResetPasswordDialogComponent } from './components/reset-password-dialog
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
-  ]
+    LayoutModule,
+    NgbAlertModule,
+  ],
 })
-export class AedoModule { }
+export class AedoModule {}

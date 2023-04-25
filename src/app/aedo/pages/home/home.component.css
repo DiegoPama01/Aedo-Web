@@ -1,67 +1,62 @@
-
-.sidenav-menu{
-    width: 250px;
-    height: 100%;
-    background-color: #008589;
-    border-bottom-right-radius: 10px;
-    border: none;
-    overflow-y: hidden !important;
-}
-
-
-.sidenav-container{
-    background-color: #B4DFEA;
-    overflow-y: hidden !important;
+.sidenav-menu {
+  width: 250px;
+  height: 100%;
+  background-color: #008589;
+  border-bottom-right-radius: 10px;
+  border: none;
+  overflow-y: hidden !important;
 }
 
 .icono {
-    margin-right: 10px;
-    flex: auto;
-    vertical-align: middle;
+  margin-right: 10px;
+  flex: auto;
+  vertical-align: middle;
 }
 
-.sidenav-text{
-    vertical-align: middle;
+.sidenav-text {
+  vertical-align: middle;
 }
 
-.logo{
-    width: 30px;
-    margin-left: 20px;
+.logo {
+  width: 30px;
+  margin-left: 20px;
 }
 
-.sidenav-toolbar{
-    height: 60px;
-    background-color: #008589;
-    color: white;
-    width: auto;
-    overflow: hidden;
+.sidenav-toolbar {
+  height: 60px;
+  background-color: #008589;
+  color: white;
+  width: auto;
+  overflow: hidden;
 }
 
-.toolbar-logo{
-    width: 150px;
+.toolbar-logo {
+  width: 150px;
 }
 
-.nav-group{
-    background-color: #B4DFEA;
-    margin: 10px;
-    border-radius: 5px;
-    overflow: hidden;
+.nav-group {
+  background-color: #b4dfea;
+  margin: 10px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.toolbar-button{
-    background-color: #008589;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: none !important;
-
+.toolbar-button {
+  background-color: #008589;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: none !important;
 }
 
-.log-card{
-    margin-left: 40px;
-    margin-top:10px;
-    width: fit-content;
-    padding: 20px;
+.log-card {
+  margin-left: 40px;
+  margin-top: 10px;
+  width: fit-content;
+  padding: 20px;
 }
-.sidenav-menu-container{
-    overflow-y: hidden !important;
+.sidenav-menu-container {
+  overflow-y: hidden !important;
+}
+::ng-deep ngb-modal-backdrop {
+  z-index: 1050 !important;
 }

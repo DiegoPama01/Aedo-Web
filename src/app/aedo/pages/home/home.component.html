@@ -1,17 +1,16 @@
-
 <mat-sidenav-container fullscreen class="sidenav-container" hasBackdrop="false">
-    <mat-sidenav #sideNav class="sidenav-menu" #sidenav mode="side" opened="true" >
+    <mat-sidenav #sideNav class="sidenav-menu" #sidenav mode="side" opened="true">
         <div class="sidenav-menu-container">
             <mat-toolbar class="sidenav-toolbar">
-            <span> Menú </span>
-            <span class="spacer"></span>
+                <span> Menú </span>
+                <span class="spacer"></span>
             </mat-toolbar>
             <div class="nav-group" *ngIf="getUser()!=null">
                 <app-user-status></app-user-status>
             </div>
         
             <div class="nav-group">
-                <mat-nav-list >
+                <mat-nav-list>
                     <a routerLink="./home" mat-list-item (click)="sidenav.toggle()">
                         <mat-icon mat-list-icon class="icono">home</mat-icon>
                         <span class="sidenav-text"> Main page </span>
@@ -29,7 +28,7 @@
     </mat-sidenav>
     <mat-toolbar class="sidenav-toolbar">
         <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
+            <mat-icon>menu</mat-icon>
         </button>
         <button *ngIf="getUser() == null" class="toolbar-button" mat-fab extended (click)="openLoginDialog()" >
             <mat-icon>login</mat-icon>
@@ -40,15 +39,32 @@
             Desconectar
         </button>
         <span class="spacer"></span>
-        <span >Aedo</span>
+        <span>Aedo</span>
         <a routerLink="/home">
             <img alt="logo" class="logo" src="../../../../assets/logo_cara.png">
         </a>
     </mat-toolbar>
 
-    <div class="container">
+    <div class="container-fluid">
         <router-outlet></router-outlet>
     </div>
-</mat-sidenav-container>
+    <!-- Edit Language Modal -->
+    <div class="modal fade" id="editLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  
+</mat-sidenav-container>
