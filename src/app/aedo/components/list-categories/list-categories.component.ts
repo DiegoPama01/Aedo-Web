@@ -49,7 +49,7 @@ export class ListCategoriesComponent implements OnInit {
       })
       .then((id) => {
         console.log('el id creado es: ', id);
-        this.imagesService.uploadIcon(id, this.categoryIcon);
+        this.imagesService.uploadIcon(this.categoryToCreate.getName(), id, this.categoryIcon);
       })
       .then(() => {
         this.categoryCreated = true;

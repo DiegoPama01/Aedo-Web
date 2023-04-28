@@ -22,7 +22,7 @@ export class CategoriesCardComponent implements OnInit {
   iconUrl = '';
 
   ngOnInit(): void {
-    this.imagesService.downloadIcon(this.category.id).then((url) => {
+    this.imagesService.downloadIcon(this.category.name, this.category.id).then((url) => {
       this.iconUrl = url;
     });
   }
