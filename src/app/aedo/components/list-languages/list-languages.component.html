@@ -1,65 +1,120 @@
-<div class="d-flex flex-row justify-content-end">
-    <button id="addButton" class="btn btn-primary btn-lg rounded-circle" (click)="open(createModal)"><i
-            class="bi bi-plus-lg"></i></button>
+<div class="d-flex flex-row justify-content-end mb-4">
+  <button
+    id="addButton"
+    class="btn btn-primary btn-lg rounded-circle"
+    (click)="open(createModal)"
+  >
+    <i class="bi bi-plus-lg"></i>
+  </button>
 </div>
-<ul class="list-group " *ngFor="let language of this.getList() | async">
-    <li class="list-group-item border-0">
-        <div class="container d-flex flex-row justify-content-center gap-2">
-            <h3 class="col-10">{{language.item.split(' - ')[1]}}</h3>
+<ul class="list-group" *ngFor="let language of this.getList() | async">
+  <li class="list-group-item border-0">
+    <div class="container d-flex flex-row justify-content-center gap-2">
+      <h3 class="col-10">{{ language.item.split(" - ")[1] }}</h3>
 
-            <button class="col-1 btn btn-danger btn-sm " (click)="open(removeModal, language)"><i
-                    class="bi bi-trash"></i></button>
-        </div>
-        <hr>
-    </li>
+      <button
+        class="col-1 btn btn-danger btn-sm"
+        (click)="open(removeModal, language)"
+      >
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+    <hr />
+  </li>
 </ul>
 
 <ng-template #createModal let-modal>
-    <div class="modal-header">
-        <h2 class="modal-title" id="create-modal">Crear idioma</h2>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-        <form>
-            <div class="mb-3">
-                <h3 for="languageInput">Nombre del idioma</h3>
-                <div class="input-group" [formGroup]="newLanguageForm">
-                    <input type="text" class="form-control mt-2" placeholder="Buscar idioma" id="languageInput"
-                        formControlName="newLanguageItem" required value={{newLanguageItem}} />
-                </div>
-                <div class="list-group mt-4" *ngIf="newLanguageItem?.valid">
-                    <h3>Seleccione un idioma de la lista</h3>
-                    <button type="button" class="list-group-item list-group-item-action"
-                        *ngFor="let languageName of getFilteredNamesNew()"
-                        (click)="setNewLanguageItem(languageName.code, languageName.name)">
-                        {{languageName.code}} -
-                        {{languageName.name}} </button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)="modal.close('createLanguage')"
-            [disabled]=newLanguageForm.invalid>Crear</button>
-    </div>
+  <div class="modal-header">
+    <h2 class="modal-title" id="create-modal">Crear idioma</h2>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <h3 for="languageInput">Nombre del idioma</h3>
+        <div class="input-group" [formGroup]="newLanguageForm">
+          <input
+            type="text"
+            class="form-control mt-2"
+            placeholder="Buscar idioma"
+            id="languageInput"
+            formControlName="newLanguageItem"
+            required
+            value="{{ newLanguageItem }}"
+          />
+        </div>
+        <div class="list-group mt-4" *ngIf="newLanguageItem?.valid">
+          <h3>Seleccione un idioma de la lista</h3>
+          <button
+            type="button"
+            class="list-group-item list-group-item-action"
+            *ngFor="let languageName of getFilteredNamesNew()"
+            (click)="setNewLanguageItem(languageName.code, languageName.name)"
+          >
+            {{ languageName.code }} - {{ languageName.name }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.dismiss('Cross click')"
+    >
+      Cancelar
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="modal.close('createLanguage')"
+      [disabled]="newLanguageForm.invalid"
+    >
+      Crear
+    </button>
+  </div>
 </ng-template>
 
 <ng-template #removeModal let-modal>
-    <div class="modal-header">
-        <h2 class="modal-title" id="remove-modal">Eliminar idioma</h2>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-        <form>
-            <div class="mb-3">
-                <h3 for="languageInput">Está segur@ de que desea eliminar el idioma {{getSelectedLanguage().item}} ?
-                </h3>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancelar</button>
-        <button type="button" class="btn btn-danger" (click)="modal.close('removeLanguage')">Eliminar</button>
-    </div>
+  <div class="modal-header">
+    <h2 class="modal-title" id="remove-modal">Eliminar idioma</h2>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <h3 for="languageInput">
+          Está segur@ de que desea eliminar el idioma
+          {{ getSelectedLanguage().item }} ?
+        </h3>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.dismiss('Cross click')"
+    >
+      Cancelar
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="modal.close('removeLanguage')"
+    >
+      Eliminar
+    </button>
+  </div>
 </ng-template>
