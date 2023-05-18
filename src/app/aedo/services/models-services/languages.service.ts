@@ -1,39 +1,45 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable } from 'rxjs';
-import { ILanguage } from '../../interfaces/language.interface';
+import { LanguageDto } from '../../dto/language.dto';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LanguagesService {
+export class LanguageService {
   collection: string = 'languages';
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(language: ILanguage) {
-    return this.firestoreService.set(this.collection, language);
+  create(languageDto: LanguageDto) {
+    return this.firestoreService.create(
+      this.collection,
+      languageDto.getLanguage()
+    );
   }
 
-  getCollection(): Observable<ILanguage[]> {
+  getCollection(): Observable<LanguageDto[]> {
     return this.firestoreService.getCollection(this.collection) as Observable<
-      ILanguage[]
+      LanguageDto[]
     >;
   }
 
-  remove(language: ILanguage) {
-    return this.firestoreService.remove(this.collection, language.id);
+  remove(languageDto: LanguageDto) {
+    return this.firestoreService.remove(this.collection, languageDto.getId());
   }
 
-  async update(language: ILanguage) {
-    this.firestoreService.update(this.collection, language, language.id);
+  async update(languageDto: LanguageDto) {
+    this.firestoreService.update(
+      this.collection,
+      languageDto.getLanguage(),
+      languageDto.getId()
+    );
   }
 
-  //TODO - NO FUNCIONA BIEN ESTE MÉTODO
-  async getById(id: string): Promise<ILanguage> {
+  async getById(id: string): Promise<LanguageDto> {
     return (await this.firestoreService.getById(
       this.collection,
       id
-    )) as ILanguage;
+    )) as unknown as LanguageDto;
   }
 }

@@ -1,34 +1,45 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IReservation } from '../../interfaces/reservation.interface';
 import { FirestoreService } from '../firestore.service';
+import { Observable } from 'rxjs';
+import { ReservationDto } from '../../dto/reservation.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ReservationsService {
+export class ReservationService {
+  collection: string = 'reservations';
 
-  collection:string = "reservations"
+  constructor(private firestoreService: FirestoreService) {}
 
-  constructor(private firestoreService:FirestoreService) { }
-
-  create(reservation: IReservation){
-    return this.firestoreService.create(this.collection,reservation)
+  create(reservationDto: ReservationDto) {
+    return this.firestoreService.create(
+      this.collection,
+      reservationDto.getReservation()
+    );
   }
 
-  getCollection():Observable<IReservation[]>{
-    return this.firestoreService.getCollection(this.collection) as Observable<IReservation[]>
+  getCollection(): Observable<ReservationDto[]> {
+    return this.firestoreService.getCollection(this.collection) as Observable<
+      ReservationDto[]
+    >;
   }
 
-  remove(reservation: IReservation){
-    return this.firestoreService.remove(this.collection,reservation.id)
+  remove(reservationDto: ReservationDto) {
+    return this.firestoreService.remove(this.collection, reservationDto.getId());
   }
 
-  async update(reservation: IReservation){
-    this.firestoreService.update(this.collection,reservation, reservation.id)
+  async update(reservationDto: ReservationDto) {
+    this.firestoreService.update(
+      this.collection,
+      reservationDto.getReservation(),
+      reservationDto.getId()
+    );
   }
 
-  async getById(id:string): Promise<IReservation>{
-    return await this.firestoreService.getById(this.collection,id) as IReservation
+  async getById(id: string): Promise<ReservationDto> {
+    return (await this.firestoreService.getById(
+      this.collection,
+      id
+    )) as unknown as ReservationDto;
   }
 }

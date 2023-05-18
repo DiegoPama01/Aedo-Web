@@ -1,6 +1,6 @@
-import { Category } from '../models/category.model';
+import { Language } from '../models/language.model';
 
-export class CategoryDto {
+export class LanguageDto {
   private id: string;
   private name: string;
 
@@ -21,10 +21,8 @@ export class CategoryDto {
     this.name = name;
   }
 
-  public getCategory(): Category {
-    return new Category(this.name);
+  public getLanguage(): Language {
+    return new Language(this.name);
   }
 }
-
-
 

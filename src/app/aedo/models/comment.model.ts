@@ -2,7 +2,6 @@ import { IComment } from "../interfaces/comment.interface";
 
 
 export class Comment implements IComment {
-  id: string;
   body:string;
   odiseaId:string;
   rating: number;
@@ -10,8 +9,7 @@ export class Comment implements IComment {
   userID:string;
   username:string;
 
-  constructor(id: string, body: string, odiseaId:string,rating:number,reservationID:string,userID:string,username:string) {
-    this.id = id;
+  constructor(body: string, odiseaId:string,rating:number,reservationID:string,userID:string,username:string) {
     this.body = body;
     this.odiseaId = odiseaId;
     this.rating = rating;

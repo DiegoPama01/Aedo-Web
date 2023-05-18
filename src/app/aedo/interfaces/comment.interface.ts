@@ -1,5 +1,4 @@
 export interface IComment {
-    id: string;
     body:string;
     odiseaId:string;
     rating: number;

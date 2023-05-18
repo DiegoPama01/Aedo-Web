@@ -1,34 +1,45 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable } from 'rxjs';
-import { IOdiseaCalendar } from '../../interfaces/odisea-calendar.interface';
+import { OdiseaCalendarDto } from '../../dto/odisea-calendar.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class OdiseaCalendarsService {
+export class OdiseaCalendarService {
+  collection: string = 'odiseaCalendars';
 
-  collection:string = "odiseaCalendars"
+  constructor(private firestoreService: FirestoreService) {}
 
-  constructor(private firestoreService:FirestoreService) { }
-
-  create(odiseaCalendar: IOdiseaCalendar){
-    return this.firestoreService.create(this.collection,odiseaCalendar)
+  create(odiseaCalendarDto: OdiseaCalendarDto) {
+    return this.firestoreService.create(
+      this.collection,
+      odiseaCalendarDto.getOdiseaCalendar()
+    );
   }
 
-  getCollection():Observable<IOdiseaCalendar[]>{
-    return this.firestoreService.getCollection(this.collection) as Observable<IOdiseaCalendar[]>
+  getCollection(): Observable<OdiseaCalendarDto[]> {
+    return this.firestoreService.getCollection(this.collection) as Observable<
+      OdiseaCalendarDto[]
+    >;
   }
 
-  remove(odiseaCalendar: IOdiseaCalendar){
-    return this.firestoreService.remove(this.collection,odiseaCalendar.id)
+  remove(odiseaCalendarDto: OdiseaCalendarDto) {
+    return this.firestoreService.remove(this.collection, odiseaCalendarDto.getId());
   }
 
-  async update(odiseaCalendar: IOdiseaCalendar){
-    this.firestoreService.update(this.collection,odiseaCalendar, odiseaCalendar.id)
+  async update(odiseaCalendarDto: OdiseaCalendarDto) {
+    this.firestoreService.update(
+      this.collection,
+      odiseaCalendarDto.getOdiseaCalendar(),
+      odiseaCalendarDto.getId()
+    );
   }
 
-  async getById(id:string): Promise<IOdiseaCalendar>{
-    return await this.firestoreService.getById(this.collection,id) as IOdiseaCalendar
+  async getById(id: string): Promise<OdiseaCalendarDto> {
+    return (await this.firestoreService.getById(
+      this.collection,
+      id
+    )) as unknown as OdiseaCalendarDto;
   }
 }

@@ -1,34 +1,45 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable } from 'rxjs';
-import { IOdiseaDates } from '../../interfaces/odisea-dates.interface';
+import { OdiseaDatesDto } from '../../dto/odisea-dates.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OdiseaDatesService {
+  collection: string = 'odiseaDates';
 
-  collection:string = "odiseaDates"
+  constructor(private firestoreService: FirestoreService) {}
 
-  constructor(private firestoreService:FirestoreService) { }
-
-  create(odiseaDates: IOdiseaDates){
-    return this.firestoreService.create(this.collection,odiseaDates)
+  create(odiseaDatesDto: OdiseaDatesDto) {
+    return this.firestoreService.create(
+      this.collection,
+      odiseaDatesDto.getOdiseaDate()
+    );
   }
 
-  getCollection():Observable<IOdiseaDates[]>{
-    return this.firestoreService.getCollection(this.collection) as Observable<IOdiseaDates[]>
+  getCollection(): Observable<OdiseaDatesDto[]> {
+    return this.firestoreService.getCollection(this.collection) as Observable<
+      OdiseaDatesDto[]
+    >;
   }
 
-  remove(odiseaDates: IOdiseaDates){
-    return this.firestoreService.remove(this.collection,odiseaDates.id)
+  remove(odiseaDatesDto: OdiseaDatesDto) {
+    return this.firestoreService.remove(this.collection, odiseaDatesDto.getId());
   }
 
-  async update(odiseaDates: IOdiseaDates){
-    this.firestoreService.update(this.collection,odiseaDates, odiseaDates.id)
+  async update(odiseaDatesDto: OdiseaDatesDto) {
+    this.firestoreService.update(
+      this.collection,
+      odiseaDatesDto.getOdiseaDate(),
+      odiseaDatesDto.getId()
+    );
   }
 
-  async getById(id:string): Promise<IOdiseaDates>{
-    return await this.firestoreService.getById(this.collection,id) as IOdiseaDates
+  async getById(id: string): Promise<OdiseaDatesDto> {
+    return (await this.firestoreService.getById(
+      this.collection,
+      id
+    )) as unknown as OdiseaDatesDto;
   }
 }

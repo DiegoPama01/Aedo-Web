@@ -1,34 +1,45 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IRecord } from '../../interfaces/record.interface';
 import { FirestoreService } from '../firestore.service';
+import { Observable } from 'rxjs';
+import { RecordDto } from '../../dto/record.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class RecordsService {
+export class RecordService {
+  collection: string = 'records';
 
-  collection:string = "records"
+  constructor(private firestoreService: FirestoreService) {}
 
-  constructor(private firestoreService:FirestoreService) { }
-
-  create(record: IRecord){
-    return this.firestoreService.create(this.collection,record)
+  create(recordDto: RecordDto) {
+    return this.firestoreService.create(
+      this.collection,
+      recordDto.getRecord()
+    );
   }
 
-  getCollection():Observable<IRecord[]>{
-    return this.firestoreService.getCollection(this.collection) as Observable<IRecord[]>
+  getCollection(): Observable<RecordDto[]> {
+    return this.firestoreService.getCollection(this.collection) as Observable<
+      RecordDto[]
+    >;
   }
 
-  remove(record: IRecord){
-    return this.firestoreService.remove(this.collection,record.id)
+  remove(recordDto: RecordDto) {
+    return this.firestoreService.remove(this.collection, recordDto.getId());
   }
 
-  async update(record: IRecord){
-    this.firestoreService.update(this.collection,record, record.id)
+  async update(recordDto: RecordDto) {
+    this.firestoreService.update(
+      this.collection,
+      recordDto.getRecord(),
+      recordDto.getId()
+    );
   }
 
-  async getById(id:string): Promise<IRecord>{
-    return await this.firestoreService.getById(this.collection,id) as IRecord
+  async getById(id: string): Promise<RecordDto> {
+    return (await this.firestoreService.getById(
+      this.collection,
+      id
+    )) as unknown as RecordDto;
   }
 }

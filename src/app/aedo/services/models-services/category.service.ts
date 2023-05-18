@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ICategory } from '../../interfaces/category.interface';
 import { FirestoreService } from '../firestore.service';
 import { Observable } from 'rxjs';
 import { CategoryDto } from '../../dto/category.dto';
@@ -26,7 +25,7 @@ export class CategoryService {
   }
 
   remove(categoryDto: CategoryDto) {
-    return this.firestoreService.remove(this.collection, categoryDto.id);
+    return this.firestoreService.remove(this.collection, categoryDto.getId());
   }
 
   async update(categoryDto: CategoryDto) {

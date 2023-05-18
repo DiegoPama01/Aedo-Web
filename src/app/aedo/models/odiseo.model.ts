@@ -2,7 +2,6 @@ import { IOdiseo } from "../interfaces/odiseo.interface";
 
 
 export class Odiseo implements IOdiseo {
-    id:string;
     accountNumber:string;
     email: string;
     isAedo:boolean;
@@ -15,7 +14,6 @@ export class Odiseo implements IOdiseo {
     avatar: any;
 
   constructor(
-    id: string,
     accountNumber:string,
     email: string,
     isAedo:boolean,
@@ -25,7 +23,6 @@ export class Odiseo implements IOdiseo {
     birthDate: Date,
     avatar:any
   ) {
-    this.id = id;
     this.accountNumber = accountNumber;
     this.email = email;
     this.isAedo = isAedo;

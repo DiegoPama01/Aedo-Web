@@ -1,34 +1,45 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IOdisea } from '../../interfaces/odisea.interface';
 import { FirestoreService } from '../firestore.service';
+import { Observable } from 'rxjs';
+import { OdiseaDto } from '../../dto/odisea.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class OdiseasService {
+export class OdiseaService {
+  collection: string = 'odiseas';
 
-  collection:string = "odiseas"
+  constructor(private firestoreService: FirestoreService) {}
 
-  constructor(private firestoreService:FirestoreService) { }
-
-  create(odisea: IOdisea){
-    return this.firestoreService.create(this.collection,odisea)
+  create(odiseaDto: OdiseaDto) {
+    return this.firestoreService.create(
+      this.collection,
+      odiseaDto.getOdisea()
+    );
   }
 
-  getCollection():Observable<IOdisea[]>{
-    return this.firestoreService.getCollection(this.collection) as Observable<IOdisea[]>
+  getCollection(): Observable<OdiseaDto[]> {
+    return this.firestoreService.getCollection(this.collection) as Observable<
+      OdiseaDto[]
+    >;
   }
 
-  remove(odisea: IOdisea){
-    return this.firestoreService.remove(this.collection,odisea.id)
+  remove(odiseaDto: OdiseaDto) {
+    return this.firestoreService.remove(this.collection, odiseaDto.getId());
   }
 
-  async update(odisea: IOdisea){
-    this.firestoreService.update(this.collection,odisea, odisea.id)
+  async update(odiseaDto: OdiseaDto) {
+    this.firestoreService.update(
+      this.collection,
+      odiseaDto.getOdisea(),
+      odiseaDto.getId()
+    );
   }
 
-  async getById(id:string): Promise<IOdisea>{
-    return await this.firestoreService.getById(this.collection,id) as IOdisea
+  async getById(id: string): Promise<OdiseaDto> {
+    return (await this.firestoreService.getById(
+      this.collection,
+      id
+    )) as unknown as OdiseaDto;
   }
 }

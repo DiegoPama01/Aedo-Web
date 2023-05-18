@@ -1,34 +1,45 @@
 import { Injectable } from '@angular/core';
-import { IComment } from '../../interfaces/comment.interface';
 import { FirestoreService } from '../firestore.service';
 import { Observable } from 'rxjs';
+import { CommentDto } from '../../dto/comment.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class CommentsService {
+export class CommentService {
+  collection: string = 'comments';
 
-  collection:string = "comments"
+  constructor(private firestoreService: FirestoreService) {}
 
-  constructor(private firestoreService:FirestoreService) { }
-
-  create(comment: IComment){
-    return this.firestoreService.create(this.collection,comment)
+  create(commentDto: CommentDto) {
+    return this.firestoreService.create(
+      this.collection,
+      commentDto.getComment()
+    );
   }
 
-  getCollection():Observable<IComment[]>{
-    return this.firestoreService.getCollection(this.collection) as Observable<IComment[]>
+  getCollection(): Observable<CommentDto[]> {
+    return this.firestoreService.getCollection(this.collection) as Observable<
+      CommentDto[]
+    >;
   }
 
-  remove(comment: IComment){
-    return this.firestoreService.remove(this.collection,comment.id)
+  remove(commentDto: CommentDto) {
+    return this.firestoreService.remove(this.collection, commentDto.getId());
   }
 
-  async update(comment: IComment){
-    this.firestoreService.update(this.collection,comment, comment.id)
+  async update(commentDto: CommentDto) {
+    this.firestoreService.update(
+      this.collection,
+      commentDto.getComment(),
+      commentDto.getId()
+    );
   }
 
-  async getById(id:string): Promise<IComment>{
-    return await this.firestoreService.getById(this.collection,id) as IComment
+  async getById(id: string): Promise<CommentDto> {
+    return (await this.firestoreService.getById(
+      this.collection,
+      id
+    )) as unknown as CommentDto;
   }
 }

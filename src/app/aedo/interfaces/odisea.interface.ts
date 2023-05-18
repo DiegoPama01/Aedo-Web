@@ -1,7 +1,6 @@
 import { ILanguage } from "./language.interface";
 
 export interface IOdisea {
-    id:string;
     description:string;
     image: any;
     languages: Array<ILanguage>
