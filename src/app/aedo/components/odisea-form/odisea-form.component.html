@@ -9,6 +9,18 @@
       <mat-label>Descripción de la actividad</mat-label>
       <textarea matInput cdkTextareaAutosize formControlName="description" ngModel></textarea>
     </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Aforo máximo</mat-label>
+      <input matInput placeholder="Nº máximo de personas(10 por defecto)" formControlName="capacity" value="10" ngModel/>
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Precio</mat-label>
+      <input matInput currencyMask formControlName="price" ngModel />
+    </mat-form-field>
+    <app-category-item *ngFor="let category of getCategoryList()| async" [category]="category" (categoryClicked)="this.categorySelected($event)"></app-category-item>
+    <br>
+    <app-language-item *ngFor="let language of getLanguageList()| async" [language]="language" (categoryClicked)="this.categorySelected($event)"></app-language-item>
+    <br>
     <button
         mat-raised-button
         type="submit"

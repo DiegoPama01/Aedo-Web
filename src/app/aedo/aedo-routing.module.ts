@@ -25,6 +25,10 @@ const routes: Routes = [
         path:"profile",
         component:ProfileViewComponent
       },
+      {
+        path:"registerOdisea",
+        component:OdiseaRegisterComponent
+      }
 
     ],
   },

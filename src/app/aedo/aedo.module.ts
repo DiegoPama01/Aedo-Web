@@ -29,6 +29,10 @@ import { ListLanguagesComponent } from './components/list-languages/list-languag
 import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
 import { CategoriesCardComponent } from './components/categories-card/categories-card.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { LanguageItemComponent } from './components/language-item/language-item.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,9 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
     ProfileCardComponent,
     ResetEmailDialogComponent,
     ResetPasswordDialogComponent,
+    CategoryItemComponent,
+    LanguageItemComponent,
+    MapComponent,
   ],
   imports: [
     CommonModule,
@@ -65,6 +72,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     LayoutModule,
     NgbAlertModule,
+    CurrencyMaskModule
   ],
 })
 export class AedoModule {}
