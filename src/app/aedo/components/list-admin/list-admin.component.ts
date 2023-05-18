@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-import { IOdiseo } from '../../interfaces/odiseo.interface';
-import { OdiseosService } from '../../services/models-services/odiseos.service';
+import { OdiseoService } from '../../services/models-services/odiseos.service';
+import { OdiseoDto } from '../../dto/odiseo.dto';
 
 @Component({
   selector: 'app-list-admin',
@@ -11,11 +10,11 @@ import { OdiseosService } from '../../services/models-services/odiseos.service';
 })
 export class ListAdminComponent {
   
-  private listOdiseo: Observable<IOdiseo[]> = this.odiseoService.getAdmin();
-  constructor(private odiseoService: OdiseosService){
+  private listOdiseo: Observable<OdiseoDto[]> = this.odiseoService.getAdmin();
+  constructor(private odiseoService: OdiseoService){
   }
 
-  public getList(): Observable<IOdiseo[]> {
+  public getList(): Observable<OdiseoDto[]> {
     return this.listOdiseo
   }
   displayedColumns: string[] = ["name","isAdmin","isEducative"];

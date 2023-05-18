@@ -10,7 +10,7 @@
 <ul class="list-group" *ngFor="let language of this.getList() | async">
   <li class="list-group-item border-0">
     <div class="container d-flex flex-row justify-content-center gap-2">
-      <h3 class="col-10">{{ language.item.split(" - ")[1] }}</h3>
+      <h3 class="col-10">{{ language.getItem().split(" - ")[1] }}</h3>
 
       <button
         class="col-1 btn btn-danger btn-sm"
@@ -96,7 +96,7 @@
       <div class="mb-3">
         <h3 for="languageInput">
           Está segur@ de que desea eliminar el idioma
-          {{ getSelectedLanguage().item }} ?
+          {{ getSelectedLanguage().getItem() }} ?
         </h3>
       </div>
     </form>

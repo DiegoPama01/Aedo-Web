@@ -2,27 +2,31 @@ import { Language } from '../models/language.model';
 
 export class LanguageDto {
   private id: string;
-  private name: string;
+  private item: string;
 
-  constructor(id: string, name: string) {
+  constructor(id: string, item: string) {
     this.id = id;
-    this.name = name;
+    this.item = item;
   }
 
   public getId(): string {
     return this.id;
   }
 
-  public getName(): string {
-    return this.name;
+  public setId(id: string): void {
+    this.id = id;
   }
 
-  public setName(name: string): void {
-    this.name = name;
+  public getItem(): string {
+    return this.item;
+  }
+
+  public setItem(item: string): void {
+    this.item = item;
   }
 
   public getLanguage(): Language {
-    return new Language(this.name);
+    return new Language(this.id,this.item);
   }
 }
 

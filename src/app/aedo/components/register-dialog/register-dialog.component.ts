@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import { IOdiseo } from '../../interfaces/odiseo.interface';
 import { AuthenticationService } from '../../services/authentication.service';
-import { OdiseosService } from '../../services/models-services/odiseos.service';
-import { Timestamp } from '@angular/fire/firestore';
+import { OdiseoService } from '../../services/models-services/odiseos.service';
+import { OdiseoDto } from '../../dto/odiseo.dto';
 
 @Component({
   selector: 'app-register-dialog',
@@ -23,24 +23,26 @@ export class RegisterDialogComponent {
 
   constructor(
     private auth: AuthenticationService,
-    private odiseoService: OdiseosService,
+    private odiseoService: OdiseoService,
     private formBuilder: FormBuilder
   ) {
     this.formGroup = this.formBuilder.group({
       username: new FormControl('', [Validators.required]),
       name: new FormControl(''),
-      phoneNumber: new FormControl('', Validators.pattern("[679]{1}[0-9]{8}")),
+      phoneNumber: new FormControl('', Validators.pattern('[679]{1}[0-9]{8}')),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*["\/@$!%*?&])[A-Za-z\d"\/@$!%*?&]{6,}$')]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(
+          '^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*["/@$!%*?&])[A-Za-zd"/@$!%*?&]{6,}$'
+        ),
+      ]),
       confirmPassword: new FormControl('', [Validators.required]),
       birthday: new FormControl(new Date(2005, 0, 0), [Validators.required]),
     });
     this.formGroup
       .get('confirmPassword')!
-      .setValidators([
-        Validators.required,
-        this.passwordMatchValidator.bind
-      ]);
+      .setValidators([Validators.required, this.passwordMatchValidator.bind]);
   }
 
   submit() {
@@ -57,24 +59,24 @@ export class RegisterDialogComponent {
         .register({ email: email, password: password })
         .then((value) => {
           this.chipText = 'Te hemos mandando un correo. Valida tu cuenta';
-          let newUser: IOdiseo = {
-            id: this.auth.getCurrentUser()!.uid,
-            accountNumber: '',
-            email: email,
-            isAedo: false,
-            name: name == null ? '' : name,
-            phoneNumber: phoneNumber == null ? '' : phoneNumber,
-            userName: userName,
-            birthDate: new Date(birthDate),
-            isAdmin: false,
-            isEducative:false,
-            avatar:{assetId:"orange-aedo.png"}
-          };
+          let newUser: OdiseoDto = new OdiseoDto(
+            this.auth.getCurrentUser()!.uid,
+            '',
+            { assetId: 'orange-aedo.png' },
+            new Date(birthDate),
+            email,
+            false,
+            false,
+            false,
+            name == null ? '' : name,
+            phoneNumber == null ? '' : phoneNumber,
+            userName
+          );
           this.odiseoService.create(newUser);
         })
         .catch((error) => {
           if (error.code === 'auth/email-already-in-use') {
-            this.chipText = "El correo ya tiene una cuenta asociada"
+            this.chipText = 'El correo ya tiene una cuenta asociada';
           }
         });
     }
@@ -86,17 +88,14 @@ export class RegisterDialogComponent {
     if (password && confirmPassword && password !== confirmPassword) {
       return { passwordMismatch: true };
     }
-    return { passwordMismatch: false }
+    return { passwordMismatch: false };
   }
 
   myFilter = (d: Date | null): boolean => {
-    const filterDay = new Date()
-    filterDay.setFullYear(filterDay. getFullYear()-16)
-    const day = (d || new Date());
+    const filterDay = new Date();
+    filterDay.setFullYear(filterDay.getFullYear() - 16);
+    const day = d || new Date();
     // Prevent Saturday and Sunday from being selected.
-    return day.getFullYear() < filterDay.getFullYear()
+    return day.getFullYear() < filterDay.getFullYear();
   };
 }
-
-
-

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILanguage } from '../../interfaces/language.interface';
-import { Language } from '../../models/language.model';
-import { LanguagesService } from '../../services/models-services/languages.service';
+import { LanguageService } from '../../services/models-services/languages.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { langToLang, getLanguageName } from 'language-name-to-language-name';
-import ISO6391 from 'iso-639-1';
+import { langToLang } from 'language-name-to-language-name';
+import { LanguageDto } from '../../dto/language.dto';
 
 @Component({
   selector: 'app-list-languages',
@@ -14,17 +12,17 @@ import ISO6391 from 'iso-639-1';
   styleUrls: ['./list-languages.component.css'],
 })
 export class ListLanguagesComponent implements OnInit {
-  private listLanguages: Observable<ILanguage[]> =
+  private listLanguages: Observable<LanguageDto[]> =
     this.languagesService.getCollection();
 
-  private selectedLanguage: ILanguage = new Language('', '');
-  private newLanguage: ILanguage = new Language('', '');
+  private selectedLanguage: LanguageDto = new LanguageDto('', '');
+  private newLanguage: LanguageDto = new LanguageDto('', '');
 
   newLanguageForm: FormGroup;
   editLanguageForm: FormGroup;
 
   constructor(
-    private languagesService: LanguagesService,
+    private languagesService: LanguageService,
     private modalService: NgbModal
   ) {
     this.newLanguageForm = new FormGroup({
@@ -50,7 +48,7 @@ export class ListLanguagesComponent implements OnInit {
     var languagesCodes: any = [];
     this.listLanguages.subscribe((languages) => {
       languages.forEach((language) => {
-        languagesCodes.push(language.id);
+        languagesCodes.push(language.getId());
       });
     });
     return languagesCodes;
@@ -79,20 +77,8 @@ export class ListLanguagesComponent implements OnInit {
     });
   }
 
-  // public getFilteredNamesEdit(): any {
-  //   return this.languagesCodeName.filter((language: any) => {
-  //     return (
-  //       language.name
-  //         .toLowerCase()
-  //         .includes(
-  //           this.editLanguageForm.value.editLanguageItem.toLowerCase()
-  //         ) && language.code !== this.selectedLanguage.id
-  //     );
-  //   });
-  // }
-
-  open(content: any, language: ILanguage = new Language('', '')) {
-    if (language.item) {
+  open(content: any, language: LanguageDto = new LanguageDto('', '')) {
+    if (language.getItem()) {
       this.setSelectedLanguage(language);
     }
     this.modalService.open(content, { ariaLabelledBy: 'modal' }).result.then(
@@ -132,23 +118,23 @@ export class ListLanguagesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public getList(): Observable<ILanguage[]> {
+  public getList(): Observable<LanguageDto[]> {
     return this.listLanguages;
   }
 
-  public getNewLangugage(): ILanguage {
+  public getNewLangugage(): LanguageDto {
     return this.newLanguage;
   }
 
   public async createLanguage(): Promise<void> {
-    this.newLanguage.item = this.newLanguageForm.value.newLanguageItem;
+    this.newLanguage.setItem(this.newLanguageForm.value.newLanguageItem);
     const id = this.newLanguageForm.value.newLanguageItem
       .split(' - ')[0]
       .toUpperCase();
-    this.newLanguage.id = id;
+    this.newLanguage.setId(id);
     await this.languagesService.getById(id).then((res) => {
       try {
-        if (res.item) {
+        if (res.getItem()) {
           throw new Error('Language already exists');
         } else {
           this.languagesService.create(this.newLanguage);
@@ -159,11 +145,11 @@ export class ListLanguagesComponent implements OnInit {
     });
   }
 
-  public getSelectedLanguage(): ILanguage {
+  public getSelectedLanguage(): LanguageDto {
     return this.selectedLanguage;
   }
 
-  public setSelectedLanguage(language: ILanguage): void {
+  public setSelectedLanguage(language: LanguageDto): void {
     this.selectedLanguage = language;
   }
 
@@ -177,16 +163,16 @@ export class ListLanguagesComponent implements OnInit {
 
   public removeLanguage(): void {
     this.languagesService.remove(this.selectedLanguage);
-    this.selectedLanguage = new Language('', '');
+    this.selectedLanguage = new LanguageDto('', '');
   }
 
   public editLanguage(): void {
     this.languagesService.remove(this.selectedLanguage);
-    this.selectedLanguage.item = this.editLanguageForm.value.editLanguageItem;
-    this.selectedLanguage.id = this.editLanguageForm.value.editLanguageItem
-      .split(' - ')[0]
-      .toUpperCase();
+    this.selectedLanguage.setItem(this.editLanguageForm.value.editLanguageItem);
+    this.selectedLanguage.setId(
+      this.editLanguageForm.value.editLanguageItem.split(' - ')[0].toUpperCase()
+    );
     this.languagesService.create(this.selectedLanguage);
-    this.selectedLanguage = new Language('', '');
+    this.selectedLanguage = new LanguageDto('', '');
   }
 }

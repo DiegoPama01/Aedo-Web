@@ -15,15 +15,11 @@ import { AuthenticationService } from '../../services/authentication.service';
     `,
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   constructor(
     private matDialog: MatDialog,
     public auth: AuthenticationService
   ) {}
-
-  ngOnInit(): void {
-    // TODO document why this method 'ngOnInit' is empty
-  }
 
   openLoginDialog() {
     this.matDialog.open(LoginDialogComponent);

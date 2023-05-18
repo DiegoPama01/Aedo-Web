@@ -40,7 +40,7 @@ export class ListCategoriesComponent implements OnInit {
   }
 
   createCategory() {
-    this.categoryToCreate.name = this.categoryName;
+    this.categoryToCreate.setName(this.categoryName);
     this.categoryService
       .create(this.categoryToCreate)
       .then((res) => {

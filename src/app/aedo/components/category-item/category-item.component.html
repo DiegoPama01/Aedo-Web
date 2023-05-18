@@ -1,4 +1,4 @@
 <button mat-button (click)="categoryClick()" [ngStyle]="{'background-color': (selected) ? '#73c7af' : '#ffffff'}">
     <img [src]="this.iconUrl" alt="category icon" style="height: 30px; width: 30px;">
-    {{category.name}}
+    {{category.getName()}}
 </button>

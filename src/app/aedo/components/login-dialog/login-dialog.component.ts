@@ -1,13 +1,11 @@
+import { AuthenticationService } from 'src/app/aedo/services/authentication.service';
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/aedo/services/authentication.service';
 import { Language } from '../../models/language.model';
-import { LanguagesService } from '../../services/models-services/languages.service';
-
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { OdiseoService } from '../../services/models-services/odiseos.service';
 import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
-import { MatDialogRef } from '@angular/material/dialog';
-import { OdiseosService } from '../../services/models-services/odiseos.service';
+import { OdiseoDto } from '../../dto/odiseo.dto';
 
 @Component({
   selector: 'app-login-dialog',
@@ -20,11 +18,11 @@ export class LoginDialogComponent {
   visible: boolean = false;
   language?: Language;
   hide = true;
-  errorVisible= false;
+  errorVisible = false;
 
   constructor(
     private authenticationService: AuthenticationService,
-    private odiseoService: OdiseosService,
+    private odiseoService: OdiseoService,
     public dialogRef: MatDialogRef<LoginDialogComponent>,
     private matDialog: MatDialog
   ) {}
@@ -41,7 +39,7 @@ export class LoginDialogComponent {
       })
       .catch((error) => {
         console.log(error.Name);
-        this.errorVisible= true;
+        this.errorVisible = true;
       });
   }
 
@@ -53,9 +51,24 @@ export class LoginDialogComponent {
         this.odiseoService
           .getById(this.authenticationService.getCurrentUser().uid)
           .then((value) => {
-            if (value.email == undefined) {
-              let odiseo = this.authenticationService.userToOdiseo(this.authenticationService.getCurrentUser())
-              this.odiseoService.create(odiseo)
+            if (value.getEmail() == undefined) {
+              let auxOdiseo = this.authenticationService.userToOdiseo(
+                this.authenticationService.getCurrentUser()
+              );
+              let odiseoDto = new OdiseoDto(
+                this.authenticationService.getCurrentUser().uid,
+                auxOdiseo.accountNumber,
+                auxOdiseo.avatar,
+                auxOdiseo.birthDate,
+                auxOdiseo.email,
+                auxOdiseo.isAdmin,
+                auxOdiseo.isAedo,
+                auxOdiseo.isEducative,
+                auxOdiseo.name,
+                auxOdiseo.phoneNumber,
+                auxOdiseo.userName
+              );
+              this.odiseoService.create(odiseoDto);
             }
           })
           .catch((err) => console.log('Error'));

@@ -3,7 +3,6 @@ import { IOdisea } from "../interfaces/odisea.interface";
 
 
 export class Odisea implements IOdisea {
-    id:string;
     description:string;
     image: any;
     languages: Array<ILanguage>
@@ -15,7 +14,6 @@ export class Odisea implements IOdisea {
     tags:Array<string>;
 
   constructor(
-    id: string,
     description:string,
     image: any,
     languages: Array<ILanguage>,
@@ -26,7 +24,6 @@ export class Odisea implements IOdisea {
     uid:string,
     tags:Array<string>
   ) {
-    this.id = id;
     this.description = description;
     this.image = image;
     this.languages = languages;

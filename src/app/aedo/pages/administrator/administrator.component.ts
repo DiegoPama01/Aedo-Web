@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { OdiseaRegisterComponent } from '../odisea-register/odisea-register.component';
-import { ListAdminComponent } from '../../components/list-admin/list-admin.component';
 import { ListLanguagesComponent } from '../../components/list-languages/list-languages.component';
 import { ListCategoriesComponent } from '../../components/list-categories/list-categories.component';
 import { ListUserComponent } from '../../components/list-user/list-user.component';

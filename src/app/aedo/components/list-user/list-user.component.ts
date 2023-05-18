@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IOdiseo } from '../../interfaces/odiseo.interface';
-import { AuthenticationService } from '../../services/authentication.service';
-import { OdiseosService } from '../../services/models-services/odiseos.service';
+import { OdiseoService } from '../../services/models-services/odiseos.service';
+import { OdiseoDto } from '../../dto/odiseo.dto';
 
 @Component({
   selector: 'app-list-user',
@@ -10,23 +10,26 @@ import { OdiseosService } from '../../services/models-services/odiseos.service';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent {
-  private listOdiseo: Observable<IOdiseo[]> = this.odiseoService.getCollection();
-  constructor(private odiseoService: OdiseosService){
-  }
-
-  public getList(): Observable<IOdiseo[]> {
-    return this.listOdiseo
-  }
-
+  listOdiseo: Observable<OdiseoDto[]>;
   displayedColumns: string[] = ["name","isAdmin","isEducative"];
-  dataSource= this.listOdiseo;
-
-  setEducativePrivileges(odiseo:IOdiseo){
-    this.odiseoService.update({...odiseo, isEducative:!odiseo.isEducative})
+  dataSource: Observable<OdiseoDto[]>;
+  
+  constructor(private odiseoService: OdiseoService){
+    this.listOdiseo = this.odiseoService.getCollection();
+    this.dataSource = this.listOdiseo;
   }
 
-  setAdminPrivileges(odiseo:IOdiseo){
+  public getList(): Observable<OdiseoDto[]> {
+    return this.listOdiseo;
+  }
 
-    this.odiseoService.update({...odiseo, isAdmin:!odiseo.isAdmin})
+  setEducativePrivileges(odiseo: OdiseoDto){
+    odiseo.setIsEducative(!odiseo.getIsEducative())
+    this.odiseoService.update(odiseo);
+  }
+
+  setAdminPrivileges(odiseo: OdiseoDto){
+    odiseo.setIsAdmin(!odiseo.getIsAdmin())
+    this.odiseoService.update(odiseo);
   }
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
-import { OdiseosService } from '../../services/models-services/odiseos.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -14,7 +13,6 @@ export class ResetEmailDialogComponent {
   formGroup: FormGroup;
   constructor(
     private auth: AuthenticationService,
-    private odiseoService: OdiseosService,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<ResetEmailDialogComponent>
   ) {

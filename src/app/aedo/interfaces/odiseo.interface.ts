@@ -1,7 +1,4 @@
-import { Timestamp } from "@angular/fire/firestore";
-
 export interface IOdiseo{
-    id:string;
     accountNumber:string;
     avatar:any;
     birthDate: any;

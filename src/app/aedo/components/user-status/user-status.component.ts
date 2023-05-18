@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { onAuthStateChanged, user } from '@angular/fire/auth';
+import { onAuthStateChanged} from '@angular/fire/auth';
 import { AuthenticationService } from '../../services/authentication.service';
-import { OdiseosService } from '../../services/models-services/odiseos.service';
 
 @Component({
   selector: 'app-user-status',
@@ -10,7 +9,7 @@ import { OdiseosService } from '../../services/models-services/odiseos.service';
 })
 export class UserStatusComponent {
   username: any;
-  constructor(private authService: AuthenticationService, private odiseoService: OdiseosService) {
+  constructor(authService: AuthenticationService) {
     this.username = authService.getCurrentUser();
     onAuthStateChanged(authService.getAuth(), (usuarioFirebase) => {
       this.username = usuarioFirebase?.displayName

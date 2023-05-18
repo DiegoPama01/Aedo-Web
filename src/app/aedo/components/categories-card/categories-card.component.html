@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-9 align-self-center">
       <div class="row card-body m-2">
-        <h2 class="col-10 card-title text-center">{{ this.category.name }}</h2>
+        <h2 class="col-10 card-title text-center">{{ this.category!!.getName() }}</h2>
         <button class="col-2 btn btn-danger" (click)="open(removeModal)">
           <i class="bi bi-trash"></i>
         </button>
@@ -32,7 +32,7 @@
         <div class="mb-3">
           <h3 for="languageInput">
             Está segur@ de que desea eliminar la categoria
-            {{ this.category.name }} ?
+            {{ this.category!!.getName() }} ?
           </h3>
         </div>
       </form>

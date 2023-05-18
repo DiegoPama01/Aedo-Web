@@ -17,19 +17,19 @@ export class CategoriesCardComponent implements OnInit {
     private imagesService: ImagesService
   ) {}
 
-  @Input() category: any;
+  @Input() category?: CategoryDto;
 
   iconUrl = '';
 
   ngOnInit(): void {
-    this.imagesService.downloadIcon(this.category.name, this.category.id).then((url) => {
+    this.imagesService.downloadIcon(this.category?.getName()!!, this.category?.getId()!!).then((url) => {
       this.iconUrl = url;
     });
   }
 
   removeCategory() {
-    this.imagesService.deleteIcon(this.category.id);
-    this.categoryService.remove(this.category);
+    this.imagesService.deleteIcon(this.category?.getId()!!);
+    this.categoryService.remove(this.category!!);
   }
 
   open(content: any) {
