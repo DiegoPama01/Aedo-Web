@@ -4,6 +4,7 @@ import { CategoryDto } from '../../dto/category.dto';
 import { LanguageDto } from '../../dto/language.dto';
 import { CategoryService } from '../../services/models-services/category.service';
 import { LanguageService } from '../../services/models-services/languages.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-odisea-form',
@@ -64,5 +65,18 @@ export class OdiseaFormComponent implements OnInit {
     } else {
       this.categoryList.push(category);
     }
+  }
+
+  private listCategories: Observable<CategoryDto[]> =
+    this.categoryService.getCollection();
+
+  private listLanguages: Observable<LanguageDto[]> =
+    this.languageService.getCollection();
+
+  public getCategoryList(): Observable<CategoryDto[]> {
+    return this.listCategories;
+  }
+  public getLanguageList(): Observable<LanguageDto[]> {
+    return this.listLanguages;
   }
 }

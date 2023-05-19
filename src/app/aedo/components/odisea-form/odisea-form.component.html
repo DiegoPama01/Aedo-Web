@@ -19,7 +19,7 @@
     </mat-form-field>
     <app-category-item *ngFor="let category of getCategoryList()| async" [category]="category" (categoryClicked)="this.categorySelected($event)"></app-category-item>
     <br>
-    <app-language-item *ngFor="let language of getLanguageList()| async" [language]="language" (categoryClicked)="this.categorySelected($event)"></app-language-item>
+    <app-language-item *ngFor="let language of getLanguageList() | async" [language]="language" (categoryClicked)="this.categorySelected($event)"></app-language-item>
     <br>
     <button
         mat-raised-button
