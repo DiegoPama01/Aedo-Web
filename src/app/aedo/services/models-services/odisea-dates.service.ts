@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { OdiseaDatesDto } from '../../dto/odisea-dates.dto';
 
 @Injectable({
@@ -19,9 +19,21 @@ export class OdiseaDatesService {
   }
 
   getCollection(): Observable<OdiseaDatesDto[]> {
-    return this.firestoreService.getCollection(this.collection) as Observable<
-      OdiseaDatesDto[]
-    >;
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data.map(item => {
+          return new OdiseaDatesDto(
+            item.id,
+            item.date,
+            item.language,
+            item.maxCapacity,
+            item.numReservations,
+            item.odiseaCalendarID,
+            item.odiseaID
+          );
+        });
+      })
+    );
   }
 
   remove(odiseaDatesDto: OdiseaDatesDto) {
@@ -37,9 +49,26 @@ export class OdiseaDatesService {
   }
 
   async getById(id: string): Promise<OdiseaDatesDto> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as unknown as OdiseaDatesDto;
+    const data = await this.firestoreService.getById<any>(this.collection, id);
+    const {
+      date,
+      language,
+      maxCapacity,
+      numReservations,
+      odiseaCalendarID,
+      odiseaID
+    } = data;
+  
+    const odiseaDates = new OdiseaDatesDto(
+      id,
+      date,
+      language,
+      maxCapacity,
+      numReservations,
+      odiseaCalendarID,
+      odiseaID
+    );
+  
+    return odiseaDates;
   }
 }
