@@ -37,6 +37,7 @@ export class ProfileViewComponent {
     onAuthStateChanged(authService.getAuth(), (usuarioFirebase) => {
       if (usuarioFirebase) {
         this.odiseoService.getById(usuarioFirebase.uid).then((odiseo) => {
+          console.log("Prueba de DTO: ", odiseo)
           this.odiseo = odiseo;
           this.userForm.setValue({
             name: this.odiseo.getName(),

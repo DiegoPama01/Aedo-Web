@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { CategoryDto } from '../../dto/category.dto';
 
 @Injectable({
@@ -19,9 +19,16 @@ export class CategoryService {
   }
 
   getCollection(): Observable<CategoryDto[]> {
-    return this.firestoreService.getCollection(this.collection) as Observable<
-      CategoryDto[]
-    >;
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data.map(item => {
+          return new CategoryDto(
+            item.id,
+            item.name
+          );
+        });
+      })
+    );
   }
 
   remove(categoryDto: CategoryDto) {
@@ -37,9 +44,16 @@ export class CategoryService {
   }
 
   async getById(id: string): Promise<CategoryDto> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as unknown as CategoryDto;
+    const data = await this.firestoreService.getById<any>(this.collection, id);
+    const {
+      name
+    } = data;
+  
+    const category = new CategoryDto(
+      id,
+      name
+    );
+
+    return category;
   }
 }

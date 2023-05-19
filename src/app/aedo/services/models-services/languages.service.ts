@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { LanguageDto } from '../../dto/language.dto';
 
 @Injectable({
@@ -19,9 +19,16 @@ export class LanguageService {
   }
 
   getCollection(): Observable<LanguageDto[]> {
-    return this.firestoreService.getCollection(this.collection) as Observable<
-      LanguageDto[]
-    >;
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data.map(item => {
+          return new LanguageDto(
+            item.id,
+            item.item
+          );
+        });
+      })
+    );
   }
 
   remove(languageDto: LanguageDto) {
@@ -37,9 +44,16 @@ export class LanguageService {
   }
 
   async getById(id: string): Promise<LanguageDto> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as unknown as LanguageDto;
+    const data = await this.firestoreService.getById<any>(this.collection, id);
+    const {
+      item
+    } = data;
+  
+    const language = new LanguageDto(
+      id,
+      item
+    );
+  
+    return language;
   }
 }

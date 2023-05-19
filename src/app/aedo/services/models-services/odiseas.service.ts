@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { OdiseaDto } from '../../dto/odisea.dto';
 
 @Injectable({
@@ -19,9 +19,24 @@ export class OdiseaService {
   }
 
   getCollection(): Observable<OdiseaDto[]> {
-    return this.firestoreService.getCollection(this.collection) as Observable<
-      OdiseaDto[]
-    >;
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data.map(item => {
+          return new OdiseaDto(
+            item.id,
+            item.description,
+            item.image,
+            item.languages,
+            item.maxCapacity,
+            item.name,
+            item.numberVotes,
+            item.totalScoreVotes,
+            item.uid,
+            item.tags
+          );
+        });
+      })
+    );
   }
 
   remove(odiseaDto: OdiseaDto) {
@@ -37,9 +52,32 @@ export class OdiseaService {
   }
 
   async getById(id: string): Promise<OdiseaDto> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as unknown as OdiseaDto;
+    const data = await this.firestoreService.getById<any>(this.collection, id);
+    const {
+      description,
+      image,
+      languages,
+      maxCapacity,
+      name,
+      numberVotes,
+      totalScoreVotes,
+      uid,
+      tags
+    } = data;
+  
+    const odisea = new OdiseaDto(
+      id,
+      description,
+      image,
+      languages,
+      maxCapacity,
+      name,
+      numberVotes,
+      totalScoreVotes,
+      uid,
+      tags
+    );
+  
+    return odisea;
   }
 }

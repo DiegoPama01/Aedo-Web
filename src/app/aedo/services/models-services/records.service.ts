@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { RecordDto } from '../../dto/record.dto';
 
 @Injectable({
@@ -19,9 +19,18 @@ export class RecordService {
   }
 
   getCollection(): Observable<RecordDto[]> {
-    return this.firestoreService.getCollection(this.collection) as Observable<
-      RecordDto[]
-    >;
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data.map(item => {
+          return new RecordDto(
+            item.id,
+            item.lastModified,
+            item.userID,
+            item.data
+          );
+        });
+      })
+    );
   }
 
   remove(recordDto: RecordDto) {
@@ -37,9 +46,20 @@ export class RecordService {
   }
 
   async getById(id: string): Promise<RecordDto> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as unknown as RecordDto;
+    const dataDto = await this.firestoreService.getById<any>(this.collection, id);
+    const {
+      lastModified,
+      userID,
+      data
+    } = dataDto;
+  
+    const records = new RecordDto(
+      id,
+      lastModified,
+      userID,
+      data
+    );
+  
+    return records;
   }
 }

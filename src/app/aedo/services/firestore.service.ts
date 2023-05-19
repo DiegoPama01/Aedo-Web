@@ -40,9 +40,16 @@ export class FirestoreService {
     return deleteDoc(doc(this.firestore, coll, id));
   };
 
-  getById = async (coll: string, id: string) => {
-    const docRef = doc(this.firestore, coll, id);
-    const docSnap = await getDoc(docRef);
-    return { ...docSnap.data(), id: docSnap.id };
-  };
+  getById<T>(collection: string, id: string): Promise<T> {
+    const docRef = doc(this.firestore, collection, id);
+    return getDoc(docRef).then((docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        const dto = { ...data, id: docSnap.id } as T;
+        return dto;
+      } else {
+        throw new Error(`Document with ID ${id} does not exist in collection ${collection}`);
+      }
+    });
+  }
 }

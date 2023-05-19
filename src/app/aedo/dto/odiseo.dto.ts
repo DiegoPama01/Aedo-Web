@@ -99,7 +99,7 @@ export class OdiseoDto {
     this.isEducative = isEducative;
   }
 
-  public getName(): string {
+  getName(): string {
     return this.name;
   }
 

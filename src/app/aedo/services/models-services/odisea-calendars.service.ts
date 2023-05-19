@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { OdiseaCalendarDto } from '../../dto/odisea-calendar.dto';
 
 @Injectable({
@@ -19,9 +19,19 @@ export class OdiseaCalendarService {
   }
 
   getCollection(): Observable<OdiseaCalendarDto[]> {
-    return this.firestoreService.getCollection(this.collection) as Observable<
-      OdiseaCalendarDto[]
-    >;
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data.map(item => {
+          return new OdiseaCalendarDto(
+            item.id,
+            item.calendarType,
+            item.dates,
+            item.language,
+            item.odiseaID
+          );
+        });
+      })
+    );
   }
 
   remove(odiseaCalendarDto: OdiseaCalendarDto) {
@@ -37,9 +47,22 @@ export class OdiseaCalendarService {
   }
 
   async getById(id: string): Promise<OdiseaCalendarDto> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as unknown as OdiseaCalendarDto;
+    const data = await this.firestoreService.getById<any>(this.collection, id);
+    const {
+      calendarType,
+      dates,
+      language,
+      odiseaID
+    } = data;
+  
+    const odiseaCalendar = new OdiseaCalendarDto(
+      id,
+      calendarType,
+      dates,
+      language,
+      odiseaID
+    );
+  
+    return odiseaCalendar;
   }
 }

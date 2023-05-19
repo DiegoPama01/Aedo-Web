@@ -19,9 +19,25 @@ export class OdiseoService {
   }
 
   getCollection(): Observable<OdiseoDto[]> {
-    return this.firestoreService.getCollection(this.collection) as Observable<
-      OdiseoDto[]
-    >;
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data.map(item => {
+          return new OdiseoDto(
+            item.id,
+            item.accountNumber,
+            item.avatar,
+            item.birthDate,
+            item.email,
+            item.isAdmin,
+            item.isAedo,
+            item.isEducative,
+            item.name,
+            item.phoneNumber,
+            item.userName
+          );
+        });
+      })
+    );
   }
 
   getAdmin(): Observable<OdiseoDto[]> {
@@ -43,9 +59,35 @@ export class OdiseoService {
   }
 
   async getById(id: string): Promise<OdiseoDto> {
-    return (await this.firestoreService.getById(
-      this.collection,
-      id
-    )) as unknown as OdiseoDto;
+    const data = await this.firestoreService.getById<any>(this.collection,id);
+
+    const {
+      accountNumber,
+      avatar,
+      birthDate,
+      email,
+      isAdmin,
+      isAedo,
+      isEducative,
+      name,
+      phoneNumber,
+      userName
+    } = data;
+  
+    const odiseo = new OdiseoDto(
+      id,
+      accountNumber,
+      avatar,
+      birthDate,
+      email,
+      isAdmin,
+      isAedo,
+      isEducative,
+      name,
+      phoneNumber,
+      userName
+    );
+
+    return odiseo;
   }
 }
