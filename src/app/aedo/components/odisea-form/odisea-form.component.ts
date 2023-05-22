@@ -25,7 +25,6 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { MatStepper } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { Odisea } from '../../models/odisea.model';
-import { OdiseaDatesService } from '../../services/models-services/odisea-dates.service';
 import { OdiseaService } from '../../services/models-services/odiseas.service';
 import { OdiseaCalendar } from '../../models/odisea-calendar.model';
 import { OdiseaCalendarService } from '../../services/models-services/odisea-calendars.service';
@@ -296,7 +295,6 @@ export class OdiseaFormComponent implements OnInit {
     let odiseaId: string;
 
     let languageList: Language[] = this.firstStepForm.get('languages')?.value;
-    let arrayLanguage = languageList.map((language) => language.toJSON());
 
     let categoryList: Category[] = this.firstStepForm.get('tags')?.value;
     let arrayCategory = categoryList.map((category) => category.getName());

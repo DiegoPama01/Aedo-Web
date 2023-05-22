@@ -11,7 +11,7 @@ import { LanguageDto } from '../../dto/language.dto';
   templateUrl: './list-languages.component.html',
   styleUrls: ['./list-languages.component.css'],
 })
-export class ListLanguagesComponent implements OnInit {
+export class ListLanguagesComponent {
   private listLanguages: Observable<LanguageDto[]> =
     this.languagesService.getCollection();
 
@@ -45,7 +45,7 @@ export class ListLanguagesComponent implements OnInit {
   closeResult = '';
 
   public getLanguagesCodes(): any {
-    var languagesCodes: any = [];
+    let languagesCodes: any = [];
     this.listLanguages.subscribe((languages) => {
       languages.forEach((language) => {
         languagesCodes.push(language.getId());
@@ -115,8 +115,6 @@ export class ListLanguagesComponent implements OnInit {
   get newLanguageItem() {
     return this.newLanguageForm.get('newLanguageItem');
   }
-
-  ngOnInit(): void {}
 
   public getList(): Observable<LanguageDto[]> {
     return this.listLanguages;
