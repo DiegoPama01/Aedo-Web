@@ -5,4 +5,6 @@ export interface IComment {
     reservationID:string;
     userID:string;
     username:string;
+
+    toJSON():any
 }

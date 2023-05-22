@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { OdiseoDto } from '../../dto/odiseo.dto';
+import { IOdiseo } from '../../interfaces/odiseo.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,10 @@ export class OdiseoService {
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(odiseoDto: OdiseoDto) {
+  create(odiseo: IOdiseo) {
     return this.firestoreService.create(
       this.collection,
-      odiseoDto.getOdiseo()
+      odiseo.toJSON()
     );
   }
 

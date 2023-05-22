@@ -137,7 +137,7 @@ export class ListLanguagesComponent implements OnInit {
         if (res.getItem()) {
           throw new Error('Language already exists');
         } else {
-          this.languagesService.create(this.newLanguage);
+          this.languagesService.create(this.newLanguage.getLanguage());
         }
       } catch (error) {
         console.log(error);
@@ -172,7 +172,7 @@ export class ListLanguagesComponent implements OnInit {
     this.selectedLanguage.setId(
       this.editLanguageForm.value.editLanguageItem.split(' - ')[0].toUpperCase()
     );
-    this.languagesService.create(this.selectedLanguage);
+    this.languagesService.create(this.selectedLanguage.getLanguage());
     this.selectedLanguage = new LanguageDto('', '');
   }
 }

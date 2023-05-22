@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { CommentDto } from '../../dto/comment.dto';
+import { IComment } from '../../interfaces/comment.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,10 @@ export class CommentService {
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(commentDto: CommentDto) {
+  create(comment: IComment) {
     return this.firestoreService.create(
       this.collection,
-      commentDto.getComment()
+      comment.toJSON()
     );
   }
 

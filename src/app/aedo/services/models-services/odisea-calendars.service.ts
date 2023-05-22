@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { OdiseaCalendarDto } from '../../dto/odisea-calendar.dto';
+import { IOdiseaCalendar } from '../../interfaces/odisea-calendar.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,10 @@ export class OdiseaCalendarService {
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(odiseaCalendarDto: OdiseaCalendarDto) {
+  create(odiseaCalendar: IOdiseaCalendar) {
     return this.firestoreService.create(
       this.collection,
-      odiseaCalendarDto.getOdiseaCalendar()
+      odiseaCalendar.toJSON()
     );
   }
 

@@ -6,6 +6,8 @@ export interface IOdiseaCalendar {
     dates: Array<string> | {endDate:Timestamp,startDate:Timestamp} | Timestamp;
     language:ILanguage;
     odiseaID:string;
+
+    toJSON():any
 }
 
 export enum calendarType{
@@ -14,3 +16,6 @@ export enum calendarType{
     rangeDatesCalendar = "rangeDatesCalendar",
     singleDateCalendar = "singleDateCalendar",
 }
+
+
+

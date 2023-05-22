@@ -8,4 +8,11 @@ export class Language implements ILanguage {
     this.id = id;
     this.item = item;
   }
+
+  toJSON() {
+    return {
+      id: this.id,
+      item: this.item
+    };
+  }
 }

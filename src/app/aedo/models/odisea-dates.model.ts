@@ -25,4 +25,15 @@ export class OdiseaDates implements IOdiseaDates {
     this.odiseaCalendarID = odiseaCalendarID;
     this.odiseaID = odiseaID;
   }
+
+  toJSON() {
+    return {
+      date: this.date,
+      language: this.language.toJSON(),
+      maxCapacity: this.maxCapacity,
+      numReservations: this.numReservations,
+      odiseaCalendarID: this.odiseaCalendarID,
+      odiseaID: this.odiseaID
+    };
+  }
 }

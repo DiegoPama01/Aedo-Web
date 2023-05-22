@@ -17,4 +17,15 @@ export class Comment implements IComment {
     this.userID = userID;
     this.username = username;
   }
+
+  toJSON() {
+    return {
+      body: this.body,
+      odiseaId: this.odiseaId,
+      rating: this.rating,
+      reservationID: this.reservationID,
+      userID: this.userID,
+      username: this.username
+    };
+  }
 }

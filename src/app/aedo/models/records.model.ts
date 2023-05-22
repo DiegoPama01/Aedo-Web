@@ -15,4 +15,12 @@ export class Record implements IRecord {
     this.userID = userID;
     this.data = data;
   }
+
+  toJSON() {
+    return {
+      lastModified: this.lastModified.toDate(),
+      userID: this.userID,
+      data: this.data
+    };
+  }
 }

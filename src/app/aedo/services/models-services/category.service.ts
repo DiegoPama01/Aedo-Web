@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { CategoryDto } from '../../dto/category.dto';
+import { ICategory } from '../../interfaces/category.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,10 @@ export class CategoryService {
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(categoryDto: CategoryDto) {
+  create(category: ICategory) {
     return this.firestoreService.create(
       this.collection,
-      categoryDto.getCategory()
+      category.toJSON()
     );
   }
 

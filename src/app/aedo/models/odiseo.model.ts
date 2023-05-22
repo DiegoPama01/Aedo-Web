@@ -34,4 +34,19 @@ export class Odiseo implements IOdiseo {
     this.isEducative = false;
     this.avatar = avatar;
   }
+
+  toJSON() {
+    return {
+      accountNumber: this.accountNumber,
+      email: this.email,
+      isAedo: this.isAedo,
+      name: this.name,
+      phoneNumber: this.phoneNumber,
+      userName: this.userName,
+      birthDate: this.birthDate.toISOString(),
+      isAdmin: this.isAdmin,
+      isEducative: this.isEducative,
+      avatar: this.avatar
+    };
+  }
 }

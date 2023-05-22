@@ -1,6 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 import * as L from 'leaflet';
-import { Map, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-map',
@@ -8,26 +7,63 @@ import { Map, tileLayer } from 'leaflet';
   styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements AfterViewInit {
-  private map:any;
+  private map: any;
+  private marker: any;
+
+  @Output() markerSelected = new EventEmitter<any>();
 
   private initMap(): void {
-    this.map = new Map('map', {
-      center: [ 39.8282, -98.5795 ],
-      zoom: 3
-    });
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          console.log('Ubicación del usuario:', lat, lon);
 
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    });
+          this.map = L.map('map', {
+            center: [lat, lon],
+            zoom: 100,
+          });
 
-    tiles.addTo(this.map);
+          const tiles = L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+              maxZoom: 18,
+              minZoom: 3,
+              attribution:
+                '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            }
+          );
+
+          if (this.map) {
+            tiles.addTo(this.map);
+          }
+
+          this.map.on('click', (event:any) => {
+            const { lat, lng } = event.latlng;
+            if (this.marker) {
+              this.map.removeLayer(this.marker);
+            }
+            this.marker = L.marker([lat, lng]).addTo(this.map);
+
+
+            this.markerSelected.emit(this.marker);
+
+          });
+        },
+        (error) => {
+          console.error('Error al obtener la ubicación del usuario:', error);
+        },
+        { enableHighAccuracy: true, timeout: 5000 }
+      );
+    } else {
+      console.error('El navegador no admite la geolocalización');
+    }
   }
 
-  constructor() { }
-
   ngAfterViewInit(): void {
-    this.initMap();
+    setTimeout(() => {
+      this.initMap();
+    }, 0);
   }
 }

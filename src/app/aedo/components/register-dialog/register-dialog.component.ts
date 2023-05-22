@@ -71,7 +71,7 @@ export class RegisterDialogComponent {
             phoneNumber == null ? '' : phoneNumber,
             userName
           );
-          this.odiseoService.create(newUser);
+          this.odiseoService.create(newUser.getOdiseo());
         })
         .catch((error) => {
           if (error.code === 'auth/email-already-in-use') {

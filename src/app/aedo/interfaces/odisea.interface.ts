@@ -2,7 +2,7 @@ import { ILanguage } from "./language.interface";
 
 export interface IOdisea {
     description:string;
-    image: any;
+    images: any[];
     languages: Array<ILanguage>
     maxCapacity: number;
     name: string;
@@ -10,6 +10,8 @@ export interface IOdisea {
     totalScoreVotes:number;
     uid:string;
     tags:Array<string>;
+
+    toJSON():any
 }
 
 

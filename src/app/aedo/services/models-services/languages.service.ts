@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { LanguageDto } from '../../dto/language.dto';
+import { ILanguage } from '../../interfaces/language.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,10 @@ export class LanguageService {
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(languageDto: LanguageDto) {
+  create(language: ILanguage) {
     return this.firestoreService.create(
       this.collection,
-      languageDto.getLanguage()
+      language.toJSON()
     );
   }
 

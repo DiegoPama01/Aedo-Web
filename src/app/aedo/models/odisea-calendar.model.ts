@@ -31,4 +31,14 @@ export class OdiseaCalendar implements IOdiseaCalendar {
     this.language = language;
     this.odiseaID = odiseaID;
   }
+
+  toJSON() {
+    return {
+      calendarType: this.calendarType,
+      dates: this.dates,
+      language: this.language.toJSON(),
+      odiseaID: this.odiseaID,
+    };
+  }
+  
 }

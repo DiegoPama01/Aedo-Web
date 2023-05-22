@@ -4,4 +4,6 @@ export interface IRecord {
     lastModified:Timestamp;
     userID:string;
     data:any;
+
+    toJSON():any
 }

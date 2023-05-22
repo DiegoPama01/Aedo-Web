@@ -9,4 +9,6 @@ export interface IOdiseo{
     name: string;
     phoneNumber:string;
     userName: string;
+
+    toJSON():any
 }

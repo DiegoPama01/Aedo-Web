@@ -68,7 +68,7 @@ export class LoginDialogComponent {
                 auxOdiseo.phoneNumber,
                 auxOdiseo.userName
               );
-              this.odiseoService.create(odiseoDto);
+              this.odiseoService.create(odiseoDto.getOdiseo());
             }
           })
           .catch((err) => console.log('Error'));

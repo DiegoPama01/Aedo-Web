@@ -10,7 +10,7 @@ import { LanguageDto } from '../../dto/language.dto';
 export class LanguageItemComponent {
   @Input()
   language!: LanguageDto;
-  @Output() languageClicked = new EventEmitter<Language>();
+  @Output() languageClicked = new EventEmitter<LanguageDto>();
   iconUrl:any;
   selected:boolean = false;
   constructor() { }
@@ -20,7 +20,7 @@ export class LanguageItemComponent {
 
   languageClick(){
     this.selected = !this.selected
-    this.languageClicked.emit(this.language.getLanguage()) 
+    this.languageClicked.emit(this.language) 
   }
 
   getName(language:Language){

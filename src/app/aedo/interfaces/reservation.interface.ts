@@ -4,4 +4,6 @@ export interface IReservation {
     language:ILanguage;
     odiseaDateID:string;
     userID:string;
+
+    toJSON():any
 }

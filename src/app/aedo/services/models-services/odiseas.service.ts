@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { OdiseaDto } from '../../dto/odisea.dto';
+import { Odisea } from '../../models/odisea.model';
+import { IOdisea } from '../../interfaces/odisea.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +13,10 @@ export class OdiseaService {
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(odiseaDto: OdiseaDto) {
+  create(odisea: IOdisea) {
     return this.firestoreService.create(
       this.collection,
-      odiseaDto.getOdisea()
+      odisea.toJSON()
     );
   }
 
@@ -25,14 +27,15 @@ export class OdiseaService {
           return new OdiseaDto(
             item.id,
             item.description,
-            item.image,
+            item.images,
             item.languages,
             item.maxCapacity,
             item.name,
             item.numberVotes,
             item.totalScoreVotes,
             item.uid,
-            item.tags
+            item.tags,
+            item.location
           );
         });
       })
@@ -55,27 +58,29 @@ export class OdiseaService {
     const data = await this.firestoreService.getById<any>(this.collection, id);
     const {
       description,
-      image,
+      images,
       languages,
       maxCapacity,
       name,
       numberVotes,
       totalScoreVotes,
       uid,
-      tags
+      tags,
+      location
     } = data;
   
     const odisea = new OdiseaDto(
       id,
       description,
-      image,
+      images,
       languages,
       maxCapacity,
       name,
       numberVotes,
       totalScoreVotes,
       uid,
-      tags
+      tags,
+      location
     );
   
     return odisea;

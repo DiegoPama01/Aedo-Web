@@ -1,0 +1,14 @@
+.category-button {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 40px; /* Ajusta la altura deseada */
+}
+
+.category-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  object-position: left;
+  margin-right: 10px; /* Ajusta el espaciado derecho deseado */
+}

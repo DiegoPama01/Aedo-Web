@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { ReservationDto } from '../../dto/reservation.dto';
+import { IReservation } from '../../interfaces/reservation.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,10 @@ export class ReservationService {
 
   constructor(private firestoreService: FirestoreService) {}
 
-  create(reservationDto: ReservationDto) {
+  create(reservation: IReservation) {
     return this.firestoreService.create(
       this.collection,
-      reservationDto.getReservation()
+      reservation.toJSON()
     );
   }
 

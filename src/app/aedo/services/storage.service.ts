@@ -21,9 +21,9 @@ export class StorageService {
 
   uploadFile = async (fileName: string, uploadUri: string) => {
     const storageRef = ref(this.storage, fileName);
-    const file = await fetch(fileName);
-    const bytes = await file.blob();
-    await uploadBytes(storageRef, bytes);
+    const response = await fetch(uploadUri);
+    const blob = await response.blob();
+    await uploadBytes(storageRef, blob);
   };
 
   downloadFile = async (fileName: string) => {

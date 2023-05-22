@@ -1,0 +1,164 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+
+.small-input {
+  width: 30%;
+  display: inline-block;
+  text-align: right;
+}
+
+.category-list,
+.language-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  justify-items: center;
+  text-align: center;
+}
+
+.category-item,
+.language-item {
+  width: 900px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-item mat-card,
+.language-item mat-card {
+  width: 100%;
+  height: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.form-item:nth-child(1),
+.form-item:nth-child(2) {
+  grid-column: span 2;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+
+.photo-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.photo-item:hover .photo-overlay {
+  opacity: 1;
+}
+
+.photo-delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+}
+
+.form-container {
+  margin-top: 20px;
+}
+
+.form-item {
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Añadido para centrar verticalmente */
+  margin-top: 20px;
+}
+
+.form-actions button {
+  margin: 0 10px; /* Añade margen horizontal a los botones */
+}
+
+.last-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.data-preview {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.data-preview p {
+  margin: 10px 0;
+}
+
+.language-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+
+
+.stepper-container {
+  height: 100vh; /* Ocupar toda la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+}
+
+.step-container {
+  flex: 1; /* Hacer que cada paso ocupe todo el espacio vertical disponible */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+

@@ -10,4 +10,10 @@ export class Category implements ICategory {
   public getName(): string {
     return this.name;
   }
+
+  toJSON(){
+    return {
+      name: this.name
+    }
+  }
 }

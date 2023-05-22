@@ -8,4 +8,7 @@ export interface IOdiseaDates {
     numReservations:number;
     odiseaCalendarID:string;
     odiseaID:string;
+
+
+    toJSON():any
 }

@@ -15,6 +15,7 @@ import {
 } from '@angular/fire/auth';
 import { IOdiseo } from '../interfaces/odiseo.interface';
 import { OdiseoService } from './models-services/odiseos.service';
+import { Odiseo } from '../models/odiseo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,10 @@ export class AuthenticationService {
 
   getAuth() {
     return this.auth;
+  }
+
+  getUid() {
+    return this.userFirebase.uid;
   }
 
   async isAdmin() {
@@ -76,18 +81,7 @@ export class AuthenticationService {
   }
 
   userToOdiseo(user: User): IOdiseo {
-    let odiseo: IOdiseo = {
-      userName: user.displayName!,
-      email: user.email!,
-      accountNumber: '',
-      isAedo: false,
-      name: '',
-      phoneNumber: '',
-      birthDate: new Date(),
-      isAdmin: false,
-      avatar: { assetId: 'orange-aedo.png' },
-      isEducative: false,
-    };
+    let odiseo = new Odiseo("",user.email!,false,"","",user.displayName!,new Date(),{ assetId: 'orange-aedo.png' });
     return odiseo;
   }
 

@@ -6,7 +6,7 @@ type LanguageArray = Array<ILanguage>;
 export class OdiseaDto {
   private id: string;
   private description: string;
-  private image: any;
+  private image: any[];
   private languages: LanguageArray;
   private maxCapacity: number;
   private name: string;
@@ -14,6 +14,7 @@ export class OdiseaDto {
   private totalScoreVotes: number;
   private uid: string;
   private tags: Array<string>;
+  private location: any
 
   constructor(
     id: string,
@@ -25,7 +26,8 @@ export class OdiseaDto {
     numberVotes: number,
     totalScoreVotes: number,
     uid: string,
-    tags: Array<string>
+    tags: Array<string>,
+    location:any
   ) {
     this.id = id;
     this.description = description;
@@ -37,10 +39,15 @@ export class OdiseaDto {
     this.totalScoreVotes = totalScoreVotes;
     this.uid = uid;
     this.tags = tags;
+    this.location = location;
   }
 
   public getId(): string {
     return this.id;
+  }
+
+  public getLocation(): any {
+    return this.location;
   }
 
   public getDescription(): string {
@@ -51,11 +58,11 @@ export class OdiseaDto {
     this.description = description;
   }
 
-  public getImage(): any {
+  public getImage(): any[] {
     return this.image;
   }
 
-  public setImage(image: any): void {
+  public setImage(image: any[]): void {
     this.image = image;
   }
 
@@ -125,7 +132,8 @@ export class OdiseaDto {
       this.numberVotes,
       this.totalScoreVotes,
       this.uid,
-      this.tags
+      this.tags,
+      this.location
     );
   }
 }

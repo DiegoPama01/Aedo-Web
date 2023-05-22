@@ -4,7 +4,7 @@ import { IOdisea } from "../interfaces/odisea.interface";
 
 export class Odisea implements IOdisea {
     description:string;
-    image: any;
+    images: any[];
     languages: Array<ILanguage>
     maxCapacity: number;
     name: string;
@@ -12,6 +12,7 @@ export class Odisea implements IOdisea {
     totalScoreVotes:number;
     uid:string;
     tags:Array<string>;
+    location:any
 
   constructor(
     description:string,
@@ -22,10 +23,11 @@ export class Odisea implements IOdisea {
     numberVotes:number,
     totalScoreVotes:number,
     uid:string,
-    tags:Array<string>
+    tags:Array<string>,
+    location:any
   ) {
     this.description = description;
-    this.image = image;
+    this.images = image;
     this.languages = languages;
     this.maxCapacity = maxCapacity;
     this.name = name;
@@ -33,5 +35,21 @@ export class Odisea implements IOdisea {
     this.totalScoreVotes = totalScoreVotes;
     this.uid = uid;
     this.tags = tags;
+    this.location = location;
+  }
+
+  toJSON() {
+    return {
+      description: this.description,
+      images: this.images,
+      languages: this.languages.map((language) => language.toJSON()),
+      maxCapacity: this.maxCapacity,
+      name: this.name,
+      numberVotes: this.numberVotes,
+      totalScoreVotes: this.totalScoreVotes,
+      uid: this.uid,
+      tags: this.tags,
+      location: this.location
+    };
   }
 }
