@@ -13,7 +13,7 @@ import { ImagesService } from '../../services/models-services/images.service';
   templateUrl: './list-categories.component.html',
   styleUrls: ['./list-categories.component.css'],
 })
-export class ListCategoriesComponent implements OnInit {
+export class ListCategoriesComponent {
   closeResult: string = '';
   categoryIcon: any;
   categoryName: string = '';
@@ -31,8 +31,6 @@ export class ListCategoriesComponent implements OnInit {
   public getListCategories(): Observable<CategoryDto[]> {
     return this.listCategories;
   }
-
-  ngOnInit(): void {}
 
   setFile(event: any) {
     console.log('llamando a metodo');
