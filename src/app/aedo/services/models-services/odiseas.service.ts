@@ -49,7 +49,7 @@ export class OdiseaService {
   async update(odiseaDto: OdiseaDto) {
     this.firestoreService.update(
       this.collection,
-      odiseaDto.getOdisea(),
+      odiseaDto.getOdisea().toJSON(),
       odiseaDto.getId()
     );
   }

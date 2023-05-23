@@ -44,7 +44,7 @@ export class OdiseaDatesService {
   async update(odiseaDatesDto: OdiseaDatesDto) {
     this.firestoreService.update(
       this.collection,
-      odiseaDatesDto.getOdiseaDate(),
+      odiseaDatesDto.getOdiseaDate().toJSON(),
       odiseaDatesDto.getId()
     );
   }

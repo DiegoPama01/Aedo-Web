@@ -54,7 +54,7 @@ export class OdiseoService {
   async update(odiseoDto: OdiseoDto) {
     this.firestoreService.update(
       this.collection,
-      odiseoDto.getOdiseo(),
+      odiseoDto.getOdiseo().toJSON(),
       odiseoDto.getId()
     );
   }

@@ -41,7 +41,7 @@ export class RecordService {
   async update(recordDto: RecordDto) {
     this.firestoreService.update(
       this.collection,
-      recordDto.getRecord(),
+      recordDto.getRecord().toJSON(),
       recordDto.getId()
     );
   }

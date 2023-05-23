@@ -41,7 +41,7 @@ export class ReservationService {
   async update(reservationDto: ReservationDto) {
     this.firestoreService.update(
       this.collection,
-      reservationDto.getReservation(),
+      reservationDto.getReservation().toJSON(),
       reservationDto.getId()
     );
   }

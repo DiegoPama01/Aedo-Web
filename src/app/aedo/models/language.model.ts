@@ -11,7 +11,6 @@ export class Language implements ILanguage {
 
   toJSON() {
     return {
-      id: this.id,
       item: this.item
     };
   }

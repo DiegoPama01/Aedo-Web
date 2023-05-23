@@ -42,7 +42,7 @@ export class OdiseaCalendarService {
   async update(odiseaCalendarDto: OdiseaCalendarDto) {
     this.firestoreService.update(
       this.collection,
-      odiseaCalendarDto.getOdiseaCalendar(),
+      odiseaCalendarDto.getOdiseaCalendar().toJSON(),
       odiseaCalendarDto.getId()
     );
   }
