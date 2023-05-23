@@ -7,6 +7,7 @@ import { AdministratorComponent } from './pages/administrator/administrator.comp
 import { HomeComponent } from './pages/home/home.component';
 import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register.component';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
+import { OdiseaProfileComponent } from './pages/odisea-profile/odisea-profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -28,6 +29,10 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileViewComponent,
         ...canActivate(() => redirectUnauthorizedTo(['/home']))
+      },
+      {
+        path: 'odisea-profile',
+        component: OdiseaProfileComponent
       }
     ],
   },

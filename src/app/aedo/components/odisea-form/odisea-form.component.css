@@ -7,6 +7,11 @@
   
 }
 
+.mat-stepper-header:not(.mat-stepper-header-selected) {
+  pointer-events: none;
+}
+
+
 h1 {
   margin-bottom: 20px;
 }

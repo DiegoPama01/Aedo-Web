@@ -16,6 +16,12 @@
                         <span class="sidenav-text"> Main page </span>
                     </a>
                 </mat-nav-list>
+                <mat-nav-list *ngIf="getUser()!=null">
+                    <a routerLink="./registration" mat-list-item>
+                        <mat-icon mat-list-icon class="icono">add</mat-icon>
+                        <span class="sidenav-text"> Create experience </span>
+                    </a>
+                </mat-nav-list>
                 <mat-nav-list *ngIf="isUserAdmin()">
                     <a routerLink="./administrator" mat-list-item>
                         <mat-icon mat-list-icon class="icono">supervisor_account</mat-icon>

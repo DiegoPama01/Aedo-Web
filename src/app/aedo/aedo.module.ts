@@ -18,7 +18,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
-import { OdiseaViewComponent } from './pages/odisea-view/odisea-view.component';
 import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
 import { OdiseaFormComponent } from './components/odisea-form/odisea-form.component';
 import { UserStatusComponent } from './components/user-status/user-status.component';
@@ -47,7 +46,6 @@ import { MapComponent } from './components/map/map.component';
     ListLanguagesComponent,
     ListCategoriesComponent,
     CategoriesCardComponent,
-    OdiseaViewComponent,
     ProfileViewComponent,
     OdiseaFormComponent,
     UserStatusComponent,
