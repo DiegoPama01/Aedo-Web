@@ -44,7 +44,7 @@ export class CommentService {
   async update(commentDto: CommentDto) {
     this.firestoreService.update(
       this.collection,
-      commentDto.getComment(),
+      commentDto.getComment().toJSON(),
       commentDto.getId()
     );
   }

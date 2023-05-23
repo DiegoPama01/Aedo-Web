@@ -39,7 +39,7 @@ export class LanguageService {
   async update(languageDto: LanguageDto) {
     this.firestoreService.update(
       this.collection,
-      languageDto.getLanguage(),
+      languageDto.getLanguage().toJSON(),
       languageDto.getId()
     );
   }

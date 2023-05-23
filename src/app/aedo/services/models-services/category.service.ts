@@ -39,7 +39,7 @@ export class CategoryService {
   async update(categoryDto: CategoryDto) {
     this.firestoreService.update(
       this.collection,
-      categoryDto.getCategory(),
+      categoryDto.getCategory().toJSON(),
       categoryDto.getId()
     );
   }
