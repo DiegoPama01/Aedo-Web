@@ -1,6 +1,16 @@
+/**
+ * Represents a language.
+ * @interface
+ */
 export interface ILanguage {
-    id:string;
-    item: string;
+  /** The ID of the language. */
+  id: string;
+  /** The name of the language. */
+  item: string;
 
-    toJSON():any
+  /**
+   * Converts the language to a JSON object.
+   * @returns {any} The JSON representation of the language.
+   */
+  toJSON(): any;
 }

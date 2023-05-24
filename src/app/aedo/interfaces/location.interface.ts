@@ -1,7 +1,18 @@
+/**
+ * Represents a location.
+ * @interface
+ */
 export interface ILocation {
-    geoHash:string;
-    latitude:number;
-    longitude:number;
+  /** The geohash of the location. */
+  geoHash: string;
+  /** The latitude coordinate of the location. */
+  latitude: number;
+  /** The longitude coordinate of the location. */
+  longitude: number;
 
-    toJSON():any
+  /**
+   * Converts the location to a JSON object.
+   * @returns {any} The JSON representation of the location.
+   */
+  toJSON(): any;
 }

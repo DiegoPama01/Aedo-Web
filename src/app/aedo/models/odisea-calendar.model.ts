@@ -11,12 +11,37 @@ type DateTimestamp = Timestamp;
 
 type DateCalendar = DateArray | DateRange | DateTimestamp;
 
+/**
+ * Represents an Odisea calendar.
+ */
 export class OdiseaCalendar implements IOdiseaCalendar {
+  /**
+   * The calendar type.
+   */
   calendarType: calendarType;
+
+  /**
+   * The dates associated with the calendar.
+   */
   dates: DateCalendar;
+
+  /**
+   * The language of the calendar.
+   */
   language: ILanguage;
+
+  /**
+   * The ID of the Odisea.
+   */
   odiseaId: string;
 
+  /**
+   * Creates an instance of the OdiseaCalendar class.
+   * @param calendarType - The calendar type.
+   * @param dates - The dates associated with the calendar.
+   * @param language - The language of the calendar.
+   * @param odiseaID - The ID of the Odisea.
+   */
   constructor(
     calendarType: calendarType,
     dates:
@@ -32,6 +57,10 @@ export class OdiseaCalendar implements IOdiseaCalendar {
     this.odiseaId = odiseaID;
   }
 
+  /**
+   * Converts the OdiseaCalendar object to JSON format.
+   * @returns The OdiseaCalendar object in JSON format.
+   */
   toJSON() {
     return {
       calendarType: this.calendarType,
@@ -40,5 +69,4 @@ export class OdiseaCalendar implements IOdiseaCalendar {
       odiseaID: this.odiseaId,
     };
   }
-  
 }

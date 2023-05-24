@@ -1,27 +1,80 @@
 import { IOdiseo } from "../interfaces/odiseo.interface";
 
 
+/**
+ * Represents an Odiseo.
+ */
 export class Odiseo implements IOdiseo {
-    accountNumber:string;
-    email: string;
-    isAedo:boolean;
-    name: string;
-    phoneNumber:string;
-    userName: string;
-    birthDate: Date;
-    isAdmin:boolean;
-    isEducative:boolean;
-    avatar: any;
+  /**
+   * The account number of the Odiseo.
+   */
+  accountNumber: string;
 
+  /**
+   * The email address of the Odiseo.
+   */
+  email: string;
+
+  /**
+   * Indicates if the Odiseo is an Aedo.
+   */
+  isAedo: boolean;
+
+  /**
+   * The name of the Odiseo.
+   */
+  name: string;
+
+  /**
+   * The phone number of the Odiseo.
+   */
+  phoneNumber: string;
+
+  /**
+   * The username of the Odiseo.
+   */
+  userName: string;
+
+  /**
+   * The birth date of the Odiseo.
+   */
+  birthDate: Date;
+
+  /**
+   * Indicates if the Odiseo is an admin.
+   */
+  isAdmin: boolean;
+
+  /**
+   * Indicates if the Odiseo is educative.
+   */
+  isEducative: boolean;
+
+  /**
+   * The avatar of the Odiseo.
+   */
+  avatar: any;
+
+  /**
+   * Creates an instance of the Odiseo class.
+   * @param accountNumber - The account number of the Odiseo.
+   * @param email - The email address of the Odiseo.
+   * @param isAedo - Indicates if the Odiseo is an Aedo.
+   * @param name - The name of the Odiseo.
+   * @param phoneNumber - The phone number of the Odiseo.
+   * @param userName - The username of the Odiseo.
+   * @param birthDate - The birth date of the Odiseo.
+   * @param avatar - The avatar of the Odiseo.
+   */
   constructor(
-    accountNumber:string,
+    accountNumber: string,
     email: string,
-    isAedo:boolean,
+    isAedo: boolean,
     name: string,
-    phoneNumber:string,
+    phoneNumber: string,
     userName: string,
     birthDate: Date,
-    avatar:any
+    avatar: any
   ) {
     this.accountNumber = accountNumber;
     this.email = email;
@@ -35,6 +88,10 @@ export class Odiseo implements IOdiseo {
     this.avatar = avatar;
   }
 
+  /**
+   * Converts the Odiseo object to JSON format.
+   * @returns The Odiseo object in JSON format.
+   */
   toJSON() {
     return {
       accountNumber: this.accountNumber,
@@ -46,7 +103,7 @@ export class Odiseo implements IOdiseo {
       birthDate: this.birthDate.toISOString(),
       isAdmin: this.isAdmin,
       isEducative: this.isEducative,
-      avatar: this.avatar
+      avatar: this.avatar,
     };
   }
 }

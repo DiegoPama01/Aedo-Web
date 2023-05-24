@@ -1,6 +1,16 @@
+/**
+ * Represents a user.
+ * @interface
+ */
 export interface IUser {
-    username: string;
-    email:string;
-    
-    toJSON():any
+  /** The username of the user. */
+  username: string;
+  /** The email of the user. */
+  email: string;
+
+  /**
+   * Converts the user to a JSON object.
+   * @returns {any} The JSON representation of the user.
+   */
+  toJSON(): any;
 }

@@ -321,33 +321,42 @@ export class OdiseaFormComponent implements OnInit {
       odiseaId = docRef.id;
       console.log('Odisea guardada con ID:', odiseaId);
 
-      this.thirdStepForm.get('images')?.value!.forEach(async (image: any, index: number) => {
-        const imageUrl = await this.imageService.uploadImage(odiseaId + "/L" + index, image);
-        const odiseaDto = await this.odiseaService.getById(odiseaId);
-        odiseaDto.setImage([...odiseaDto.getImage(), { assetID: 'images/' + odiseaId + "/L" + index }]);
-        await this.odiseaService.update(odiseaDto);
-      });
-      
+      this.thirdStepForm
+        .get('images')
+        ?.value!.forEach(async (image: any, index: number) => {
+          const imageUrl = await this.imageService.uploadImage(
+            odiseaId + '/L' + index,
+            image
+          );
+          const odiseaDto = await this.odiseaService.getById(odiseaId);
+          odiseaDto.setImage([
+            ...odiseaDto.getImage(),
+            { assetID: 'images/' + odiseaId + '/L' + index },
+          ]);
+          await this.odiseaService.update(odiseaDto);
+        });
 
       this.selectedLanguages.forEach((language) => {
-        let type: calendarType
-        let dates: any
-        let odiseaLang = new Language(language.language.split(" ")[0].toUpperCase(),language.language)
-  
-        if(language.dateType === "frecuencia"){
-          type = calendarType.frequencyDatesCalendar
-          dates = language.date
-        }else if (language.dateType === "fecha-especifica"){
-          type = calendarType.singleDateCalendar
-          dates = language.date
+        let type: calendarType;
+        let dates: any;
+        let odiseaLang = new Language(
+          language.language.split(' ')[0].toUpperCase(),
+          language.language
+        );
+
+        if (language.dateType === 'frecuencia') {
+          type = calendarType.frequencyDatesCalendar;
+          dates = language.date;
+        } else if (language.dateType === 'fecha-especifica') {
+          type = calendarType.singleDateCalendar;
+          dates = language.date;
+        } else {
+          type = calendarType.rangeDatesCalendar;
+          dates = language.date;
         }
-        else{
-          type = calendarType.rangeDatesCalendar
-          dates = language.date
-        }
-        let calendar = new OdiseaCalendar(type,dates,odiseaLang,odiseaId)
-        this.odiseaCalendarService.create(calendar)
-      })
+        let calendar = new OdiseaCalendar(type, dates, odiseaLang, odiseaId);
+        this.odiseaCalendarService.create(calendar);
+      });
     });
 
     this.snackBar.open('Todo ha sido guardado', 'Cerrar');
