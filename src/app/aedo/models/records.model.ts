@@ -3,7 +3,7 @@ import { IRecord } from '../interfaces/record.interface';
 
 export class Record implements IRecord {
   lastModified: Timestamp;
-  userID: string;
+  userId: string;
   data: any;
 
   constructor(
@@ -12,14 +12,14 @@ export class Record implements IRecord {
     data: any
   ) {
     this.lastModified = lastModified;
-    this.userID = userID;
+    this.userId = userID;
     this.data = data;
   }
 
   toJSON() {
     return {
       lastModified: this.lastModified.toDate(),
-      userID: this.userID,
+      userID: this.userId,
       data: this.data
     };
   }

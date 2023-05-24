@@ -12,7 +12,8 @@ export class Odisea implements IOdisea {
     totalScoreVotes:number;
     uid:string;
     tags:Array<string>;
-    location:any
+    location:any;
+    price: number;
 
   constructor(
     description:string,
@@ -24,7 +25,8 @@ export class Odisea implements IOdisea {
     totalScoreVotes:number,
     uid:string,
     tags:Array<string>,
-    location:any
+    location:any,
+    price:number
   ) {
     this.description = description;
     this.images = image;
@@ -36,6 +38,7 @@ export class Odisea implements IOdisea {
     this.uid = uid;
     this.tags = tags;
     this.location = location;
+    this.price = price;
   }
 
   toJSON() {
@@ -49,7 +52,8 @@ export class Odisea implements IOdisea {
       totalScoreVotes: this.totalScoreVotes,
       uid: this.uid,
       tags: this.tags,
-      location: this.location
+      location: this.location,
+      price: this.price
     };
   }
 }

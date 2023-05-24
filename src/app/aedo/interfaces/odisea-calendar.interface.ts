@@ -5,7 +5,7 @@ export interface IOdiseaCalendar {
     calendarType: calendarType;
     dates: Array<string> | {endDate:Timestamp,startDate:Timestamp} | Timestamp;
     language:ILanguage;
-    odiseaID:string;
+    odiseaId:string;
 
     toJSON():any
 }

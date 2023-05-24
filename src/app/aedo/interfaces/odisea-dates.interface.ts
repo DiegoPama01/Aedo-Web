@@ -6,8 +6,8 @@ export interface IOdiseaDates {
     language:ILanguage;
     maxCapacity:number;
     numReservations:number;
-    odiseaCalendarID:string;
-    odiseaID:string;
+    odiseaCalendarId:string;
+    odiseaId:string;
 
 
     toJSON():any

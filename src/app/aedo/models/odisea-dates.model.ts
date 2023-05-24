@@ -7,8 +7,8 @@ export class OdiseaDates implements IOdiseaDates {
   language: ILanguage;
   maxCapacity: number;
   numReservations: number;
-  odiseaCalendarID: string;
-  odiseaID: string;
+  odiseaCalendarId: string;
+  odiseaId: string;
 
   constructor(
     date: Timestamp,
@@ -22,8 +22,8 @@ export class OdiseaDates implements IOdiseaDates {
     this.language = language;
     this.maxCapacity = maxCapacity;
     this.numReservations = numReservations;
-    this.odiseaCalendarID = odiseaCalendarID;
-    this.odiseaID = odiseaID;
+    this.odiseaCalendarId = odiseaCalendarID;
+    this.odiseaId = odiseaID;
   }
 
   toJSON() {
@@ -32,8 +32,8 @@ export class OdiseaDates implements IOdiseaDates {
       language: this.language.toJSON(),
       maxCapacity: this.maxCapacity,
       numReservations: this.numReservations,
-      odiseaCalendarID: this.odiseaCalendarID,
-      odiseaID: this.odiseaID
+      odiseaCalendarID: this.odiseaCalendarId,
+      odiseaID: this.odiseaId
     };
   }
 }

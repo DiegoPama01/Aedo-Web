@@ -2,8 +2,9 @@ import { ILanguage } from "./language.interface";
 
 export interface IReservation {
     language:ILanguage;
-    odiseaDateID:string;
-    userID:string;
+    odiseaDateId:string;
+    userId:string;
+    userReservations: number;
 
     toJSON():any
 }

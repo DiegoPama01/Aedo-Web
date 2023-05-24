@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Observable, map } from 'rxjs';
 import { OdiseaDto } from '../../dto/odisea.dto';
-import { Odisea } from '../../models/odisea.model';
 import { IOdisea } from '../../interfaces/odisea.interface';
 
 @Injectable({
@@ -35,7 +34,8 @@ export class OdiseaService {
             item.totalScoreVotes,
             item.uid,
             item.tags,
-            item.location
+            item.location,
+            item.price
           );
         });
       })
@@ -66,7 +66,8 @@ export class OdiseaService {
       totalScoreVotes,
       uid,
       tags,
-      location
+      location,
+      price
     } = data;
   
     const odisea = new OdiseaDto(
@@ -80,7 +81,8 @@ export class OdiseaService {
       totalScoreVotes,
       uid,
       tags,
-      location
+      location,
+      price
     );
   
     return odisea;

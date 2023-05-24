@@ -15,7 +15,7 @@ export class OdiseaCalendar implements IOdiseaCalendar {
   calendarType: calendarType;
   dates: DateCalendar;
   language: ILanguage;
-  odiseaID: string;
+  odiseaId: string;
 
   constructor(
     calendarType: calendarType,
@@ -29,7 +29,7 @@ export class OdiseaCalendar implements IOdiseaCalendar {
     this.calendarType = calendarType;
     this.dates = dates;
     this.language = language;
-    this.odiseaID = odiseaID;
+    this.odiseaId = odiseaID;
   }
 
   toJSON() {
@@ -37,7 +37,7 @@ export class OdiseaCalendar implements IOdiseaCalendar {
       calendarType: this.calendarType,
       dates: this.dates,
       language: this.language.toJSON(),
-      odiseaID: this.odiseaID,
+      odiseaID: this.odiseaId,
     };
   }
   

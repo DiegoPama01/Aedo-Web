@@ -8,8 +8,8 @@ export class OdiseaDatesDto {
   private language: ILanguage;
   private maxCapacity: number;
   private numReservations: number;
-  private odiseaCalendarID: string;
-  private odiseaID: string;
+  private odiseaCalendarId: string;
+  private odiseaId: string;
 
   constructor(
     id: string,
@@ -25,8 +25,8 @@ export class OdiseaDatesDto {
     this.language = language;
     this.maxCapacity = maxCapacity;
     this.numReservations = numReservations;
-    this.odiseaCalendarID = odiseaCalendarID;
-    this.odiseaID = odiseaID;
+    this.odiseaCalendarId = odiseaCalendarID;
+    this.odiseaId = odiseaID;
   }
 
   public getId(): string {
@@ -66,22 +66,22 @@ export class OdiseaDatesDto {
   }
 
   public getOdiseaCalendarID(): string {
-    return this.odiseaCalendarID;
+    return this.odiseaCalendarId;
   }
 
   public setOdiseaCalendarID(odiseaCalendarID: string): void {
-    this.odiseaCalendarID = odiseaCalendarID;
+    this.odiseaCalendarId = odiseaCalendarID;
   }
 
   public getOdiseaID(): string {
-    return this.odiseaID;
+    return this.odiseaId;
   }
 
   public setOdiseaID(odiseaID: string): void {
-    this.odiseaID = odiseaID;
+    this.odiseaId = odiseaID;
   }
 
   public getOdiseaDate(): OdiseaDates {
-    return new OdiseaDates(this.date, this.language, this.maxCapacity, this.numReservations, this.odiseaCalendarID, this.odiseaID);
+    return new OdiseaDates(this.date, this.language, this.maxCapacity, this.numReservations, this.odiseaCalendarId, this.odiseaId);
   }
 }

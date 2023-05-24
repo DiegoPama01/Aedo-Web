@@ -10,6 +10,7 @@ export interface IOdisea {
     totalScoreVotes:number;
     uid:string;
     tags:Array<string>;
+    price: number;
 
     toJSON():any
 }

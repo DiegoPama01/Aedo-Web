@@ -2,8 +2,8 @@ export interface IComment {
     body:string;
     odiseaId:string;
     rating: number;
-    reservationID:string;
-    userID:string;
+    reservationId:string;
+    userId:string;
     username:string;
 
     toJSON():any

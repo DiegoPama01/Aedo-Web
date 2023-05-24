@@ -5,18 +5,21 @@ export class ReservationDto {
   private id: string;
   private language: ILanguage;
   private odiseaDateID: string;
-  private userID: string;
+  private userId: string;
+  private userReservations:number;
 
   constructor(
     id: string,
     language: ILanguage,
     odiseaDateID: string,
-    userID: string
+    userId: string,
+    userReservations: number
   ) {
     this.id = id;
     this.language = language;
     this.odiseaDateID = odiseaDateID;
-    this.userID = userID;
+    this.userId = userId;
+    this.userReservations = userReservations;
   }
 
   public getId(): string {
@@ -31,6 +34,14 @@ export class ReservationDto {
     this.language = language;
   }
 
+  public getUserReservations(): number {
+    return this.userReservations;
+  }
+
+  public setUserReservations(userReservations: number): void {
+    this.userReservations = userReservations;
+  }
+
   public getOdiseaDateID(): string {
     return this.odiseaDateID;
   }
@@ -39,15 +50,15 @@ export class ReservationDto {
     this.odiseaDateID = odiseaDateID;
   }
 
-  public getUserID(): string {
-    return this.userID;
+  public getuserId(): string {
+    return this.userId;
   }
 
-  public setUserID(userID: string): void {
-    this.userID = userID;
+  public setuserId(userId: string): void {
+    this.userId = userId;
   }
 
   public getReservation(): Reservation {
-    return new Reservation(this.language, this.odiseaDateID, this.userID);
+    return new Reservation(this.language, this.odiseaDateID, this.userId, this.userReservations);
   }
 }

@@ -4,13 +4,13 @@ import { Timestamp } from "@angular/fire/firestore";
 export class RecordDto {
   private id: string;
   private lastModified: Timestamp;
-  private userID: string;
+  private userId: string;
   private data: any;
 
-  constructor(id: string, lastModified: Timestamp, userID: string, data: any) {
+  constructor(id: string, lastModified: Timestamp, userId: string, data: any) {
     this.id = id;
     this.lastModified = lastModified;
-    this.userID = userID;
+    this.userId = userId;
     this.data = data;
   }
 
@@ -27,12 +27,12 @@ export class RecordDto {
     this.lastModified = lastModified;
   }
 
-  public getUserID(): string {
-    return this.userID;
+  public getuserId(): string {
+    return this.userId;
   }
 
-  public setUserID(userID: string): void {
-    this.userID = userID;
+  public setuserId(userId: string): void {
+    this.userId = userId;
   }
 
   public getData(): any {
@@ -44,6 +44,6 @@ export class RecordDto {
   }
 
   public getRecord(): Record {
-    return new Record(this.lastModified,this.userID,this.data);
+    return new Record(this.lastModified,this.userId,this.data);
   }
 }

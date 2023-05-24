@@ -14,7 +14,8 @@ export class OdiseaDto {
   private totalScoreVotes: number;
   private uid: string;
   private tags: Array<string>;
-  private location: any
+  private location: any;
+  private price:number
 
   constructor(
     id: string,
@@ -27,7 +28,8 @@ export class OdiseaDto {
     totalScoreVotes: number,
     uid: string,
     tags: Array<string>,
-    location:any
+    location:any,
+    price: number
   ) {
     this.id = id;
     this.description = description;
@@ -40,10 +42,19 @@ export class OdiseaDto {
     this.uid = uid;
     this.tags = tags;
     this.location = location;
+    this.price = price;
   }
 
   public getId(): string {
     return this.id;
+  }
+
+  public getPrice(): number {
+    return this.price;
+  }
+
+  public setPrice(price:number) {
+    this.price = price
   }
 
   public getLocation(): any {
@@ -133,7 +144,8 @@ export class OdiseaDto {
       this.totalScoreVotes,
       this.uid,
       this.tags,
-      this.location
+      this.location,
+      this.price
     );
   }
 }

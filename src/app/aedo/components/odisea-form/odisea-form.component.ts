@@ -313,7 +313,8 @@ export class OdiseaFormComponent implements OnInit {
       0,
       uid,
       arrayCategory,
-      odiseaLocation
+      odiseaLocation,
+      this.firstStepForm.get('price')?.value
     );
 
     this.odiseaService.create(odisea).then((docRef) => {
