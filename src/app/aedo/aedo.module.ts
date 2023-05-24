@@ -32,6 +32,9 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { LanguageItemComponent } from './components/language-item/language-item.component';
 import { MapComponent } from './components/map/map.component';
+import { OdiseaProfileDetailsComponent } from './components/odisea-profile-details/odisea-profile-details.component';
+import { OdiseaProfileOdiseoComponent } from './components/odisea-profile-odiseo/odisea-profile-odiseo.component';
+import { CommentListComponent } from './components/comment-list/comment-list.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import { MapComponent } from './components/map/map.component';
     CategoryItemComponent,
     LanguageItemComponent,
     MapComponent,
+    OdiseaProfileDetailsComponent,
+    OdiseaProfileOdiseoComponent,
+    CommentListComponent,
   ],
   imports: [
     CommonModule,

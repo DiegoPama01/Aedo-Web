@@ -31,7 +31,7 @@ export class HomeComponent {
 
   isUserAdmin(){
     if(this.auth.getCurrentUser()){
-      return this.auth.getCurrentUser().isAdmin
+      return this.auth.getCurrentUser().getIsAdmin()
     }
     else{
       return false

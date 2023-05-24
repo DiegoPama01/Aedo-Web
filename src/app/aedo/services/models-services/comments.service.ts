@@ -26,16 +26,37 @@ export class CommentService {
           return new CommentDto(
             item.id,
             item.body,
-            item.odiseaId,
+            item.odiseaID,
             item.rating,
-            item.reservationId,
+            item.reservationID,
             item.userId,
-            item.username
+            item.userName
           );
         });
       })
     );
   }
+
+  getCommentsByOdiseaId(odiseaId: string): Observable<CommentDto[]> {
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        return data
+          .filter(item => item.odiseaID === odiseaId)
+          .map(item => {
+            return new CommentDto(
+              item.id,
+              item.body,
+              item.odiseaID,
+              item.rating,
+              item.reservationID,
+              item.userId,
+              item.userName
+            );
+          });
+      })
+    );
+  }
+  
 
   remove(commentDto: CommentDto) {
     return this.firestoreService.remove(this.collection, commentDto.getId());

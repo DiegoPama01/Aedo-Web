@@ -1,0 +1,34 @@
+<mat-card class="custom-card">
+  <div class="carousel-container">
+    <ngb-carousel
+      [showNavigationArrows]="true"
+      [showNavigationIndicators]="true"
+    >
+      <ng-template ngbSlide *ngFor="let image of imageUrl">
+        <div class="carousel-image-container">
+          <img [src]="image" alt="" class="carousel-image" />
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <mat-card-content>
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>{{ odisea?.name }}</mat-card-title>
+        <p>Description: {{ odisea?.description }}</p>
+        <div class="tags-container">
+          <mat-chip-row>
+            <mat-chip *ngFor="let tag of odisea?.tags">{{ tag }}</mat-chip>
+          </mat-chip-row>
+        </div>
+        <div class="languages-container">
+          <mat-chip-row>
+            <mat-chip *ngFor="let language of odisea?.languages">{{
+              language.item
+            }}</mat-chip>
+          </mat-chip-row>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

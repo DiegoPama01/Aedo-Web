@@ -1,0 +1,11 @@
+<div class="list-container">
+  <div class="cards-container">
+    <mat-card class="comment-card" *ngFor="let comment of comments">
+      <mat-card-content>
+        <mat-icon class="comment-icon">comment</mat-icon>
+        <h4>{{ comment.username }}</h4>
+        <p>{{ comment.body }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

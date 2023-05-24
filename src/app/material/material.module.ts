@@ -21,6 +21,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap'; 
+import {MatChipsModule} from '@angular/material/chips';
+
+
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -43,7 +47,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCheckboxModule,
     MatStepperModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbCarouselModule,
+    MatChipsModule
   ],
 })
 export class MaterialModule {}

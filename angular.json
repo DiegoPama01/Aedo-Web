@@ -21,9 +21,9 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/styles/my-theme.scss",
               "./node_modules/leaflet/dist/leaflet.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/styles/my-theme.scss"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]
           },
@@ -85,7 +85,9 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "@angular/material/prebuilt-themes/purple-green.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/styles/my-theme.scss",
+              "./node_modules/leaflet/dist/leaflet.css",
               "src/styles.css"
             ],
             "scripts": []

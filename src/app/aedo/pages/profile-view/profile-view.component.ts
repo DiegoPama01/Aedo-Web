@@ -37,12 +37,12 @@ export class ProfileViewComponent {
     onAuthStateChanged(authService.getAuth(), (usuarioFirebase) => {
       if (usuarioFirebase) {
         this.odiseoService.getById(usuarioFirebase.uid).then((odiseo) => {
-          console.log("Prueba de DTO: ", odiseo)
+          console.log("Prueba de DTO: ", odiseo.getBirthDate())
           this.odiseo = odiseo;
           this.userForm.setValue({
             name: this.odiseo.getName(),
             phoneNumber: this.odiseo.getPhoneNumber(),
-            birthday: new Date(this.odiseo.getBirthDate().toDate()),
+            birthday: new Date(this.odiseo.getBirthDate()),
           });
         });
       }

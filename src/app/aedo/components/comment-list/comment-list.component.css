@@ -1,0 +1,25 @@
+.list-container {
+    margin-top: 20px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cards-container {
+    flex: 1;
+    max-height: calc(100vh - 120px); /* Resta el tamaño del encabezado si lo hay */
+    overflow-y: auto;
+  }
+  
+  .comment-card {
+    margin-bottom: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .comment-icon {
+    font-size: 24px;
+    margin-right: 8px;
+  }
+  

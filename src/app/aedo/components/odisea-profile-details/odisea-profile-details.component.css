@@ -1,0 +1,33 @@
+.custom-card {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.carousel-container {
+  max-height: 300px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.carousel-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.carousel-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.tags-container,
+.languages-container {
+  margin-top: 10px;
+}
+
+.mat-chip-row {
+  margin-bottom: 5px;
+}
