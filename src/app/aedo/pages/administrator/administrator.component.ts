@@ -10,7 +10,7 @@ import { ListUserComponent } from '../../components/list-user/list-user.componen
   templateUrl: './administrator.component.html',
   styleUrls: ['./administrator.component.css'],
 })
-export class AdministratorComponent {
+export class AdministratorPageComponent {
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {

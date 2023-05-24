@@ -18,7 +18,7 @@ import { OdiseoDto } from '../../dto/odiseo.dto';
   templateUrl: './profile-view.component.html',
   styleUrls: ['./profile-view.component.css'],
 })
-export class ProfileViewComponent {
+export class ProfileViewPageComponent {
   modifyInputs: boolean = true;
   odiseo?: OdiseoDto;
   userForm: FormGroup;
@@ -36,15 +36,19 @@ export class ProfileViewComponent {
 
     onAuthStateChanged(authService.getAuth(), (usuarioFirebase) => {
       if (usuarioFirebase) {
-        this.odiseoService.getById(usuarioFirebase.uid).then((odiseo) => {
-          console.log("Prueba de DTO: ", odiseo.getBirthDate())
-          this.odiseo = odiseo;
-          this.userForm.setValue({
-            name: this.odiseo.getName(),
-            phoneNumber: this.odiseo.getPhoneNumber(),
-            birthday: new Date(this.odiseo.getBirthDate()),
+        this.odiseoService
+          .getById(usuarioFirebase.uid)
+          .then((odiseo) => {
+            this.odiseo = odiseo;
+            this.userForm.setValue({
+              name: this.odiseo.getName(),
+              phoneNumber: this.odiseo.getPhoneNumber(),
+              birthday: new Date(this.odiseo.getBirthDate()),
+            });
+          })
+          .catch((error) => {
+            console.log('Error obtaining user: ' + error);
           });
-        });
       }
     });
   }
@@ -59,7 +63,9 @@ export class ProfileViewComponent {
       this.odiseo!.setName(this.userForm.value.name!);
       this.odiseo!.setPhoneNumber(this.userForm.value.phoneNumber!);
       this.odiseo!.setBirthDate(this.userForm.value.birthday!);
-      this.odiseoService.update(this.odiseo!);
+      this.odiseoService.update(this.odiseo!).catch((error) => {
+        console.log('Error updating user: ' + error);
+      });
     }
   }
 

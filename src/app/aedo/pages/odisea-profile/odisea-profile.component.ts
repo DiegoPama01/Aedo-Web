@@ -13,7 +13,7 @@ import { CommentService } from '../../services/models-services/comments.service'
   templateUrl: './odisea-profile.component.html',
   styleUrls: ['./odisea-profile.component.css'],
 })
-export class OdiseaProfileComponent {
+export class OdiseaProfilePageComponent {
   id: string = '';
   odisea?: IOdisea;
   odiseo?: IOdiseo;
@@ -29,14 +29,13 @@ export class OdiseaProfileComponent {
     private commentService: CommentService
   ) {
     this.route.params.subscribe((params: any) => {
-      //this.id = params['id'];
-      this.id = 'NJTXX7BAd28enmsx7zbD'; // Ejemplo
+      this.id = params['id'];
       this.odiseaService
         .getById(this.id)
         .then((odisea) => {
           this.odisea = odisea.getOdisea();
           this.odiseoService
-            .getById(this.odisea!.uid)
+            .getById(this.odisea.uid)
             .then((odiseo) => {
               this.odiseo = odiseo.getOdiseo();
             })
@@ -46,7 +45,9 @@ export class OdiseaProfileComponent {
           this.odisea.images.forEach((image) => {
             this.imageService.downloadImage(image.assetId).then((imagerUrl) => {
               this.odiseaImgs.push(imagerUrl);
-            });
+            }).catch((error) => {
+              console.log("Error dowloading image: " + error)
+            });;
           });
           this.commentService.getCommentsByOdiseaId(this.id).subscribe((commentListDto) => {
             commentListDto.forEach((commentDto) => {

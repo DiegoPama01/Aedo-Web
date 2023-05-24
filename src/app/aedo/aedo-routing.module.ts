@@ -1,39 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { canActivate, redirectUnauthorizedTo} from '@angular/fire/auth-guard'
-import { AdministratorComponent } from './pages/administrator/administrator.component';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { AdministratorPageComponent } from './pages/administrator/administrator.component';
 
-import { HomeComponent } from './pages/home/home.component';
-import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register.component';
-import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
-import { OdiseaProfileComponent } from './pages/odisea-profile/odisea-profile.component';
+import { HomePageComponent } from './pages/home/home.component';
+import { OdiseaRegisterPageComponent } from './pages/odisea-register/odisea-register.component';
+import { ProfileViewPageComponent } from './pages/profile-view/profile-view.component';
+import { OdiseaProfilePageComponent } from './pages/odisea-profile/odisea-profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   {
     path: 'home',
-    component: HomeComponent,
+    component: HomePageComponent,
     children: [
       {
         path: 'administrator',
-        component: AdministratorComponent,
-        ...canActivate(() => redirectUnauthorizedTo(['/home']))
+        component: AdministratorPageComponent,
+        ...canActivate(() => redirectUnauthorizedTo(['/home'])),
       },
       {
         path: 'registration',
-        component: OdiseaRegisterComponent,
-        ...canActivate(() => redirectUnauthorizedTo(['/home']))
+        component: OdiseaRegisterPageComponent,
+        ...canActivate(() => redirectUnauthorizedTo(['/home'])),
       },
       {
         path: 'profile',
-        component: ProfileViewComponent,
-        ...canActivate(() => redirectUnauthorizedTo(['/home']))
+        component: ProfileViewPageComponent,
+        ...canActivate(() => redirectUnauthorizedTo(['/home'])),
       },
       {
         path: 'odisea-profile',
-        component: OdiseaProfileComponent
-      }
+        component: OdiseaProfilePageComponent,
+      },
     ],
   },
 ];

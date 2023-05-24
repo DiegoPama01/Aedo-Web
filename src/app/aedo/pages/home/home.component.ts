@@ -15,7 +15,7 @@ import { AuthenticationService } from '../../services/authentication.service';
     `,
   ],
 })
-export class HomeComponent {
+export class HomePageComponent {
   constructor(
     private matDialog: MatDialog,
     public auth: AuthenticationService
@@ -26,19 +26,20 @@ export class HomeComponent {
   }
 
   logout() {
-    this.auth.logout();
+    this.auth.logout().catch((error) => {
+      console.log("Error logging out: " + error)
+    });
   }
 
-  isUserAdmin(){
-    if(this.auth.getCurrentUser()){
-      return this.auth.getCurrentUser().getIsAdmin()
-    }
-    else{
-      return false
+  isUserAdmin() {
+    if (this.auth.getCurrentUser()) {
+      return this.auth.getCurrentUser().getIsAdmin();
+    } else {
+      return false;
     }
   }
 
-  getUser(){
-    return this.auth.getCurrentUser()
+  getUser() {
+    return this.auth.getCurrentUser();
   }
 }

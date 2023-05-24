@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './odisea-register.component.html',
   styleUrls: ['./odisea-register.component.css']
 })
-export class OdiseaRegisterComponent {
+export class OdiseaRegisterPageComponent {
 
 }

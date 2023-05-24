@@ -1,82 +1,82 @@
-import { AdministratorComponent } from './pages/administrator/administrator.component';
+import { AdministratorPageComponent } from './pages/administrator/administrator.component';
 import { AedoRoutingModule } from './aedo-routing.module';
+import { CategoriesCardComponent } from './components/categories-card/categories-card.component';
+import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { CommonModule } from '@angular/common';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HomeComponent } from './pages/home/home.component';
+import { HomePageComponent } from './pages/home/home.component';
+import { LanguageItemComponent } from './components/language-item/language-item.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ListAdminComponent } from './components/list-admin/list-admin.component';
+import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
+import { ListLanguagesComponent } from './components/list-languages/list-languages.component';
+import { ListUserComponent } from './components/list-user/list-user.component';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { MapComponent } from './components/map/map.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MaterialModule } from '../material/material.module';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { NgModule } from '@angular/core';
-import { OdiseaProfileComponent } from './pages/odisea-profile/odisea-profile.component';
-import { OdiseaRegisterComponent } from './pages/odisea-register/odisea-register.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
-import { ListAdminComponent } from './components/list-admin/list-admin.component';
-import { ListUserComponent } from './components/list-user/list-user.component';
-import { ProfileViewComponent } from './pages/profile-view/profile-view.component';
-import { OdiseaFormComponent } from './components/odisea-form/odisea-form.component';
-import { UserStatusComponent } from './components/user-status/user-status.component';
-import { ProfileCardComponent } from './components/profile-card/profile-card.component';
-import { ResetEmailDialogComponent } from './components/reset-email-dialog/reset-email-dialog.component';
-import { ResetPasswordDialogComponent } from './components/reset-password-dialog/reset-password-dialog.component';
-import { ListLanguagesComponent } from './components/list-languages/list-languages.component';
-import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
-import { CategoriesCardComponent } from './components/categories-card/categories-card.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-import { CurrencyMaskModule } from "ng2-currency-mask";
-import { CategoryItemComponent } from './components/category-item/category-item.component';
-import { LanguageItemComponent } from './components/language-item/language-item.component';
-import { MapComponent } from './components/map/map.component';
+import { NgModule } from '@angular/core';
+import { OdiseaFormComponent } from './components/odisea-form/odisea-form.component';
 import { OdiseaProfileDetailsComponent } from './components/odisea-profile-details/odisea-profile-details.component';
 import { OdiseaProfileOdiseoComponent } from './components/odisea-profile-odiseo/odisea-profile-odiseo.component';
-import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { OdiseaProfilePageComponent } from './pages/odisea-profile/odisea-profile.component';
+import { OdiseaRegisterPageComponent } from './pages/odisea-register/odisea-register.component';
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { ProfileViewPageComponent } from './pages/profile-view/profile-view.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
+import { ResetEmailDialogComponent } from './components/reset-email-dialog/reset-email-dialog.component';
+import { ResetPasswordDialogComponent } from './components/reset-password-dialog/reset-password-dialog.component';
+import { UserStatusComponent } from './components/user-status/user-status.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    AdministratorComponent,
-    OdiseaProfileComponent,
-    OdiseaRegisterComponent,
-    RegisterDialogComponent,
-    LoginDialogComponent,
-    ListAdminComponent,
-    ListUserComponent,
-    ListLanguagesComponent,
-    ListCategoriesComponent,
+    AdministratorPageComponent,
     CategoriesCardComponent,
-    ProfileViewComponent,
-    OdiseaFormComponent,
-    UserStatusComponent,
-    ProfileCardComponent,
-    ResetEmailDialogComponent,
-    ResetPasswordDialogComponent,
     CategoryItemComponent,
+    CommentListComponent,
+    HomePageComponent,
     LanguageItemComponent,
+    ListAdminComponent,
+    ListCategoriesComponent,
+    ListLanguagesComponent,
+    ListUserComponent,
+    LoginDialogComponent,
     MapComponent,
+    OdiseaFormComponent,
     OdiseaProfileDetailsComponent,
     OdiseaProfileOdiseoComponent,
-    CommentListComponent,
+    OdiseaProfilePageComponent,
+    OdiseaRegisterPageComponent,
+    ProfileCardComponent,
+    ProfileViewPageComponent,
+    RegisterDialogComponent,
+    ResetEmailDialogComponent,
+    ResetPasswordDialogComponent,
+    UserStatusComponent,
   ],
   imports: [
-    CommonModule,
     AedoRoutingModule,
-    MaterialModule,
+    CommonModule,
+    CurrencyMaskModule,
     FlexLayoutModule,
-    ReactiveFormsModule,
     FormsModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
     LayoutModule,
+    MatButtonModule,
+    MatCardModule,
+    MaterialModule,
+    MatGridListModule,
+    MatIconModule,
+    MatMenuModule,
     NgbAlertModule,
-    CurrencyMaskModule
+    ReactiveFormsModule,
   ],
 })
 export class AedoModule {}
