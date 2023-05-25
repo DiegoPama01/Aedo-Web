@@ -1,27 +1,20 @@
-<div class="d-flex flex-row justify-content-end mb-4">
-  <button
-    id="addButton"
-    class="btn btn-primary btn-lg rounded-circle"
-    (click)="open(createModal)"
-  >
-    <i class="bi bi-plus-lg"></i>
+<div class="add-button-container">
+  <button mat-icon-button id="addButton" class="add-button" (click)="open(createModal)">
+    <mat-icon>add</mat-icon>
   </button>
 </div>
-<ul class="list-group" *ngFor="let language of this.getList() | async">
-  <li class="list-group-item border-0">
-    <div class="container d-flex flex-row justify-content-center gap-2">
-      <h3 class="col-10">{{ language.getItem().split(" - ")[1] }}</h3>
 
-      <button
-        class="col-1 btn btn-danger btn-sm"
-        (click)="open(removeModal, language)"
-      >
-        <i class="bi bi-trash"></i>
+<mat-list *ngFor="let language of this.getList() | async">
+  <mat-list-item>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <h3 class="col-10">{{ language.getItem().split(" - ")[1] }}</h3>
+      <button mat-icon-button color="warn" (click)="open(removeModal, language)">
+        <mat-icon>delete</mat-icon>
       </button>
     </div>
-    <hr />
-  </li>
-</ul>
+  </mat-list-item>
+  <hr />
+</mat-list>
 
 <ng-template #createModal let-modal>
   <div class="modal-header">

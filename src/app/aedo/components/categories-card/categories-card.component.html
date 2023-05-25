@@ -1,57 +1,56 @@
-<div class="card mb-2 w-100 h-100">
-  <div class="row g-0">
-    <div class="col-md-3 align-self-center">
-      <img
-        [src]="this.iconUrl"
-        class="img-fluid rounded-start h-25 w-25"
-        alt="category icon"
-      />
-    </div>
-    <div class="col-md-9 align-self-center">
-      <div class="row card-body m-2">
-        <h2 class="col-10 card-title text-center">{{ this.category!!.getName() }}</h2>
-        <button class="col-2 btn btn-danger" (click)="open(removeModal)">
-          <i class="bi bi-trash"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title
+        class=".custom-typo-headline-1"
+        style="font-size: xx-large"
+        >{{ this.category?.getName() }}</mat-card-title
+      >
+      <img mat-card-sm-image [src]="this.iconUrl" alt="category icon" />
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="open(removeModal)">
+      <mat-icon aria-hidden="false" color="white">delete</mat-icon>
+      Eliminar
+    </button>
+  </mat-card-actions>
+</mat-card>
 
-  <ng-template #removeModal let-modal>
-    <div class="modal-header">
-      <h2 class="modal-title" id="remove-modal">Eliminar categoria</h2>
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      ></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="mb-3">
-          <h3 for="languageInput">
-            Está segur@ de que desea eliminar la categoria
-            {{ this.category!!.getName() }} ?
-          </h3>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-outline-dark"
-        (click)="modal.dismiss('Cross click')"
-      >
-        Cancelar
-      </button>
-      <button
-        type="button"
-        class="btn btn-danger"
-        (click)="modal.close('removeCategory')"
-      >
-        Eliminar
-      </button>
-    </div>
-  </ng-template>
-</div>
+<ng-template #removeModal let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title" id="remove-modal">Eliminar categoria</h2>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <h3 for="languageInput">
+          Está segur@ de que desea eliminar la categoria
+          {{ this.category!!.getName() }} ?
+        </h3>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.dismiss('Cross click')"
+    >
+      Cancelar
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="modal.close('removeCategory')"
+    >
+      Eliminar
+    </button>
+  </div>
+</ng-template>

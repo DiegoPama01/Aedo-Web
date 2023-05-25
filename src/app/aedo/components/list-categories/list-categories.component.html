@@ -1,21 +1,53 @@
-<div class="mb-3">
-    <h3 class="text-start text-secondary">Crear Categoria</h3>
-    <div id="formContainer">
-        <label for="formName" class="form-label d-flex flex-start">Seleccione el nombre de la categoría</label>
-        <input class="form-control" type="text" id="formName" [(ngModel)]="categoryName"
-            placeholder="Nombre de la categoria">
-        <label for="formName" class="form-label mt-2 d-flex text-start">Seleccione el icono de la categoría</label>
-        <input class="form-control" type="file" id="formFile" (change)="setFile($event)">
-        <div class="d-flex justify-content-end mb-2">
-            <button class="btn btn-primary mt-2" (click)="createCategory()">Crear</button>
-        </div>
-        <ngb-alert *ngIf="categoryCreated" type="success" (closed)="categoryCreated = false">
-            Categoria creada con exito </ngb-alert>
+<div class="background-color-primary-200">
+  <div class="sticky-form-container background-color-primary-200">
+    <label for="formName" class="form-label d-flex flex-start"
+      >Seleccione el nombre de la categoría</label
+    >
+    <input
+      class="form-control"
+      type="text"
+      id="formName"
+      [(ngModel)]="categoryName"
+      placeholder="Nombre de la categoría"
+      required
+    />
+
+    <label for="formFile" class="form-label mt-2 d-flex text-start"
+      >Seleccione el icono de la categoría</label
+    >
+    <input
+      class="form-control"
+      type="file"
+      id="formFile"
+      (change)="setFile($event)"
+      required
+    />
+
+    <div class="d-flex justify-content-end mb-2">
+      <button
+        class="btn btn-primary mt-2"
+        (click)="createCategory()"
+        [disabled]="!categoryName || !categoryIcon"
+      >
+        Crear
+      </button>
     </div>
-    <h3 class="text-start mt-3 text-secondary">Lista de categorias</h3>
-    <ul class="list-group mt-2" *ngFor="let category of this.getListCategories() | async">
-        <li class="list-group-item border-0 ">
-            <app-categories-card [category]="category"></app-categories-card>
-        </li>
-    </ul>
+
+    <ngb-alert
+      *ngIf="categoryCreated"
+      type="success"
+      (closed)="categoryCreated = false"
+    >
+      Categoría creada con éxito
+    </ngb-alert>
+  </div>
+
+  <mat-list>
+    <mat-list-item
+      style="height: 100%; margin-bottom: 20px"
+      *ngFor="let category of this.getListCategories() | async"
+    >
+      <app-categories-card [category]="category"></app-categories-card>
+    </mat-list-item>
+  </mat-list>
 </div>

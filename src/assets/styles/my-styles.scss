@@ -1,5 +1,134 @@
-@import 'my-colors.scss';
+@use "sass:map";
+@import "my-colors.scss";
+@import "my-theme.scss";
 
-.class{
-    background-color: $primary-color-200;
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+@font-face {
+  font-family: "Interstate";
+  src: url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+}
+
+.custom-typo-headline-1 {
+  font-family: "Interstate", sans-serif !important;
+  font-size: map.get($headline-1, "font-size") !important;
+  line-height: map.get($headline-1, "line-height") !important;
+  font-weight: map.get($headline-1, "font-weight") !important ;
+}
+
+.custom-typo-headline-2 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($headline-2, "font-size");
+  line-height: map.get($headline-2, "line-height");
+  font-weight: map.get($headline-2, "font-weight");
+}
+
+.custom-typo-headline-3 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($headline-3, "font-size");
+  line-height: map.get($headline-3, "line-height");
+  font-weight: map.get($headline-3, "font-weight");
+}
+
+.custom-typo-headline-4 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($headline-4, "font-size");
+  line-height: map.get($headline-4, "line-height");
+  font-weight: map.get($headline-4, "font-weight");
+}
+
+.custom-typo-headline-5 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($headline-5, "font-size");
+  line-height: map.get($headline-5, "line-height");
+  font-weight: map.get($headline-5, "font-weight");
+}
+
+.custom-typo-headline-6 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($headline-6, "font-size");
+  line-height: map.get($headline-6, "line-height");
+  font-weight: map.get($headline-6, "font-weight");
+}
+
+.custom-typo-subtitle-1 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($subtitle-1, "font-size");
+  line-height: map.get($subtitle-1, "line-height");
+  font-weight: map.get($subtitle-1, "font-weight");
+}
+
+.custom-typo-subtitle-2 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($subtitle-2, "font-size");
+  line-height: map.get($subtitle-2, "line-height");
+  font-weight: map.get($subtitle-2, "font-weight");
+}
+
+.custom-typo-body-1 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($body-1, "font-size");
+  line-height: map.get($body-1, "line-height");
+  font-weight: map.get($body-1, "font-weight");
+}
+
+.dark-custom-typo-body-1 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($body-1, "font-size");
+  line-height: map.get($body-1, "line-height");
+  font-weight: bold;
+  color: white;
+}
+
+.custom-typo-body-2 {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($body-2, "font-size");
+  line-height: map.get($body-2, "line-height");
+  font-weight: map.get($body-2, "font-weight");
+}
+
+.custom-typo-caption {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($caption, "font-size");
+  line-height: map.get($caption, "line-height");
+  font-weight: map.get($caption, "font-weight");
+}
+
+.custom-typo-button {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($button, "font-size");
+  line-height: map.get($button, "line-height");
+  font-weight: map.get($button, "font-weight");
+}
+
+.custom-typo-overline {
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($overline, "font-size");
+  line-height: map.get($overline, "line-height");
+  font-weight: map.get($overline, "font-weight");
+}
+
+.mat-primary-header{
+  background-color: $primary-color-500 !important;
+  font-family: "Interstate", sans-serif;
+  font-size: map.get($body-1, "font-size");
+  line-height: map.get($body-1, "line-height");
+  font-weight: bold;
+  color: white;
+}
+
+.add-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 50px !important ;
+  height: 50px  !important;
+  border-radius: 50% !important;
+  background-color: $primary-color-500 !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+.background-color-primary-200{
+  background-color: $primary-color-200 !important;
 }

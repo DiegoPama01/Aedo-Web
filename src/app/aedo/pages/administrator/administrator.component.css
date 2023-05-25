@@ -20,6 +20,41 @@
   text-align: center;
 }
 
+.custom-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.custom-title-content {
+  display: flex;
+  justify-content: center;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.dashboard-card-content {
+  overflow: auto;
+  height: 100%;
+}
+
 .modal-backdrop.in {
   z-index: auto;
 }
+
+.overflow-auto::-webkit-scrollbar {
+  width: 0em;
+  background-color: transparent;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+

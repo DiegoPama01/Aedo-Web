@@ -18,3 +18,21 @@ $accent-color-700: mat.get-color-from-palette($md-accentpalette, 700);
 $warn-color-200: mat.get-color-from-palette($warn-palette, 200);
 $warn-color-500: mat.get-color-from-palette($warn-palette, 500);
 $warn-color-700: mat.get-color-from-palette($warn-palette, 700);
+
+
+$typography-config: mat.get-typography-config($light-theme);
+
+$font-family: map.get($typography-config, 'font-family');
+$headline-1: map.get($typography-config, 'headline-1');
+$headline-2: map.get($typography-config, 'headline-2');
+$headline-3: map.get($typography-config, 'headline-3');
+$headline-4: map.get($typography-config, 'headline-4');
+$headline-5: map.get($typography-config, 'headline-5');
+$headline-6: map.get($typography-config, 'headline-6');
+$subtitle-1: map.get($typography-config, 'subtitle-1');
+$subtitle-2: map.get($typography-config, 'subtitle-2');
+$body-1: map.get($typography-config, 'body-1');
+$body-2: map.get($typography-config, 'body-2');
+$caption: map.get($typography-config, 'caption');
+$button: map.get($typography-config, 'button');
+$overline: map.get($typography-config, 'overline');

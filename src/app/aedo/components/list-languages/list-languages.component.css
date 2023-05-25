@@ -1,3 +1,10 @@
-li {
-  list-style: none;
+.add-button-container {
+  position: sticky;
+  top: 70px;
+  right: 0px;
+  z-index: 1;
+  margin-left: 10px;
+  border: 0px;
 }
+
+

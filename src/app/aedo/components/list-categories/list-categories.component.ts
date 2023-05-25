@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Category } from '../../models/category.model';
-import { CategoryService } from '../../services/models-services/category.service';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICategory } from '../../interfaces/category.interface';
-import { ListLanguagesComponent } from '../list-languages/list-languages.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CategoryDto } from '../../dto/category.dto';
+import { CategoryService } from '../../services/models-services/category.service';
 import { ImagesService } from '../../services/models-services/images.service';
+import { CategoryDto } from '../../dto/category.dto';
 
 @Component({
   selector: 'app-list-categories',
@@ -25,32 +21,44 @@ export class ListCategoriesComponent {
     private imagesService: ImagesService
   ) {}
 
-  private listCategories: Observable<CategoryDto[]> =
-    this.categoryService.getCollection();
+  private listCategories: Observable<CategoryDto[]> = this.categoryService.getCollection();
 
   public getListCategories(): Observable<CategoryDto[]> {
     return this.listCategories;
   }
 
   setFile(event: any) {
-    console.log('llamando a metodo');
+    console.log('Llamando a método setFile');
     this.categoryIcon = event.target.files[0];
   }
 
   createCategory() {
+    if (!this.categoryName || !this.categoryIcon) {
+      return; // Si el nombre o el icono están vacíos, no se crea la categoría
+    }
+
     this.categoryToCreate.setName(this.categoryName);
     this.categoryService
       .create(this.categoryToCreate.getCategory())
       .then((res) => {
-        console.log('res: ', res);
+        console.log('Res: ', res);
         return res.id;
       })
       .then((id) => {
-        console.log('el id creado es: ', id);
+        console.log('El ID creado es: ', id);
         this.imagesService.uploadIcon(this.categoryToCreate.getName(), id, this.categoryIcon);
       })
       .then(() => {
         this.categoryCreated = true;
+        this.categoryName = '';
+        this.categoryIcon = null;
+        setTimeout(() => {
+          this.refreshCategories(); // Actualizar la lista de categorías después de un retraso
+        }, 2000);
       });
+  }
+
+  private refreshCategories(): void {
+    this.listCategories = this.categoryService.getCollection();
   }
 }

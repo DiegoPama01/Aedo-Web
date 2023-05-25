@@ -1,16 +1,20 @@
 <div class="grid-container">
-  <mat-grid-list cols="3" rowHeight="400px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <mat-grid-list [cols]="getColCount() | async" rowHeight="400px">
+    <mat-grid-tile
+      *ngFor="let card of cards | async"
+      [colspan]="card.cols"
+      [rowspan]="card.rows"
+    >
       <mat-card class="dashboard-card overflow-auto">
-        <mat-card-header>
-          <mat-card-title style="margin-bottom: 10px;">
-            {{card.title}}
+        <mat-card-header class="mat-primary-header sticky-header">
+          <mat-card-title class="custom-title">
+            <div class="custom-title-content">
+              {{ card.title }}
+            </div>
           </mat-card-title>
-
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <ng-container *ngComponentOutlet="card.component"></ng-container>
-        </mat-card-content>
+
+        <ng-container *ngComponentOutlet="card.component"></ng-container>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

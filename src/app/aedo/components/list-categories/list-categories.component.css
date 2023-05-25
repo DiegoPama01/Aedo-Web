@@ -1,5 +1,10 @@
-#formContainer {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
+.sticky-form-container {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: #ffffff; /* Color de fondo deseado */
+  padding: 20px; /* Espaciado interno deseado */
+}
+.mat-list-item {
+  margin-bottom: 46px;
 }

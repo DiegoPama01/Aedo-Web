@@ -31,7 +31,7 @@ export class AdministratorPageComponent {
           {
             title: 'Categorias',
             cols: 1,
-            rows: 1,
+            rows: 2,
             component: ListCategoriesComponent,
           },
         ];
@@ -61,4 +61,17 @@ export class AdministratorPageComponent {
   );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  getColCount() {
+    return this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+      map((result) => {
+        if (result.matches) {
+          return 1; // Una columna por fila si es un dispositivo móvil
+        } else {
+          return 3; // Tres columnas por fila si no es un dispositivo móvil
+        }
+      })
+    );
+  }
+  
 }

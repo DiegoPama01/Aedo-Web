@@ -1,5 +1,5 @@
-<mat-sidenav-container fullscreen class="sidenav-container" hasBackdrop="false">
-    <mat-sidenav #sideNav class="sidenav-menu" #sidenav mode="side" opened="true">
+<mat-sidenav-container fullscreen class="sidenav-container" hasBackdrop="true">
+    <mat-sidenav #sideNav class="sidenav-menu" #sidenav mode="over">
         <div class="sidenav-menu-container">
             <mat-toolbar class="sidenav-toolbar">
                 <span> Menú </span>
@@ -53,24 +53,6 @@
 
     <div class="container-fluid">
         <router-outlet></router-outlet>
-    </div>
-    
-    <div class="modal fade" id="editLanguageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Aceptar</button>
-                </div>
-            </div>
-        </div>
     </div>
 
 </mat-sidenav-container>
