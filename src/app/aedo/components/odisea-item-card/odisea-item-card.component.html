@@ -1,0 +1,23 @@
+<mat-card class="example-card" (click)="onCardClick()">
+  <mat-card-header
+    style="border-radius: 8px 8px 0 0"
+    [ngClass]="{
+      'background-color-accent-500 ': selected,
+      'background-color-primary-500': !selected
+    }"
+  >
+    <mat-card-title
+      class="text-on-primary-background-500"
+      style="margin-bottom: 10px"
+      >{{ odisea?.getName() }}</mat-card-title
+    >
+  </mat-card-header>
+  <div class="card-image-container">
+    <img
+      class="card-image"
+      mat-card-image
+      [src]="imageUrl"
+      alt="Photo of a Shiba Inu"
+    />
+  </div>
+</mat-card>

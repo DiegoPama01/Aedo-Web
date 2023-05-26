@@ -151,7 +151,9 @@ export class AuthenticationService {
       '',
       user.displayName!,
       new Date(),
-      { assetId: 'orange-aedo.png' }
+      { assetId: 'orange-aedo.png' },
+      false,
+      false
     );
     return odiseo;
   }

@@ -237,7 +237,9 @@ export class OdiseoDto {
       this.phoneNumber,
       this.userName,
       this.birthDate,
-      this.avatar
+      this.avatar,
+      this.isAdmin,
+      this.isEducative
     );
   }
 }

@@ -1,0 +1,33 @@
+<div *ngIf="isLoading" class="loading-overlay">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div  *ngIf="!isLoading" class="grid-container background-color-primary-200">
+  <div class="left-grid" *ngIf="isWideScreen">
+    <app-odisea-details-map-card
+      [odisea]="selectedOdisea"
+      [imageUrl]="selectedImg"
+      (buttonClick)="onButtonClick($event)"
+      class="full-height-width"
+    ></app-odisea-details-map-card>
+  </div>
+
+  <div class="right-grid overflow-auto" style="overflow-y: auto">
+    <mat-grid-list
+      [cols]="isWideScreen ? 2 : 1"
+      rowHeight="350px"
+      gutterSize="16"
+      fxLayout="row"
+      fxLayout.xs="column"
+    >
+      <mat-grid-tile *ngFor="let odisea of odiseas; let i = index">
+        <app-odisea-item-card
+          [odisea]="odisea"
+          [imageUrl]="imageUrls[i]"
+          [selected]="odisea == selectedOdisea"
+          (cardClick)="onCardClick($event)"
+        ></app-odisea-item-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

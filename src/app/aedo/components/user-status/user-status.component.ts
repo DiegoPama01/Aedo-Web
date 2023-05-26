@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { onAuthStateChanged} from '@angular/fire/auth';
 import { AuthenticationService } from '../../services/authentication.service';
 
@@ -8,6 +8,7 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['./user-status.component.css'],
 })
 export class UserStatusComponent {
+  @Input() isExpanded: boolean = true;
   username: any;
   constructor(authService: AuthenticationService) {
     this.username = authService.getCurrentUser();

@@ -40,6 +40,7 @@ export class ProfileViewPageComponent {
           .getById(usuarioFirebase.uid)
           .then((odiseo) => {
             this.odiseo = odiseo;
+            console.log(this.odiseo)
             this.userForm.setValue({
               name: this.odiseo.getName(),
               phoneNumber: this.odiseo.getPhoneNumber(),
@@ -59,10 +60,14 @@ export class ProfileViewPageComponent {
 
   submit() {
     if (this.userForm.valid) {
+      console.log(this.odiseo)
       this.modifyInputs = true;
       this.odiseo!.setName(this.userForm.value.name!);
+      console.log(this.odiseo)
       this.odiseo!.setPhoneNumber(this.userForm.value.phoneNumber!);
+      console.log(this.odiseo)
       this.odiseo!.setBirthDate(this.userForm.value.birthday!);
+      console.log(this.odiseo)
       this.odiseoService.update(this.odiseo!).catch((error) => {
         console.log('Error updating user: ' + error);
       });

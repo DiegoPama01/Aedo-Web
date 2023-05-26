@@ -1,4 +1,4 @@
-import { AdministratorPageComponent } from './pages/administrator/administrator.component';
+import { AdministratorPageComponent } from './pages/administrator-page/administrator.component';
 import { AedoRoutingModule } from './aedo-routing.module';
 import { CategoriesCardComponent } from './components/categories-card/categories-card.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
@@ -6,7 +6,7 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
 import { CommonModule } from '@angular/common';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HomePageComponent } from './pages/home/home.component';
+import { HomePageComponent } from './pages/home-page/home.component';
 import { LanguageItemComponent } from './components/language-item/language-item.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
@@ -26,15 +26,19 @@ import { NgModule } from '@angular/core';
 import { OdiseaFormComponent } from './components/odisea-form/odisea-form.component';
 import { OdiseaProfileDetailsComponent } from './components/odisea-profile-details/odisea-profile-details.component';
 import { OdiseaProfileOdiseoComponent } from './components/odisea-profile-odiseo/odisea-profile-odiseo.component';
-import { OdiseaProfilePageComponent } from './pages/odisea-profile/odisea-profile.component';
-import { OdiseaRegisterPageComponent } from './pages/odisea-register/odisea-register.component';
+import { OdiseaProfilePageComponent } from './pages/odisea-profile-page/odisea-profile.component';
+import { OdiseaRegisterPageComponent } from './pages/odisea-register-page/odisea-register.component';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
-import { ProfileViewPageComponent } from './pages/profile-view/profile-view.component';
+import { ProfileViewPageComponent } from './pages/profile-view-page/profile-view.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { ResetEmailDialogComponent } from './components/reset-email-dialog/reset-email-dialog.component';
 import { ResetPasswordDialogComponent } from './components/reset-password-dialog/reset-password-dialog.component';
 import { UserStatusComponent } from './components/user-status/user-status.component';
+import { MainViewPageComponent } from './pages/main-view-page/main-view-page.component';
+import { OdiseaDetailsMapCardComponent } from './components/odisea-details-map-card/odisea-details-map-card.component';
+import { OdiseaItemCardComponent } from './components/odisea-item-card/odisea-item-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,9 @@ import { UserStatusComponent } from './components/user-status/user-status.compon
     ResetEmailDialogComponent,
     ResetPasswordDialogComponent,
     UserStatusComponent,
+    MainViewPageComponent,
+    OdiseaDetailsMapCardComponent,
+    OdiseaItemCardComponent,
   ],
   imports: [
     AedoRoutingModule,

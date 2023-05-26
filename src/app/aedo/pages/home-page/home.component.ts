@@ -16,6 +16,9 @@ import { AuthenticationService } from '../../services/authentication.service';
   ],
 })
 export class HomePageComponent {
+
+  isExpanded: boolean = true
+  
   constructor(
     private matDialog: MatDialog,
     public auth: AuthenticationService

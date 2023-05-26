@@ -1,19 +1,10 @@
-.sidenav-menu {
-  width: 250px;
-  height: 100%;
-  background-color: #008589;
-  border-bottom-right-radius: 10px;
-  border: none;
-  overflow-y: hidden !important;
-}
-
 .icono {
-  margin-right: 10px;
   flex: auto;
   vertical-align: middle;
 }
 
 .sidenav-text {
+  margin-left: 10px;
   vertical-align: middle;
 }
 
@@ -22,22 +13,15 @@
   margin-left: 20px;
 }
 
+.toolbar-logo {
+  width: 150px;
+}
+
 .sidenav-toolbar {
   height: 60px;
   background-color: #008589;
   color: white;
   width: auto;
-  overflow: hidden;
-}
-
-.toolbar-logo {
-  width: 150px;
-}
-
-.nav-group {
-  background-color: #b4dfea;
-  margin: 10px;
-  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -53,10 +37,4 @@
   margin-top: 10px;
   width: fit-content;
   padding: 20px;
-}
-.sidenav-menu-container {
-  overflow-y: hidden !important;
-}
-::ng-deep ngb-modal-backdrop {
-  z-index: 1050 !important;
 }

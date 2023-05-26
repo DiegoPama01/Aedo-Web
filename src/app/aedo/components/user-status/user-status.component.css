@@ -1,9 +1,10 @@
 .icono {
-    margin-right: 10px;
+    
     flex: auto;
     vertical-align: middle;
 }
 
 .sidenav-text{
+    margin-left: 10px;
     vertical-align: middle;
 }

@@ -1,0 +1,106 @@
+<mat-drawer-container
+  fullscreen
+  class="sidenav-container mat-typography"
+  autosize
+>
+  <mat-drawer
+    #drawer
+    mode="side"
+    disableClose="true"
+    style="box-shadow: none !important; border-right: none"
+    class="background-color-primary-500"
+    opened="true"
+  >
+    <button
+      mat-mini-fab
+      (click)="isExpanded = !isExpanded"
+      color="primary"
+      style="margin: 10px; box-shadow: none !important"
+    >
+      <mat-icon aria-label="Menu">menu</mat-icon>
+    </button>
+
+    <mat-nav-list>
+      <app-user-status
+        *ngIf="getUser() != null"
+        [isExpanded]="isExpanded"
+      ></app-user-status>
+      <a routerLink="./home" mat-list-item>
+        <mat-icon mat-list-icon class="icono icon-on-primary-background-500"
+          >home</mat-icon
+        >
+        <span
+          class="sidenav-text text-on-primary-background-500"
+          *ngIf="isExpanded"
+        >
+          Main page
+        </span>
+      </a>
+      <a
+        *ngIf="getUser() != null"
+        routerLink="/home/registration"
+        mat-list-item
+      >
+        <mat-icon mat-list-icon class="icono icon-on-primary-background-500"
+          >add</mat-icon
+        >
+        <span
+          class="sidenav-text text-on-primary-background-500"
+          *ngIf="isExpanded"
+        >
+          Create experience
+        </span>
+      </a>
+      <a *ngIf="isUserAdmin()" routerLink="./administrator" mat-list-item>
+        <mat-icon mat-list-icon class="icono icon-on-primary-background-500"
+          >supervisor_account</mat-icon
+        >
+        <span
+          class="sidenav-text text-on-primary-background-500"
+          *ngIf="isExpanded"
+        >
+          Administrador
+        </span>
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div style="height: 100vh">
+    <mat-toolbar
+      class="sidenav-toolbar"
+      style="
+        box-shadow: none !important;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      "
+    >
+      <button
+        *ngIf="getUser() == null"
+        class="toolbar-button"
+        mat-fab
+        extended
+        (click)="openLoginDialog()"
+      >
+        <mat-icon>login</mat-icon>
+        Acceder
+      </button>
+      <button
+        *ngIf="getUser() != null"
+        class="toolbar-button"
+        mat-fab
+        extended
+        (click)="logout()"
+      >
+        <mat-icon>logout</mat-icon>
+        Desconectar
+      </button>
+      <span class="spacer"></span>
+      <span>Aedo</span>
+      <a routerLink="/home">
+        <img alt="logo" class="logo" src="../../../../assets/logo_cara.png" />
+      </a>
+    </mat-toolbar>
+    <router-outlet class="page-container"></router-outlet>
+  </div>
+</mat-drawer-container>

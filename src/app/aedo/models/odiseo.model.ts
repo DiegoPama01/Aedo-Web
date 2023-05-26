@@ -74,7 +74,9 @@ export class Odiseo implements IOdiseo {
     phoneNumber: string,
     userName: string,
     birthDate: Date,
-    avatar: any
+    avatar: any,
+    isAdmin: boolean,
+    isEducative: boolean
   ) {
     this.accountNumber = accountNumber;
     this.email = email;
@@ -83,8 +85,8 @@ export class Odiseo implements IOdiseo {
     this.phoneNumber = phoneNumber;
     this.userName = userName;
     this.birthDate = birthDate;
-    this.isAdmin = false;
-    this.isEducative = false;
+    this.isAdmin = isAdmin;
+    this.isEducative = isEducative;
     this.avatar = avatar;
   }
 

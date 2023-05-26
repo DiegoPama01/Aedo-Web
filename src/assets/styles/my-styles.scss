@@ -1,6 +1,5 @@
 @use "sass:map";
 @import "my-colors.scss";
-@import "my-theme.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
@@ -131,4 +130,63 @@
 
 .background-color-primary-200{
   background-color: $primary-color-200 !important;
+}
+
+.background-color-primary-500{
+  background-color: $primary-color-500 !important;
+}
+
+.background-color-accent-500{
+  background-color: $accent-color-500 !important;
+}
+
+
+.background-color-primary-400{
+  background-color: $primary-color-400 !important;
+}
+
+.background-color-primary-200{
+  background-color: $primary-color-200 !important;
+}
+
+.text-on-primary-background-500{
+  color: #fff;
+  font-weight: bold;
+}
+
+.icon-on-primary-background-500{
+  color: #fff;
+}
+
+.sidenav-toolbar {
+  height: 60px;
+  background-color: $primary-color-500 !important;
+  color: white;
+  width: auto;
+  overflow: hidden;
+}
+
+.toolbar-button {
+  background-color: $primary-color-500 !important;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: none !important;
+}
+
+.page-container {
+  height: calc(100vh - 60px) !important;
+  background-color: $primary-color-200 !important;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  z-index: 9999; /* Asegura que esté por encima del resto del contenido */
 }
