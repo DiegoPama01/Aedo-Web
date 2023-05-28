@@ -238,7 +238,6 @@ export class OdiseaFormComponent implements OnInit {
     this.firstStepForm.get('languages')!.setValue(this.selectedLanguageList);
     if (this.firstStepForm.get('price')!) {
       this.firstStepForm.get('price')!.setValue(0);
-      console.log(this.firstStepForm);
     }
     if (this.firstStepForm.valid) {
       this.stepper.next();

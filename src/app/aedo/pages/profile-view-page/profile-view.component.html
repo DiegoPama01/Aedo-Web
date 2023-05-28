@@ -1,60 +1,57 @@
-<div>
-  <app-profile-card></app-profile-card>
-  <form [formGroup]="userForm">
-    <mat-form-field style="width: 100%">
-      <mat-label>Nombre</mat-label>
-      <input matInput formControlName="name" [readonly]="modifyInputs" />
-      <mat-error *ngIf="userForm.get('name')!.hasError('required')">
-        Este campo es <strong>obligatorio</strong>
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field style="width: 100%">
-      <mat-label>Número de telefono</mat-label>
-      <input matInput formControlName="phoneNumber" [readonly]="modifyInputs" />
-    </mat-form-field>
-    <mat-form-field style="width: 100%">
-      <mat-label>Choose a date</mat-label>
-      <input   formControlName="birthday" matInput [matDatepicker]="picker" [readonly]="modifyInputs" />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle
-        *ngIf="!modifyInputs"
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker  #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-dialog-actions style="float: right">
-      <button
-        *ngIf="modifyInputs"
-        mat-raised-button
-        color="primary"
-        (click)="activateInputs()"
-      >
-        Modificar
-      </button>
-      <button
-        *ngIf="!modifyInputs"
-        mat-raised-button
-        type="submit"
-        color="primary"
-        (click)="submit()"
-      >
-        Guardar Cambios
-      </button>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="changePassword()"
-      >
-        Cambiar contraseña
-      </button>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="changeEmail()"
-      >
-        Cambiar correo
-      </button>
-    </mat-dialog-actions>
-  </form>
+<div class="background-color-primary-200" style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 60px);">
+  <mat-card class="card">
+    <mat-card-content>
+      <div>
+        <app-profile-card></app-profile-card>
+        <form [formGroup]="userForm" class="form">
+          <!-- Name field -->
+          <mat-form-field class="input-field">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" [readonly]="modifyInputs" />
+            <mat-error *ngIf="userForm.get('name')!.hasError('required')">
+              Este campo es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Phone number field -->
+          <mat-form-field class="input-field">
+            <mat-label>Número de telefono</mat-label>
+            <input matInput formControlName="phoneNumber" [readonly]="modifyInputs" />
+          </mat-form-field>
+
+          <!-- Date picker field -->
+          <mat-form-field class="input-field">
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="birthday" matInput [matDatepicker]="picker" [readonly]="modifyInputs" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle *ngIf="!modifyInputs" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <!-- Dialog actions buttons -->
+          <mat-dialog-actions class="button-container">
+            <!-- Modify button -->
+            <button *ngIf="modifyInputs" mat-raised-button color="primary" class="action-button" (click)="activateInputs()">
+              Modificar
+            </button>
+
+            <!-- Save button -->
+            <button *ngIf="!modifyInputs" mat-raised-button type="submit" color="accent" class="action-button" (click)="submit()">
+              Guardar Cambios
+            </button>
+
+            <!-- Change password button -->
+            <button mat-raised-button color="primary" class="action-button" (click)="changePassword()">
+              Cambiar contraseña
+            </button>
+
+            <!-- Change email button -->
+            <button mat-raised-button color="primary" class="action-button" (click)="changeEmail()">
+              Cambiar correo
+            </button>
+          </mat-dialog-actions>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

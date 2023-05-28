@@ -1,25 +1,40 @@
 .list-container {
-    margin-top: 20px;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
+  margin-top: 20px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-container {
+  flex: 1;
+  max-height: calc(
+    100vh - 110px
+  ); /* Resta el tamaño del encabezado si lo hay */
+  overflow-y: auto;
+}
+
+.comment-card {
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.comment-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.rounded-top {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.comment-content {
+  margin-top: 20px;
+}
+
+.card-title {
   
-  .cards-container {
-    flex: 1;
-    max-height: calc(100vh - 120px); /* Resta el tamaño del encabezado si lo hay */
-    overflow-y: auto;
-  }
-  
-  .comment-card {
-    margin-bottom: 16px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .comment-icon {
-    font-size: 24px;
-    margin-right: 8px;
-  }
-  
+  padding-bottom: 10px;
+}

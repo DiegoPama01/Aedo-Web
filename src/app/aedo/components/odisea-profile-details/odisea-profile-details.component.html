@@ -14,19 +14,25 @@
   <mat-card-content>
     <mat-card>
       <mat-card-content>
-        <mat-card-title>{{ odisea?.name }}</mat-card-title>
-        <p>Description: {{ odisea?.description }}</p>
+        <mat-card-title style="font-size: large; margin-bottom: 10px;">{{ odisea?.name }}</mat-card-title>
+        <p>{{ odisea?.description }}</p>
         <div class="tags-container">
-          <mat-chip-row>
-            <mat-chip *ngFor="let tag of odisea?.tags">{{ tag }}</mat-chip>
-          </mat-chip-row>
+          <p style="font-weight: bold;"> Categorias: </p>
+          <mat-chip
+            class="background-color-primary-200 text-on-primary-background-500"
+            style="margin-right: 20px"
+            *ngFor="let tag of odisea?.tags"
+            >{{ tag }}
+          </mat-chip>
         </div>
         <div class="languages-container">
-          <mat-chip-row>
-            <mat-chip *ngFor="let language of odisea?.languages">{{
-              language.item
-            }}</mat-chip>
-          </mat-chip-row>
+          <p style="font-weight: bold;"> Idiomas: </p>
+          <mat-chip
+            class="background-color-primary-200 text-on-primary-background-500"
+            style="margin-right: 20px"
+            *ngFor="let language of odisea?.languages"
+            >{{ language.item }}</mat-chip
+          >
         </div>
       </mat-card-content>
     </mat-card>

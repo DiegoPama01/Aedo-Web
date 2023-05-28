@@ -3,6 +3,7 @@
   (click)="categoryClick()"
   class="category-button"
   [ngStyle]="{ 'background-color': selected ? '#73c7af' : '#ffffff' }"
+  type="button"
 >
   <img [src]="this.iconUrl" alt="category icon" class="category-icon" />
   <span>{{ category.getName() }}</span>

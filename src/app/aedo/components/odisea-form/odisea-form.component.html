@@ -1,256 +1,387 @@
-<mat-stepper [linear]="true" #stepper class="stepper-container">
-  <mat-step label="Rellena los datos iniciales" class="step-container">
-    <div class="container">
-      <h1>Registrar actividad</h1>
-      <form [formGroup]="firstStepForm" (ngSubmit)="(false)">
-        <div class="form-grid">
-          <div class="form-item">
-            <mat-form-field>
-              <mat-label>Nombre de la actividad</mat-label>
-              <input matInput formControlName="name" ngModel required />
-            </mat-form-field>
+<div class="stepper-container">
+  <mat-stepper class="background-color-primary-200" [linear]="true" #stepper>
+    <mat-step
+      label="Rellena los datos iniciales"
+      class="step-container"
+      [stepControl]="firstStepForm"
+    >
+      <mat-card class="max-width-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Registrar actividad</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container">
+            <form [formGroup]="firstStepForm">
+              <div class="form-grid">
+                <div class="form-item">
+                  <mat-form-field>
+                    <mat-label>Nombre de la actividad</mat-label>
+                    <input matInput formControlName="name" ngModel required />
+                  </mat-form-field>
+                </div>
+                <div class="form-item">
+                  <mat-form-field>
+                    <mat-label>Descripción de la actividad</mat-label>
+                    <textarea
+                      matInput
+                      cdkTextareaAutosize
+                      formControlName="description"
+                      ngModel
+                      required
+                    ></textarea>
+                  </mat-form-field>
+                </div>
+                <div class="form-item">
+                  <mat-form-field>
+                    <mat-label>Aforo máximo</mat-label>
+                    <input
+                      matInput
+                      placeholder="Nº máximo de personas"
+                      formControlName="capacity"
+                      value="10"
+                      (keypress)="onlyNumber($event)"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="form-item">
+                  <mat-form-field>
+                    <mat-label>Precio</mat-label>
+                    <input
+                      matInput
+                      currencyMask
+                      formControlName="price"
+                      ngModel
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="category-list">
+                <app-category-item
+                  *ngFor="let category of getCategoryList() | async"
+                  [category]="category"
+                  (categoryClicked)="categorySelected($event)"
+                ></app-category-item>
+              </div>
+              <br />
+              <div class="language-list">
+                <app-language-item
+                  *ngFor="let language of getLanguageList() | async"
+                  [language]="language"
+                  (languageClicked)="languageSelected($event)"
+                ></app-language-item>
+              </div>
+            </form>
           </div>
-          <div class="form-item">
-            <mat-form-field>
-              <mat-label>Descripción de la actividad</mat-label>
-              <textarea
-                matInput
-                cdkTextareaAutosize
-                formControlName="description"
-                ngModel
-                required
-              ></textarea>
-            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+          <div class="card-footer">
+            <div class="footer-content">
+              <div class="spacer"></div>
+              <div class="form-actions">
+                <button
+                  mat-raised-button
+                  matStepperNext
+                  color="primary"
+                  type="submit"
+                  (click)="submitFirstForm()"
+                >
+                  Siguiente
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="form-item">
-            <mat-form-field>
-              <mat-label>Aforo máximo</mat-label>
+        </mat-card-actions>
+      </mat-card>
+    </mat-step>
+
+    <mat-step
+      label="Añade una ubicación a la actividad"
+      class="step-container"
+      [stepControl]="secondStepForm"
+    >
+      <mat-card class="max-width-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Elige la ubicación</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container">
+            <form [formGroup]="secondStepForm" (ngSubmit)="(false)">
+              <app-map (markerSelected)="markerSelected($event)"></app-map>
+            </form>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+          <div class="card-footer">
+            <div class="footer-content">
+              <div class="spacer"></div>
+              <div class="form-actions">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="submitSecondForm()"
+                >
+                  Siguiente
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </mat-step>
+
+    <mat-step
+      label="Añade una foto a la actividad"
+      class="step-container"
+      [stepControl]="thirdStepForm"
+    >
+      <mat-card class="max-width-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Añade una foto</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container">
+            <form [formGroup]="thirdStepForm" (ngSubmit)="(false)">
               <input
-                matInput
-                placeholder="Nº máximo de personas"
-                formControlName="capacity"
-                value="10"
-                (keypress)="onlyNumber($event)"
+                type="file"
+                (change)="handleFileInput($event)"
+                accept="image/*"
               />
-            </mat-form-field>
+
+              <div class="photo-grid">
+                <div class="photo-item" *ngFor="let file of selectedFiles; let i = index">
+                  <div class="photo-container">
+                    <img class="photo-img" [src]="file" alt="Foto seleccionada" />
+                    <button class="photo-delete-btn" mat-icon-button style="color: white;" (click)="removeFile(i)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </form>
           </div>
-          <div class="form-item">
-            <mat-form-field>
-              <mat-label>Precio</mat-label>
-              <input matInput currencyMask formControlName="price" ngModel />
-            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+          <div class="card-footer">
+            <div class="footer-content">
+              <div class="spacer"></div>
+              <div class="form-actions">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="selectedFiles = []"
+                >
+                  Eliminar todas
+                </button>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="submitThirdForm()"
+                >
+                  Siguiente
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="category-list">
-          <app-category-item
-            *ngFor="let category of getCategoryList() | async"
-            [category]="category"
-            (categoryClicked)="categorySelected($event)"
-          ></app-category-item>
-        </div>
-        <br />
-        <div class="language-list">
-          <app-language-item
-            *ngFor="let language of getLanguageList() | async"
-            [language]="language"
-            (languageClicked)="languageSelected($event)"
-          ></app-language-item>
-        </div>
-        <button mat-raised-button color="primary" (click)="submitFirstForm()">Siguiente</button>
-      </form>
-    </div>
-  </mat-step>
-  <mat-step label="Añade una ubicación a la actividad" class="step-container">
-    <div class="container">
-      <h1>Elige la ubicación</h1>
-      <form [formGroup]="secondStepForm" (ngSubmit)="(false)">
-        <app-map (markerSelected)="markerSelected($event)"></app-map>
-        <button mat-raised-button color="primary" (click)="submitSecondForm()">Siguiente</button>
-      </form>
-    </div>
-  </mat-step>
+        </mat-card-actions>
+      </mat-card>
+    </mat-step>
 
-  <mat-step label="Añade una foto a la actividad" class="step-container">
-    <div class="container">
-      <h1>Añade una foto</h1>
-      <form [formGroup]="thirdStepForm" (ngSubmit)="(false)">
-        <input
-          type="file"
-          (change)="handleFileInput($event)"
-          accept="image/*"
-        />
+    <mat-step
+      label="Elige la fecha de la actividad"
+      class="step-container"
+      [completed]="!isNextButtonDisabled()"
+    >
+      <mat-card class="max-width-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Elige la fecha de la actividad</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container">
+            <form [formGroup]="fourthStepForm" (ngSubmit)="(false)">
+              <div class="language-selection">
+                <h2>Idiomas seleccionados</h2>
+                <mat-radio-group>
+                  <mat-radio-button
+                    *ngFor="let language of selectedLanguageList"
+                    [value]="language"
+                    (change)="selectedLanguage = language.item"
+                  >
+                    {{ language.item }}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
 
-        <div class="photo-grid">
-          <div
-            class="photo-item"
-            *ngFor="let file of selectedFiles; let i = index"
-          >
-            <img class="photo-img" [src]="file" alt="Foto seleccionada" />
-            <div class="photo-overlay"></div>
-            <button
-              class="photo-delete-btn"
-              mat-icon-button
-              color="warn"
-              (click)="removeFile(i)"
-            >
-              <mat-icon>delete</mat-icon>
-            </button>
-          </div>
-        </div>
+              <div class="schedule-type">
+                <h2>Tipo de horario</h2>
+                <mat-form-field appearance="fill">
+                  <mat-label>Tipo</mat-label>
+                  <mat-select [(value)]="selectedCalendarType">
+                    <mat-option value="frecuencia">Frecuencia</mat-option>
+                    <mat-option value="fechas-especificas"
+                      >Fechas especificas</mat-option
+                    >
+                    <mat-option value="rango-fechas"
+                      >Rango de fechas</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </div>
 
-        <div class="form-actions">
-          <button mat-raised-button color="warn" (click)="selectedFiles = []">
-            Eliminar todas
-          </button>
-          <button mat-raised-button color="primary" (click)="submitThirdForm()">
-            Siguiente
-          </button>
-        </div>
-      </form>
-    </div>
-  </mat-step>
-  <mat-step label="Elige la fecha de la actividad" class="step-container">
-    <div class="container">
-      <h1>Elige la fecha de la actividad</h1>
-      <form [formGroup]="fourthStepForm" (ngSubmit)="(false)">
-        <div class="language-selection">
-          <h2>Idiomas seleccionados</h2>
-          <mat-radio-group>
-            <mat-radio-button
-              *ngFor="let language of selectedLanguageList"
-              [value]="language"
-              (change)="selectedLanguage = language.item"
-            >
-              {{ language.item }}
-            </mat-radio-button>
-          </mat-radio-group>
-        </div>
-
-        <div class="schedule-type">
-          <h2>Tipo de horario</h2>
-          <mat-form-field appearance="fill">
-            <mat-label>Tipo</mat-label>
-            <mat-select [(value)]="selectedCalendarType">
-              <mat-option value="frecuencia">Frecuencia</mat-option>
-              <mat-option value="fechas-especificas"
-                >Fechas especificas</mat-option
+              <div
+                *ngIf="selectedCalendarType === 'frecuencia'"
+                style="margin-bottom: 20px"
               >
-              <mat-option value="rango-fechas">Rango de fechas</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+                <div class="week-days">
+                  <h2>Días de la semana</h2>
+                  <mat-checkbox id="Mon" #lunesCheckbox>Lunes</mat-checkbox>
+                  <mat-checkbox id="Tue" #martesCheckbox>Martes</mat-checkbox>
+                  <mat-checkbox id="Wed" #miercolesCheckbox
+                    >Miércoles</mat-checkbox
+                  >
+                  <mat-checkbox id="Thu" #juevesCheckbox>Jueves</mat-checkbox>
+                  <mat-checkbox id="Fri" #viernesCheckbox>Viernes</mat-checkbox>
+                  <mat-checkbox id="Sat" #sabadoCheckbox>Sábado</mat-checkbox>
+                  <mat-checkbox id="Sun" #domingoCheckbox>Domingo</mat-checkbox>
+                </div>
+              </div>
 
-        <div *ngIf="selectedCalendarType === 'frecuencia'">
-          <div class="week-days">
-            <h2>Días de la semana</h2>
-            <mat-checkbox id="Mon" #lunesCheckbox>Lunes</mat-checkbox>
-            <mat-checkbox id="Tue" #martesCheckbox>Martes</mat-checkbox>
-            <mat-checkbox id="Wed" #miercolesCheckbox>Miércoles</mat-checkbox>
-            <mat-checkbox id="Thu" #juevesCheckbox>Jueves</mat-checkbox>
-            <mat-checkbox id="Fri" #viernesCheckbox>Viernes</mat-checkbox>
-            <mat-checkbox id="Sat" #sabadoCheckbox>Sábado</mat-checkbox>
-            <mat-checkbox id="Sun" #domingoCheckbox>Domingo</mat-checkbox>
+              <div *ngIf="selectedCalendarType === 'rango-fechas'">
+                <div class="week-days">
+                  <h2>Rango de fechas</h2>
+
+                  <mat-form-field>
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input
+                      [formGroup]="range"
+                      [rangePicker]="rangePicker"
+                    >
+                      <input
+                        matStartDate
+                        formControlName="start"
+                        placeholder="Start date"
+                      />
+                      <input
+                        matEndDate
+                        formControlName="end"
+                        placeholder="End date"
+                      />
+                    </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="rangePicker"
+                    ></mat-datepicker-toggle>
+                    <mat-date-range-picker #rangePicker></mat-date-range-picker>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div *ngIf="selectedCalendarType === 'fechas-especificas'">
+                <div class="specific-dates">
+                  <h2>Fechas específicas</h2>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [min]="today"
+                      placeholder="Seleccione una fecha"
+                      [matDatepicker]="singlePicker"
+                      (dateInput)="onDateSelected($event.target.value)"
+                    />
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="singlePicker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #singlePicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-button (click)="saveDate()">Guardar</button>
+            </form>
           </div>
-        </div>
-
-        <div *ngIf="selectedCalendarType === 'rango-fechas'">
-          <div class="week-days">
-            <h2>Rango de fechas</h2>
-
-            <mat-form-field>
-              <mat-label>Enter a date range</mat-label>
-              <mat-date-range-input
-                [formGroup]="range"
-                [rangePicker]="rangePicker"
-              >
-                <input
-                  matStartDate
-                  formControlName="start"
-                  placeholder="Start date"
-                />
-                <input
-                  matEndDate
-                  formControlName="end"
-                  placeholder="End date"
-                />
-              </mat-date-range-input>
-              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle
-                matIconSuffix
-                [for]="rangePicker"
-              ></mat-datepicker-toggle>
-              <mat-date-range-picker #rangePicker></mat-date-range-picker>
-            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+          <div class="card-footer">
+            <div class="footer-content">
+              <div class="spacer"></div>
+              <div class="form-actions">
+                <button
+                  style="margin-right: 20px"
+                  mat-raised-button
+                  color="primary"
+                  type="button"
+                  (click)="stepper.previous()"
+                >
+                  Atrás
+                </button>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  matStepperNext
+                  [disabled]="isNextButtonDisabled()"
+                >
+                  Siguiente
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+        </mat-card-actions>
+      </mat-card>
+    </mat-step>
 
-        <div *ngIf="selectedCalendarType === 'fechas-especificas'">
-          <div class="specific-dates">
-            <h2>Fechas específicas</h2>
-            <mat-form-field>
-              <input
-                matInput
-                [min]="today"
-                placeholder="Seleccione una fecha"
-                [matDatepicker]="singlePicker"
-                (dateInput)="onDateSelected($event.target.value)"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="singlePicker"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #singlePicker></mat-datepicker>
-            </mat-form-field>
+    <mat-step label="Revisar los datos" class="step-container">
+      <mat-card class="max-width-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Revisa los datos antes de guardar</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container">
+            <div class="data-preview">
+              <p>
+                <strong>Nombre de la actividad:</strong>
+                {{ firstStepForm.value.name }}
+              </p>
+              <p>
+                <strong>Descripción de la actividad:</strong>
+                {{ firstStepForm.value.description }}
+              </p>
+              <p>
+                <strong>Aforo máximo:</strong>
+                {{ firstStepForm.value.capacity }}
+              </p>
+              <p><strong>Precio:</strong> {{ firstStepForm.value.price }}</p>
+            </div>
+
+            <h2>Lenguajes seleccionados:</h2>
+            <ul class="language-list">
+              <li *ngFor="let language of selectedLanguageList">
+                {{ language.item }}
+              </li>
+            </ul>
           </div>
-        </div>
-        <button mat-button (click)="saveDate()">Guardar</button>
-
-        <div class="form-actions">
-          <button
-            mat-raised-button
-            color="primary"
-            type="button"
-            (click)="stepper.previous()"
-          >
-            Atrás
-          </button>
-          <button
-            mat-raised-button
-            color="primary"
-            matStepperNext
-            [disabled]="isNextButtonDisabled()"
-          >
-            Siguiente
-          </button>
-        </div>
-      </form>
-    </div>
-  </mat-step>
-
-  <mat-step label="Revisar los datos" class="step-container">
-    <div class="container">
-      <h1>Revisa los datos antes de guardar</h1>
-      <div class="data-preview">
-        <p>
-          <strong>Nombre de la actividad:</strong>
-          {{ firstStepForm.value.name }}
-        </p>
-        <p>
-          <strong>Descripción de la actividad:</strong>
-          {{ firstStepForm.value.description }}
-        </p>
-        <p><strong>Aforo máximo:</strong> {{ firstStepForm.value.capacity }}</p>
-        <p><strong>Precio:</strong> {{ firstStepForm.value.price }}</p>
-      </div>
-
-      <h2>Lenguajes seleccionados:</h2>
-      <ul class="language-list">
-        <li *ngFor="let language of selectedLanguageList">
-          {{ language.item }}
-        </li>
-      </ul>
-
-      <button mat-raised-button color="primary" (click)="submitAll()">Guardar</button>
-    </div>
-  </mat-step>
-</mat-stepper>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+          <div class="card-footer">
+            <div class="footer-content">
+              <div class="spacer"></div>
+              <button mat-raised-button color="primary" (click)="submitAll()">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </mat-step>
+  </mat-stepper>
+</div>

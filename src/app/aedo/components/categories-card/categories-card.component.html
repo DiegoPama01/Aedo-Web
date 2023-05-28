@@ -1,11 +1,9 @@
-<mat-card>
+<mat-card style="border-radius: 12px; background-color: #f2f2f2; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); margin: 10px;">
   <mat-card-header>
     <mat-card-title-group>
-      <mat-card-title
-        class=".custom-typo-headline-1"
-        style="font-size: xx-large"
-        >{{ this.category?.getName() }}</mat-card-title
-      >
+      <mat-card-title class="custom-typo-headline-1" style="font-size: xx-large">
+        {{ this.category?.getName() }}
+      </mat-card-title>
       <img mat-card-sm-image [src]="this.iconUrl" alt="category icon" />
     </mat-card-title-group>
   </mat-card-header>

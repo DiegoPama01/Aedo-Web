@@ -1,13 +1,28 @@
 .odisea-container {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 1;
+  margin: 20px;
+}
+
+.right-column {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .odisea-container {
+    flex-direction: column;
   }
-  
-  .left-column {
-    flex: 1;
-    margin-right: 20px;
+
+  .left-column{
+    flex: auto;
+    margin: 0px
   }
-  
   .right-column {
-    flex: 1;
+    flex: auto;
+    margin-left: 20px;
   }
-  
+}

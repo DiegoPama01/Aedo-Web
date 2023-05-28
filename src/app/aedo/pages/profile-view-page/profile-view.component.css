@@ -1,0 +1,22 @@
+.card {
+  max-width: 550px;
+  min-width: 300px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.button-container {
+  float: right;
+  margin-top: 16px;
+}
+
+.action-button {
+  margin: 8px;
+}
+
+

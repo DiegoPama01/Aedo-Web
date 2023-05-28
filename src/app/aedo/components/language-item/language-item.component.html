@@ -1,3 +1,8 @@
-<button mat-button (click)="languageClick()" [ngStyle]="{'background-color': (selected) ? '#73c7af' : '#ffffff'}">
-    {{getName(language.getLanguage())}}
+<button
+  mat-button
+  (click)="languageClick()"
+  type="button"
+  [ngStyle]="{ 'background-color': selected ? '#73c7af' : '#ffffff' }"
+>
+  {{ getName(language.getLanguage()) }}
 </button>

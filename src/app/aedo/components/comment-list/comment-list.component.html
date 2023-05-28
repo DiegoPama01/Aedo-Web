@@ -1,9 +1,10 @@
 <div class="list-container">
-  <div class="cards-container">
+  <div class="cards-container overflow-auto" style="margin-right: 20px;" >
     <mat-card class="comment-card" *ngFor="let comment of comments">
-      <mat-card-content>
-        <mat-icon class="comment-icon">comment</mat-icon>
-        <h4>{{ comment.username }}</h4>
+      <mat-card-header class="background-color-primary-500 rounded-top text-on-primary-background-500">
+        <mat-card-title class="card-title">{{ comment.username }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="comment-content">
         <p>{{ comment.body }}</p>
       </mat-card-content>
     </mat-card>

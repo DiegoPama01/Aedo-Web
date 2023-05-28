@@ -31,3 +31,7 @@
 .mat-chip-row {
   margin-bottom: 5px;
 }
+.tag-chip {
+  margin-right: 20px;
+  color: red !important;
+}
