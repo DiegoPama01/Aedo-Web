@@ -24,17 +24,17 @@ const routes: Routes = [
       {
         path: 'administrator',
         component: AdministratorPageComponent,
-        ...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
+        //...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
       },
       {
         path: 'registration',
         component: OdiseaRegisterPageComponent,
-        ...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
+        //...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
       },
       {
         path: 'profile',
         component: ProfileViewPageComponent,
-        ...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
+        //...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
       },
       {
         path: 'odisea-profile/:id',

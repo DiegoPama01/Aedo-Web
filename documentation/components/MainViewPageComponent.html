@@ -1,0 +1,1081 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>aedo-web documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">aedo-web documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MainViewPageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/aedo/pages/main-view-page/main-view-page.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-main-view-page</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./main-view-page.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./main-view-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#imageUrls" >imageUrls</a>
+                            </li>
+                            <li>
+                                <a href="#isExpanded" >isExpanded</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#isWideScreen" >isWideScreen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#odiseas" >odiseas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#selectedImg" >selectedImg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#selectedOdisea" >selectedOdisea</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onButtonClick" >onButtonClick</a>
+                            </li>
+                            <li>
+                                <a href="#onCardClick" >onCardClick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#onResize" >onResize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#window:resize" >window:resize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(odiseaService: <a href="../injectables/OdiseaService.html" target="_self">OdiseaService</a>, imagesService: <a href="../injectables/ImagesService.html" target="_self">ImagesService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>odiseaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OdiseaService.html" target="_self" >OdiseaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>imagesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImagesService.html" target="_self" >ImagesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+    <section data-compodoc="block-methods">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="window:resize"></a>
+                    <span class="name">
+                        <span ><b>window:resize</b></span>
+                        <a href="#window:resize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>window:resize(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onButtonClick"></a>
+                    <span class="name">
+                        <span ><b>onButtonClick</b></span>
+                        <a href="#onButtonClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onButtonClick(odiseaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>odiseaId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCardClick"></a>
+                    <span class="name">
+                        <span ><b>onCardClick</b></span>
+                        <a href="#onCardClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCardClick(eventData: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>eventData</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onResize"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span ><b>onResize</b></span>
+                        <a href="#onResize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onResize(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;window:resize&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imageUrls"></a>
+                    <span class="name">
+                        <span ><b>imageUrls</b></span>
+                        <a href="#imageUrls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isExpanded"></a>
+                    <span class="name">
+                        <span ><b>isExpanded</b></span>
+                        <a href="#isExpanded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isWideScreen"></a>
+                    <span class="name">
+                        <span ><b>isWideScreen</b></span>
+                        <a href="#isWideScreen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="odiseas"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>odiseas</b></span>
+                        <a href="#odiseas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>OdiseaDto[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedImg"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>selectedImg</b></span>
+                        <a href="#selectedImg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedOdisea"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>selectedOdisea</b></span>
+                        <a href="#selectedOdisea"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/OdiseaDto.html" target="_self" >OdiseaDto</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/aedo/pages/main-view-page/main-view-page.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, HostListener, OnInit } from &#x27;@angular/core&#x27;;
+import { OdiseaService } from &#x27;../../services/models-services/odiseas.service&#x27;;
+import { ImagesService } from &#x27;../../services/models-services/images.service&#x27;;
+import { OdiseaDto } from &#x27;../../dto/odisea.dto&#x27;;
+import { error } from &#x27;jquery&#x27;;
+import { forkJoin } from &#x27;rxjs&#x27;;
+import { IOdisea } from &#x27;../../interfaces/odisea.interface&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-main-view-page&#x27;,
+  templateUrl: &#x27;./main-view-page.component.html&#x27;,
+  styleUrls: [&#x27;./main-view-page.component.css&#x27;],
+})
+export class MainViewPageComponent implements OnInit {
+  isExpanded: boolean &#x3D; true;
+  odiseas?: OdiseaDto[];
+  imageUrls: string[] &#x3D; [];
+  isWideScreen: boolean &#x3D; true;
+  isLoading: boolean &#x3D; true;
+
+  selectedOdisea?: OdiseaDto;
+  selectedImg?: string;
+
+  @HostListener(&#x27;window:resize&#x27;, [&#x27;$event&#x27;])
+  onResize(event: any) {
+    this.isWideScreen &#x3D; window.innerWidth &gt;&#x3D; 768; // Ajusta el valor según el ancho mínimo para considerar una pantalla como &quot;ancha&quot;
+  }
+
+  constructor(
+    private odiseaService: OdiseaService,
+    private imagesService: ImagesService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.odiseaService.getCollection().subscribe((odiseas: OdiseaDto[]) &#x3D;&gt; {
+      this.odiseas &#x3D; odiseas;
+      const downloadRequests &#x3D; odiseas.map((odisea) &#x3D;&gt;
+        this.imagesService.downloadImage(odisea.getImage().at(0).assetId)
+      );
+
+      forkJoin(downloadRequests).subscribe(
+        (imageUrls: string[]) &#x3D;&gt; {
+          this.imageUrls &#x3D; imageUrls;
+          this.selectedImg &#x3D; this.imageUrls.at(0);
+          this.isLoading &#x3D; false;
+        },
+        (error) &#x3D;&gt; {
+          console.log(&#x27;Error al descargar imágenes: &#x27; + error);
+          this.isLoading &#x3D; false;
+        }
+      );
+
+      this.selectedOdisea &#x3D; this.odiseas?.at(0);
+      this.selectedImg &#x3D; this.imageUrls.at(0);
+    });
+  }
+
+  onCardClick(eventData: { odisea: OdiseaDto; imageUrl: string }) {
+
+    if(this.isWideScreen){
+      const odisea &#x3D; eventData.odisea;
+      const imageUrl &#x3D; eventData.imageUrl;
+  
+      this.selectedOdisea &#x3D; odisea;
+      this.selectedImg &#x3D; imageUrl;
+    }
+    else{
+      this.router.navigate([&#x27;/home/odisea-profile&#x27;,eventData.odisea.getId()]);
+    }
+    
+  }
+
+  onButtonClick(odiseaId: string) {
+    // Haz lo que desees con el valor del botón
+    this.router.navigate([&#x27;/home/odisea-profile&#x27;,odiseaId]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;isLoading&quot; class&#x3D;&quot;loading-overlay&quot;&gt;
+  &lt;mat-spinner&gt;&lt;/mat-spinner&gt;
+&lt;/div&gt;
+
+&lt;div  *ngIf&#x3D;&quot;!isLoading&quot; class&#x3D;&quot;grid-container background-color-white&quot;&gt;
+  &lt;div class&#x3D;&quot;left-grid&quot; *ngIf&#x3D;&quot;isWideScreen&quot;&gt;
+    &lt;app-odisea-details-map-card
+      [odisea]&#x3D;&quot;selectedOdisea&quot;
+      [imageUrl]&#x3D;&quot;selectedImg&quot;
+      (buttonClick)&#x3D;&quot;onButtonClick($event)&quot;
+      class&#x3D;&quot;full-height-width&quot;
+    &gt;&lt;/app-odisea-details-map-card&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;right-grid overflow-auto&quot; style&#x3D;&quot;overflow-y: auto&quot;&gt;
+    &lt;mat-grid-list
+      [cols]&#x3D;&quot;isWideScreen ? 2 : 1&quot;
+      rowHeight&#x3D;&quot;350px&quot;
+      gutterSize&#x3D;&quot;16&quot;
+      fxLayout&#x3D;&quot;row&quot;
+      fxLayout.xs&#x3D;&quot;column&quot;
+    &gt;
+      &lt;mat-grid-tile *ngFor&#x3D;&quot;let odisea of odiseas; let i &#x3D; index&quot;&gt;
+        &lt;app-odisea-item-card
+          [odisea]&#x3D;&quot;odisea&quot;
+          [imageUrl]&#x3D;&quot;imageUrls[i]&quot;
+          [selected]&#x3D;&quot;odisea &#x3D;&#x3D; selectedOdisea&quot;
+          (cardClick)&#x3D;&quot;onCardClick($event)&quot;
+        &gt;&lt;/app-odisea-item-card&gt;
+      &lt;/mat-grid-tile&gt;
+    &lt;/mat-grid-list&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./main-view-page.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.grid-container {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.left-grid {
+  flex: 1;
+  margin: 16px;
+  position: sticky;
+  top: 0;
+  display: flex;
+}
+
+.right-grid {
+  flex: 1;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.left-content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  margin-top: 200px;
+}
+
+.full-height-width {
+  width: 100%;
+  height: 100%;
+}
+
+.overflow-auto::-webkit-scrollbar {
+  width: 0em;
+  background-color: transparent;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="isLoading" class="loading-overlay">  <mat-spinner></mat-spinner></div><div  *ngIf="!isLoading" class="grid-container background-color-white">  <div class="left-grid" *ngIf="isWideScreen">    <app-odisea-details-map-card      [odisea]="selectedOdisea"      [imageUrl]="selectedImg"      (buttonClick)="onButtonClick($event)"      class="full-height-width"    ></app-odisea-details-map-card>  </div>  <div class="right-grid overflow-auto" style="overflow-y: auto">    <mat-grid-list      [cols]="isWideScreen ? 2 : 1"      rowHeight="350px"      gutterSize="16"      fxLayout="row"      fxLayout.xs="column"    >      <mat-grid-tile *ngFor="let odisea of odiseas; let i = index">        <app-odisea-item-card          [odisea]="odisea"          [imageUrl]="imageUrls[i]"          [selected]="odisea == selectedOdisea"          (cardClick)="onCardClick($event)"        ></app-odisea-item-card>      </mat-grid-tile>    </mat-grid-list>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdministratorPageComponent', 'selector': 'app-administrator'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesCardComponent', 'selector': 'app-categories-card'},{'name': 'CategoryItemComponent', 'selector': 'app-category-item'},{'name': 'CommentListComponent', 'selector': 'app-comment-list'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'HomePageComponent', 'selector': 'app-home'},{'name': 'LanguageItemComponent', 'selector': 'app-language-item'},{'name': 'ListAdminComponent', 'selector': 'app-list-admin'},{'name': 'ListCategoriesComponent', 'selector': 'app-list-categories'},{'name': 'ListLanguagesComponent', 'selector': 'app-list-languages'},{'name': 'ListUserComponent', 'selector': 'app-list-user'},{'name': 'LoginDialogComponent', 'selector': 'app-login-dialog'},{'name': 'MainViewPageComponent', 'selector': 'app-main-view-page'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'OdiseaDetailsMapCardComponent', 'selector': 'app-odisea-details-map-card'},{'name': 'OdiseaFormComponent', 'selector': 'app-odisea-form'},{'name': 'OdiseaItemCardComponent', 'selector': 'app-odisea-item-card'},{'name': 'OdiseaProfileDetailsComponent', 'selector': 'app-odisea-profile-details'},{'name': 'OdiseaProfileOdiseoComponent', 'selector': 'app-odisea-profile-odiseo'},{'name': 'OdiseaProfilePageComponent', 'selector': 'app-odisea-profile'},{'name': 'OdiseaRegisterPageComponent', 'selector': 'app-odisea-register'},{'name': 'ProfileCardComponent', 'selector': 'app-profile-card'},{'name': 'ProfileViewPageComponent', 'selector': 'app-profile-view'},{'name': 'RegisterDialogComponent', 'selector': 'app-register-dialog'},{'name': 'ResetEmailDialogComponent', 'selector': 'app-reset-email-dialog'},{'name': 'ResetPasswordDialogComponent', 'selector': 'app-reset-password-dialog'},{'name': 'UserStatusComponent', 'selector': 'app-user-status'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MainViewPageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MainViewPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

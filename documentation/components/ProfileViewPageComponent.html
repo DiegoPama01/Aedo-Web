@@ -1,0 +1,806 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>aedo-web documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">aedo-web documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProfileViewPageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/aedo/pages/profile-view-page/profile-view.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-profile-view</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./profile-view.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./profile-view.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#modifyInputs" >modifyInputs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#odiseo" >odiseo</a>
+                            </li>
+                            <li>
+                                <a href="#userForm" >userForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activateInputs" >activateInputs</a>
+                            </li>
+                            <li>
+                                <a href="#changeEmail" >changeEmail</a>
+                            </li>
+                            <li>
+                                <a href="#changePassword" >changePassword</a>
+                            </li>
+                            <li>
+                                <a href="#submit" >submit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formBuilder: FormBuilder, authService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>, odiseoService: <a href="../injectables/OdiseoService.html" target="_self">OdiseoService</a>, matDialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthenticationService.html" target="_self" >AuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>odiseoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OdiseoService.html" target="_self" >OdiseoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>matDialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activateInputs"></a>
+                    <span class="name">
+                        <span ><b>activateInputs</b></span>
+                        <a href="#activateInputs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>activateInputs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeEmail"></a>
+                    <span class="name">
+                        <span ><b>changeEmail</b></span>
+                        <a href="#changeEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeEmail()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePassword"></a>
+                    <span class="name">
+                        <span ><b>changePassword</b></span>
+                        <a href="#changePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changePassword()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modifyInputs"></a>
+                    <span class="name">
+                        <span ><b>modifyInputs</b></span>
+                        <a href="#modifyInputs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="odiseo"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>odiseo</b></span>
+                        <a href="#odiseo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/OdiseoDto.html" target="_self" >OdiseoDto</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userForm"></a>
+                    <span class="name">
+                        <span ><b>userForm</b></span>
+                        <a href="#userForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/aedo/pages/profile-view-page/profile-view.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { onAuthStateChanged } from &#x27;@angular/fire/auth&#x27;;
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from &#x27;@angular/forms&#x27;;
+import { AuthenticationService } from &#x27;../../services/authentication.service&#x27;;
+import { OdiseoService } from &#x27;../../services/models-services/odiseos.service&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { ResetEmailDialogComponent } from &#x27;../../components/reset-email-dialog/reset-email-dialog.component&#x27;;
+import { ResetPasswordDialogComponent } from &#x27;../../components/reset-password-dialog/reset-password-dialog.component&#x27;;
+import { OdiseoDto } from &#x27;../../dto/odiseo.dto&#x27;;
+
+@Component({
+  selector: &#x27;app-profile-view&#x27;,
+  templateUrl: &#x27;./profile-view.component.html&#x27;,
+  styleUrls: [&#x27;./profile-view.component.css&#x27;],
+})
+export class ProfileViewPageComponent {
+  modifyInputs: boolean &#x3D; true;
+  odiseo?: OdiseoDto;
+  userForm: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthenticationService,
+    private odiseoService: OdiseoService,
+    private matDialog: MatDialog
+  ) {
+    this.userForm &#x3D; this.formBuilder.group({
+      name: new FormControl(&#x27;&#x27;, [Validators.required]),
+      phoneNumber: new FormControl(&#x27;&#x27;, Validators.pattern(&#x27;[679]{1}[0-9]{8}&#x27;)),
+      birthday: new FormControl(new Date(2005, 0, 0), [Validators.required]),
+    });
+
+    onAuthStateChanged(authService.getAuth(), (usuarioFirebase) &#x3D;&gt; {
+      if (usuarioFirebase) {
+        this.odiseoService
+          .getById(usuarioFirebase.uid)
+          .then((odiseo) &#x3D;&gt; {
+            this.odiseo &#x3D; odiseo;
+            console.log(this.odiseo)
+            this.userForm.setValue({
+              name: this.odiseo.getName(),
+              phoneNumber: this.odiseo.getPhoneNumber(),
+              birthday: new Date(this.odiseo.getBirthDate()),
+            });
+          })
+          .catch((error) &#x3D;&gt; {
+            console.log(&#x27;Error obtaining user: &#x27; + error);
+          });
+      }
+    });
+  }
+
+  activateInputs() {
+    this.modifyInputs &#x3D; false;
+  }
+
+  submit() {
+    if (this.userForm.valid) {
+      console.log(this.odiseo)
+      this.modifyInputs &#x3D; true;
+      this.odiseo!.setName(this.userForm.value.name!);
+      console.log(this.odiseo)
+      this.odiseo!.setPhoneNumber(this.userForm.value.phoneNumber!);
+      console.log(this.odiseo)
+      this.odiseo!.setBirthDate(this.userForm.value.birthday!);
+      console.log(this.odiseo)
+      this.odiseoService.update(this.odiseo!).catch((error) &#x3D;&gt; {
+        console.log(&#x27;Error updating user: &#x27; + error);
+      });
+    }
+  }
+
+  changePassword() {
+    this.authService.updatePassword();
+    this.matDialog.open(ResetPasswordDialogComponent);
+  }
+
+  changeEmail() {
+    this.matDialog.open(ResetEmailDialogComponent);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;background-color-primary-200&quot; style&#x3D;&quot;display: flex; justify-content: center; align-items: center; height: calc(100vh - 60px);&quot;&gt;
+  &lt;mat-card class&#x3D;&quot;card&quot;&gt;
+    &lt;mat-card-content&gt;
+      &lt;div&gt;
+        &lt;app-profile-card&gt;&lt;/app-profile-card&gt;
+        &lt;form [formGroup]&#x3D;&quot;userForm&quot; class&#x3D;&quot;form&quot;&gt;
+          &lt;!-- Name field --&gt;
+          &lt;mat-form-field class&#x3D;&quot;input-field&quot;&gt;
+            &lt;mat-label&gt;Nombre&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;name&quot; [readonly]&#x3D;&quot;modifyInputs&quot; /&gt;
+            &lt;mat-error *ngIf&#x3D;&quot;userForm.get(&#x27;name&#x27;)!.hasError(&#x27;required&#x27;)&quot;&gt;
+              Este campo es &lt;strong&gt;obligatorio&lt;/strong&gt;
+            &lt;/mat-error&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;!-- Phone number field --&gt;
+          &lt;mat-form-field class&#x3D;&quot;input-field&quot;&gt;
+            &lt;mat-label&gt;Número de telefono&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;phoneNumber&quot; [readonly]&#x3D;&quot;modifyInputs&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;!-- Date picker field --&gt;
+          &lt;mat-form-field class&#x3D;&quot;input-field&quot;&gt;
+            &lt;mat-label&gt;Choose a date&lt;/mat-label&gt;
+            &lt;input formControlName&#x3D;&quot;birthday&quot; matInput [matDatepicker]&#x3D;&quot;picker&quot; [readonly]&#x3D;&quot;modifyInputs&quot; /&gt;
+            &lt;mat-hint&gt;MM/DD/YYYY&lt;/mat-hint&gt;
+            &lt;mat-datepicker-toggle *ngIf&#x3D;&quot;!modifyInputs&quot; matIconSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;!-- Dialog actions buttons --&gt;
+          &lt;mat-dialog-actions class&#x3D;&quot;button-container&quot;&gt;
+            &lt;!-- Modify button --&gt;
+            &lt;button *ngIf&#x3D;&quot;modifyInputs&quot; mat-raised-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;action-button&quot; (click)&#x3D;&quot;activateInputs()&quot;&gt;
+              Modificar
+            &lt;/button&gt;
+
+            &lt;!-- Save button --&gt;
+            &lt;button *ngIf&#x3D;&quot;!modifyInputs&quot; mat-raised-button type&#x3D;&quot;submit&quot; color&#x3D;&quot;accent&quot; class&#x3D;&quot;action-button&quot; (click)&#x3D;&quot;submit()&quot;&gt;
+              Guardar Cambios
+            &lt;/button&gt;
+
+            &lt;!-- Change password button --&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;action-button&quot; (click)&#x3D;&quot;changePassword()&quot;&gt;
+              Cambiar contraseña
+            &lt;/button&gt;
+
+            &lt;!-- Change email button --&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;action-button&quot; (click)&#x3D;&quot;changeEmail()&quot;&gt;
+              Cambiar correo
+            &lt;/button&gt;
+          &lt;/mat-dialog-actions&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/mat-card-content&gt;
+  &lt;/mat-card&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./profile-view.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.card {
+  max-width: 550px;
+  min-width: 300px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.button-container {
+  float: right;
+  margin-top: 16px;
+}
+
+.action-button {
+  margin: 8px;
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="background-color-primary-200" style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 60px);">  <mat-card class="card">    <mat-card-content>      <div>        <app-profile-card></app-profile-card>        <form [formGroup]="userForm" class="form">          <!-- Name field -->          <mat-form-field class="input-field">            <mat-label>Nombre</mat-label>            <input matInput formControlName="name" [readonly]="modifyInputs" />            <mat-error *ngIf="userForm.get(\'name\')!.hasError(\'required\')">              Este campo es <strong>obligatorio</strong>            </mat-error>          </mat-form-field>          <!-- Phone number field -->          <mat-form-field class="input-field">            <mat-label>Número de telefono</mat-label>            <input matInput formControlName="phoneNumber" [readonly]="modifyInputs" />          </mat-form-field>          <!-- Date picker field -->          <mat-form-field class="input-field">            <mat-label>Choose a date</mat-label>            <input formControlName="birthday" matInput [matDatepicker]="picker" [readonly]="modifyInputs" />            <mat-hint>MM/DD/YYYY</mat-hint>            <mat-datepicker-toggle *ngIf="!modifyInputs" matIconSuffix [for]="picker"></mat-datepicker-toggle>            <mat-datepicker #picker></mat-datepicker>          </mat-form-field>          <!-- Dialog actions buttons -->          <mat-dialog-actions class="button-container">            <!-- Modify button -->            <button *ngIf="modifyInputs" mat-raised-button color="primary" class="action-button" (click)="activateInputs()">              Modificar            </button>            <!-- Save button -->            <button *ngIf="!modifyInputs" mat-raised-button type="submit" color="accent" class="action-button" (click)="submit()">              Guardar Cambios            </button>            <!-- Change password button -->            <button mat-raised-button color="primary" class="action-button" (click)="changePassword()">              Cambiar contraseña            </button>            <!-- Change email button -->            <button mat-raised-button color="primary" class="action-button" (click)="changeEmail()">              Cambiar correo            </button>          </mat-dialog-actions>        </form>      </div>    </mat-card-content>  </mat-card></div></div>'
+    var COMPONENTS = [{'name': 'AdministratorPageComponent', 'selector': 'app-administrator'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesCardComponent', 'selector': 'app-categories-card'},{'name': 'CategoryItemComponent', 'selector': 'app-category-item'},{'name': 'CommentListComponent', 'selector': 'app-comment-list'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'HomePageComponent', 'selector': 'app-home'},{'name': 'LanguageItemComponent', 'selector': 'app-language-item'},{'name': 'ListAdminComponent', 'selector': 'app-list-admin'},{'name': 'ListCategoriesComponent', 'selector': 'app-list-categories'},{'name': 'ListLanguagesComponent', 'selector': 'app-list-languages'},{'name': 'ListUserComponent', 'selector': 'app-list-user'},{'name': 'LoginDialogComponent', 'selector': 'app-login-dialog'},{'name': 'MainViewPageComponent', 'selector': 'app-main-view-page'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'OdiseaDetailsMapCardComponent', 'selector': 'app-odisea-details-map-card'},{'name': 'OdiseaFormComponent', 'selector': 'app-odisea-form'},{'name': 'OdiseaItemCardComponent', 'selector': 'app-odisea-item-card'},{'name': 'OdiseaProfileDetailsComponent', 'selector': 'app-odisea-profile-details'},{'name': 'OdiseaProfileOdiseoComponent', 'selector': 'app-odisea-profile-odiseo'},{'name': 'OdiseaProfilePageComponent', 'selector': 'app-odisea-profile'},{'name': 'OdiseaRegisterPageComponent', 'selector': 'app-odisea-register'},{'name': 'ProfileCardComponent', 'selector': 'app-profile-card'},{'name': 'ProfileViewPageComponent', 'selector': 'app-profile-view'},{'name': 'RegisterDialogComponent', 'selector': 'app-register-dialog'},{'name': 'ResetEmailDialogComponent', 'selector': 'app-reset-email-dialog'},{'name': 'ResetPasswordDialogComponent', 'selector': 'app-reset-password-dialog'},{'name': 'UserStatusComponent', 'selector': 'app-user-status'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProfileViewPageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfileViewPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

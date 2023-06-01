@@ -1,0 +1,738 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>aedo-web documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">aedo-web documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CategoriesCardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/aedo/components/categories-card/categories-card.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-categories-card</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./categories-card.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./categories-card.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeResult" >closeResult</a>
+                            </li>
+                            <li>
+                                <a href="#iconUrl" >iconUrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#open" >open</a>
+                            </li>
+                            <li>
+                                <a href="#removeCategory" >removeCategory</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#category" >category</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalService: NgbModal, categoryService: <a href="../injectables/CategoryService.html" target="_self">CategoryService</a>, imagesService: <a href="../injectables/ImagesService.html" target="_self">ImagesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/aedo/components/categories-card/categories-card.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbModal</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>categoryService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CategoryService.html" target="_self" >CategoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>imagesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImagesService.html" target="_self" >ImagesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="category"></a>
+                        <b>category</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/CategoryDto.html" target="_self" >CategoryDto</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/aedo/components/categories-card/categories-card.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/aedo/components/categories-card/categories-card.component.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="open"></a>
+                    <span class="name">
+                        <span ><b>open</b></span>
+                        <a href="#open"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>open(content: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/aedo/components/categories-card/categories-card.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>content</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCategory"></a>
+                    <span class="name">
+                        <span ><b>removeCategory</b></span>
+                        <a href="#removeCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeCategory()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/aedo/components/categories-card/categories-card.component.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeResult"></a>
+                    <span class="name">
+                        <span ><b>closeResult</b></span>
+                        <a href="#closeResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/aedo/components/categories-card/categories-card.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="iconUrl"></a>
+                    <span class="name">
+                        <span ><b>iconUrl</b></span>
+                        <a href="#iconUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/aedo/components/categories-card/categories-card.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { NgbModal } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import { CategoryService } from &#x27;src/app/aedo/services/models-services/category.service&#x27;;
+import { CategoryDto } from &#x27;../../dto/category.dto&#x27;;
+import { ImagesService } from &#x27;../../services/models-services/images.service&#x27;;
+
+@Component({
+  selector: &#x27;app-categories-card&#x27;,
+  templateUrl: &#x27;./categories-card.component.html&#x27;,
+  styleUrls: [&#x27;./categories-card.component.css&#x27;],
+})
+export class CategoriesCardComponent implements OnInit {
+  closeResult: string &#x3D; &#x27;&#x27;;
+  constructor(
+    private modalService: NgbModal,
+    private categoryService: CategoryService,
+    private imagesService: ImagesService
+  ) {}
+
+  @Input() category?: CategoryDto;
+
+  iconUrl &#x3D; &#x27;&#x27;;
+
+  ngOnInit(): void {
+    this.imagesService.downloadIcon(this.category?.getName()!!, this.category?.getId()!!).then((url) &#x3D;&gt; {
+      this.iconUrl &#x3D; url;
+    });
+  }
+
+  removeCategory() {
+    this.imagesService.deleteIcon(this.category?.getId()!!);
+    this.categoryService.remove(this.category!!);
+  }
+
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: &#x27;modal&#x27; })
+      .result.then((result) &#x3D;&gt; {
+        this.closeResult &#x3D; &#x60;Closed with: ${result}&#x60;;
+        if (result &#x3D;&#x3D;&#x3D; &#x27;removeCategory&#x27;) {
+          this.removeCategory();
+        }
+      });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card style&#x3D;&quot;border-radius: 12px; background-color: #f2f2f2; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); margin: 10px;&quot;&gt;
+  &lt;mat-card-header&gt;
+    &lt;mat-card-title-group&gt;
+      &lt;mat-card-title class&#x3D;&quot;custom-typo-headline-1&quot; style&#x3D;&quot;font-size: xx-large&quot;&gt;
+        {{ this.category?.getName() }}
+      &lt;/mat-card-title&gt;
+      &lt;img mat-card-sm-image [src]&#x3D;&quot;this.iconUrl&quot; alt&#x3D;&quot;category icon&quot; /&gt;
+    &lt;/mat-card-title-group&gt;
+  &lt;/mat-card-header&gt;
+  &lt;mat-card-actions&gt;
+    &lt;button mat-raised-button color&#x3D;&quot;warn&quot; (click)&#x3D;&quot;open(removeModal)&quot;&gt;
+      &lt;mat-icon aria-hidden&#x3D;&quot;false&quot; color&#x3D;&quot;white&quot;&gt;delete&lt;/mat-icon&gt;
+      Eliminar
+    &lt;/button&gt;
+  &lt;/mat-card-actions&gt;
+&lt;/mat-card&gt;
+
+&lt;ng-template #removeModal let-modal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;h2 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;remove-modal&quot;&gt;Eliminar categoria&lt;/h2&gt;
+    &lt;button
+      type&#x3D;&quot;button&quot;
+      class&#x3D;&quot;btn-close&quot;
+      aria-label&#x3D;&quot;Close&quot;
+      (click)&#x3D;&quot;modal.dismiss(&#x27;Cross click&#x27;)&quot;
+    &gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;form&gt;
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;h3 for&#x3D;&quot;languageInput&quot;&gt;
+          Está segur@ de que desea eliminar la categoria
+          {{ this.category!!.getName() }} ?
+        &lt;/h3&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+    &lt;button
+      type&#x3D;&quot;button&quot;
+      class&#x3D;&quot;btn btn-outline-dark&quot;
+      (click)&#x3D;&quot;modal.dismiss(&#x27;Cross click&#x27;)&quot;
+    &gt;
+      Cancelar
+    &lt;/button&gt;
+    &lt;button
+      type&#x3D;&quot;button&quot;
+      class&#x3D;&quot;btn btn-danger&quot;
+      (click)&#x3D;&quot;modal.close(&#x27;removeCategory&#x27;)&quot;
+    &gt;
+      Eliminar
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./categories-card.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card style="border-radius: 12px; background-color: #f2f2f2; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); margin: 10px;">  <mat-card-header>    <mat-card-title-group>      <mat-card-title class="custom-typo-headline-1" style="font-size: xx-large">        {{ this.category?.getName() }}      </mat-card-title>      <img mat-card-sm-image [src]="this.iconUrl" alt="category icon" />    </mat-card-title-group>  </mat-card-header>  <mat-card-actions>    <button mat-raised-button color="warn" (click)="open(removeModal)">      <mat-icon aria-hidden="false" color="white">delete</mat-icon>      Eliminar    </button>  </mat-card-actions></mat-card><ng-template #removeModal let-modal>  <div class="modal-header">    <h2 class="modal-title" id="remove-modal">Eliminar categoria</h2>    <button      type="button"      class="btn-close"      aria-label="Close"      (click)="modal.dismiss(\'Cross click\')"    ></button>  </div>  <div class="modal-body">    <form>      <div class="mb-3">        <h3 for="languageInput">          Está segur@ de que desea eliminar la categoria          {{ this.category!!.getName() }} ?        </h3>      </div>    </form>  </div>  <div class="modal-footer">    <button      type="button"      class="btn btn-outline-dark"      (click)="modal.dismiss(\'Cross click\')"    >      Cancelar    </button>    <button      type="button"      class="btn btn-danger"      (click)="modal.close(\'removeCategory\')"    >      Eliminar    </button>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AdministratorPageComponent', 'selector': 'app-administrator'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesCardComponent', 'selector': 'app-categories-card'},{'name': 'CategoryItemComponent', 'selector': 'app-category-item'},{'name': 'CommentListComponent', 'selector': 'app-comment-list'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'HomePageComponent', 'selector': 'app-home'},{'name': 'LanguageItemComponent', 'selector': 'app-language-item'},{'name': 'ListAdminComponent', 'selector': 'app-list-admin'},{'name': 'ListCategoriesComponent', 'selector': 'app-list-categories'},{'name': 'ListLanguagesComponent', 'selector': 'app-list-languages'},{'name': 'ListUserComponent', 'selector': 'app-list-user'},{'name': 'LoginDialogComponent', 'selector': 'app-login-dialog'},{'name': 'MainViewPageComponent', 'selector': 'app-main-view-page'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'OdiseaDetailsMapCardComponent', 'selector': 'app-odisea-details-map-card'},{'name': 'OdiseaFormComponent', 'selector': 'app-odisea-form'},{'name': 'OdiseaItemCardComponent', 'selector': 'app-odisea-item-card'},{'name': 'OdiseaProfileDetailsComponent', 'selector': 'app-odisea-profile-details'},{'name': 'OdiseaProfileOdiseoComponent', 'selector': 'app-odisea-profile-odiseo'},{'name': 'OdiseaProfilePageComponent', 'selector': 'app-odisea-profile'},{'name': 'OdiseaRegisterPageComponent', 'selector': 'app-odisea-register'},{'name': 'ProfileCardComponent', 'selector': 'app-profile-card'},{'name': 'ProfileViewPageComponent', 'selector': 'app-profile-view'},{'name': 'RegisterDialogComponent', 'selector': 'app-register-dialog'},{'name': 'ResetEmailDialogComponent', 'selector': 'app-reset-email-dialog'},{'name': 'ResetPasswordDialogComponent', 'selector': 'app-reset-password-dialog'},{'name': 'UserStatusComponent', 'selector': 'app-user-status'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CategoriesCardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CategoriesCardComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

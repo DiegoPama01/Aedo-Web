@@ -1,0 +1,883 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>aedo-web documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">aedo-web documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ListCategoriesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/aedo/components/list-categories/list-categories.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-list-categories</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./list-categories.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./list-categories.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categoryCreated" >categoryCreated</a>
+                            </li>
+                            <li>
+                                <a href="#categoryIcon" >categoryIcon</a>
+                            </li>
+                            <li>
+                                <a href="#categoryName" >categoryName</a>
+                            </li>
+                            <li>
+                                <a href="#categoryToCreate" >categoryToCreate</a>
+                            </li>
+                            <li>
+                                <a href="#closeResult" >closeResult</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#listCategories" >listCategories</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createCategory" >createCategory</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getListCategories" >getListCategories</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#refreshCategories" >refreshCategories</a>
+                            </li>
+                            <li>
+                                <a href="#setFile" >setFile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(categoryService: <a href="../injectables/CategoryService.html" target="_self">CategoryService</a>, imagesService: <a href="../injectables/ImagesService.html" target="_self">ImagesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>categoryService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CategoryService.html" target="_self" >CategoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>imagesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImagesService.html" target="_self" >ImagesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCategory"></a>
+                    <span class="name">
+                        <span ><b>createCategory</b></span>
+                        <a href="#createCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createCategory()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getListCategories"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>getListCategories</b></span>
+                        <a href="#getListCategories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getListCategories()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;CategoryDto[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshCategories"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>refreshCategories</b></span>
+                        <a href="#refreshCategories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshCategories()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFile"></a>
+                    <span class="name">
+                        <span ><b>setFile</b></span>
+                        <a href="#setFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFile(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryCreated"></a>
+                    <span class="name">
+                        <span ><b>categoryCreated</b></span>
+                        <a href="#categoryCreated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryIcon"></a>
+                    <span class="name">
+                        <span ><b>categoryIcon</b></span>
+                        <a href="#categoryIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryName"></a>
+                    <span class="name">
+                        <span ><b>categoryName</b></span>
+                        <a href="#categoryName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryToCreate"></a>
+                    <span class="name">
+                        <span ><b>categoryToCreate</b></span>
+                        <a href="#categoryToCreate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/CategoryDto.html" target="_self" >CategoryDto</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new CategoryDto(&#x27;&#x27;, &#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeResult"></a>
+                    <span class="name">
+                        <span ><b>closeResult</b></span>
+                        <a href="#closeResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listCategories"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>listCategories</b></span>
+                        <a href="#listCategories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;CategoryDto[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.categoryService.getCollection()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/aedo/components/list-categories/list-categories.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { CategoryService } from &#x27;../../services/models-services/category.service&#x27;;
+import { ImagesService } from &#x27;../../services/models-services/images.service&#x27;;
+import { CategoryDto } from &#x27;../../dto/category.dto&#x27;;
+
+@Component({
+  selector: &#x27;app-list-categories&#x27;,
+  templateUrl: &#x27;./list-categories.component.html&#x27;,
+  styleUrls: [&#x27;./list-categories.component.css&#x27;],
+})
+export class ListCategoriesComponent {
+  closeResult: string &#x3D; &#x27;&#x27;;
+  categoryIcon: any;
+  categoryName: string &#x3D; &#x27;&#x27;;
+  categoryToCreate: CategoryDto &#x3D; new CategoryDto(&#x27;&#x27;, &#x27;&#x27;);
+  categoryCreated &#x3D; false;
+
+  constructor(
+    private categoryService: CategoryService,
+    private imagesService: ImagesService
+  ) {}
+
+  private listCategories: Observable&lt;CategoryDto[]&gt; &#x3D; this.categoryService.getCollection();
+
+  public getListCategories(): Observable&lt;CategoryDto[]&gt; {
+    return this.listCategories;
+  }
+
+  setFile(event: any) {
+    console.log(&#x27;Llamando a método setFile&#x27;);
+    this.categoryIcon &#x3D; event.target.files[0];
+  }
+
+  createCategory() {
+    if (!this.categoryName || !this.categoryIcon) {
+      return; // Si el nombre o el icono están vacíos, no se crea la categoría
+    }
+
+    this.categoryToCreate.setName(this.categoryName);
+    this.categoryService
+      .create(this.categoryToCreate.getCategory())
+      .then((res) &#x3D;&gt; {
+        console.log(&#x27;Res: &#x27;, res);
+        return res.id;
+      })
+      .then((id) &#x3D;&gt; {
+        console.log(&#x27;El ID creado es: &#x27;, id);
+        this.imagesService.uploadIcon(this.categoryToCreate.getName(), id, this.categoryIcon);
+      })
+      .then(() &#x3D;&gt; {
+        this.categoryCreated &#x3D; true;
+        this.categoryName &#x3D; &#x27;&#x27;;
+        this.categoryIcon &#x3D; null;
+        setTimeout(() &#x3D;&gt; {
+          this.refreshCategories(); // Actualizar la lista de categorías después de un retraso
+        }, 2000);
+      });
+  }
+
+  private refreshCategories(): void {
+    this.listCategories &#x3D; this.categoryService.getCollection();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;
+  &lt;div class&#x3D;&quot;sticky-form-container&quot; style&#x3D;&quot;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);&quot;&gt;
+    &lt;label for&#x3D;&quot;formName&quot; class&#x3D;&quot;form-label d-flex flex-start&quot;
+      &gt;Seleccione el nombre de la categoría&lt;/label
+    &gt;
+    &lt;input
+      class&#x3D;&quot;form-control&quot;
+      type&#x3D;&quot;text&quot;
+      id&#x3D;&quot;formName&quot;
+      [(ngModel)]&#x3D;&quot;categoryName&quot;
+      placeholder&#x3D;&quot;Nombre de la categoría&quot;
+      required
+    /&gt;
+
+    &lt;label for&#x3D;&quot;formFile&quot; class&#x3D;&quot;form-label mt-2 d-flex text-start&quot;
+      &gt;Seleccione el icono de la categoría&lt;/label
+    &gt;
+    &lt;input
+      class&#x3D;&quot;form-control&quot;
+      type&#x3D;&quot;file&quot;
+      id&#x3D;&quot;formFile&quot;
+      (change)&#x3D;&quot;setFile($event)&quot;
+      required
+    /&gt;
+
+    &lt;div class&#x3D;&quot;d-flex justify-content-end mb-2&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;btn btn-primary mt-2&quot;
+        (click)&#x3D;&quot;createCategory()&quot;
+        [disabled]&#x3D;&quot;!categoryName || !categoryIcon&quot;
+      &gt;
+        Crear
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;ngb-alert
+      *ngIf&#x3D;&quot;categoryCreated&quot;
+      type&#x3D;&quot;success&quot;
+      (closed)&#x3D;&quot;categoryCreated &#x3D; false&quot;
+    &gt;
+      Categoría creada con éxito
+    &lt;/ngb-alert&gt;
+  &lt;/div&gt;
+
+  &lt;mat-list&gt;
+    &lt;mat-list-item
+      style&#x3D;&quot;height: 100%; margin-bottom: 20px&quot;
+      *ngFor&#x3D;&quot;let category of this.getListCategories() | async&quot;
+    &gt;
+      &lt;app-categories-card [category]&#x3D;&quot;category&quot;&gt;&lt;/app-categories-card&gt;
+    &lt;/mat-list-item&gt;
+  &lt;/mat-list&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./list-categories.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.sticky-form-container {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: #ffffff; /* Color de fondo deseado */
+  padding: 20px; /* Espaciado interno deseado */
+}
+.mat-list-item {
+  margin-bottom: 46px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div>  <div class="sticky-form-container" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">    <label for="formName" class="form-label d-flex flex-start"      >Seleccione el nombre de la categoría</label    >    <input      class="form-control"      type="text"      id="formName"      [(ngModel)]="categoryName"      placeholder="Nombre de la categoría"      required    />    <label for="formFile" class="form-label mt-2 d-flex text-start"      >Seleccione el icono de la categoría</label    >    <input      class="form-control"      type="file"      id="formFile"      (change)="setFile($event)"      required    />    <div class="d-flex justify-content-end mb-2">      <button        class="btn btn-primary mt-2"        (click)="createCategory()"        [disabled]="!categoryName || !categoryIcon"      >        Crear      </button>    </div>    <ngb-alert      *ngIf="categoryCreated"      type="success"      (closed)="categoryCreated = false"    >      Categoría creada con éxito    </ngb-alert>  </div>  <mat-list>    <mat-list-item      style="height: 100%; margin-bottom: 20px"      *ngFor="let category of this.getListCategories() | async"    >      <app-categories-card [category]="category"></app-categories-card>    </mat-list-item>  </mat-list></div></div>'
+    var COMPONENTS = [{'name': 'AdministratorPageComponent', 'selector': 'app-administrator'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriesCardComponent', 'selector': 'app-categories-card'},{'name': 'CategoryItemComponent', 'selector': 'app-category-item'},{'name': 'CommentListComponent', 'selector': 'app-comment-list'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'HomePageComponent', 'selector': 'app-home'},{'name': 'LanguageItemComponent', 'selector': 'app-language-item'},{'name': 'ListAdminComponent', 'selector': 'app-list-admin'},{'name': 'ListCategoriesComponent', 'selector': 'app-list-categories'},{'name': 'ListLanguagesComponent', 'selector': 'app-list-languages'},{'name': 'ListUserComponent', 'selector': 'app-list-user'},{'name': 'LoginDialogComponent', 'selector': 'app-login-dialog'},{'name': 'MainViewPageComponent', 'selector': 'app-main-view-page'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'OdiseaDetailsMapCardComponent', 'selector': 'app-odisea-details-map-card'},{'name': 'OdiseaFormComponent', 'selector': 'app-odisea-form'},{'name': 'OdiseaItemCardComponent', 'selector': 'app-odisea-item-card'},{'name': 'OdiseaProfileDetailsComponent', 'selector': 'app-odisea-profile-details'},{'name': 'OdiseaProfileOdiseoComponent', 'selector': 'app-odisea-profile-odiseo'},{'name': 'OdiseaProfilePageComponent', 'selector': 'app-odisea-profile'},{'name': 'OdiseaRegisterPageComponent', 'selector': 'app-odisea-register'},{'name': 'ProfileCardComponent', 'selector': 'app-profile-card'},{'name': 'ProfileViewPageComponent', 'selector': 'app-profile-view'},{'name': 'RegisterDialogComponent', 'selector': 'app-register-dialog'},{'name': 'ResetEmailDialogComponent', 'selector': 'app-reset-email-dialog'},{'name': 'ResetPasswordDialogComponent', 'selector': 'app-reset-password-dialog'},{'name': 'UserStatusComponent', 'selector': 'app-user-status'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ListCategoriesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ListCategoriesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
