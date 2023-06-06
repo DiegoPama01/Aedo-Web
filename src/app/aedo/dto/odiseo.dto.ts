@@ -15,6 +15,8 @@ export class OdiseoDto {
   private name: string;
   private phoneNumber: string;
   private userName: string;
+  private studiesLevel: string = "";
+  private workSituation: string = "";
 
   /**
    * Creates an instance of OdiseoDto.

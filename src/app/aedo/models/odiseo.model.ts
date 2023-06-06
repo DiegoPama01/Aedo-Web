@@ -56,6 +56,16 @@ export class Odiseo implements IOdiseo {
   avatar: any;
 
   /**
+   * The studies of the Odiseo.
+   */
+  studiesLevel: string = "";
+
+  /**
+   * The work situation of the Odiseo.
+   */
+  workSituation: string = "";
+
+  /**
    * Creates an instance of the Odiseo class.
    * @param accountNumber - The account number of the Odiseo.
    * @param email - The email address of the Odiseo.
@@ -106,6 +116,8 @@ export class Odiseo implements IOdiseo {
       isAdmin: this.isAdmin,
       isEducative: this.isEducative,
       avatar: this.avatar,
+      studiesLevel: this.studiesLevel,
+      workSituation: this.workSituation
     };
   }
 }

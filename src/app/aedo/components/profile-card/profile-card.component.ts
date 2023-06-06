@@ -13,7 +13,7 @@ export class ProfileCardComponent {
   user: any;
   username: string = '';
   email: string = '';
-  avatar:string="https://material.angular.io/assets/img/examples/shiba2.jpg";
+  avatar:string="";
   constructor(
     private authService: AuthenticationService,
     private odiseoService: OdiseoService,

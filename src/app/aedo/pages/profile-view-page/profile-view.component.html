@@ -1,4 +1,8 @@
-<div class="background-color-primary-200" style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 60px);">
+<div *ngIf="isLoading" class="loading-overlay">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading" class="background-color-primary-200" style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 60px);">
   <mat-card class="card">
     <mat-card-content>
       <div>

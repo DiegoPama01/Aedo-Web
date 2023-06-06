@@ -22,6 +22,7 @@ export class ProfileViewPageComponent {
   modifyInputs: boolean = true;
   odiseo?: OdiseoDto;
   userForm: FormGroup;
+  isLoading: boolean = true;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
@@ -46,9 +47,11 @@ export class ProfileViewPageComponent {
               phoneNumber: this.odiseo.getPhoneNumber(),
               birthday: new Date(this.odiseo.getBirthDate()),
             });
+            this.isLoading = false
           })
           .catch((error) => {
             console.log('Error obtaining user: ' + error);
+            this.isLoading = false
           });
       }
     });

@@ -70,6 +70,7 @@ button[type="submit"] {
 
 .form-item {
   margin-bottom: 20px;
+  min-width: 100px;
 }
 
 .form-actions {
@@ -124,6 +125,19 @@ button[type="submit"] {
   min-height: calc(90vh - 100px);
   max-width: 700px;
   margin: 0 auto;
+}
+
+.max-width-card {
+  overflow: hidden; /* Oculta cualquier contenido que exceda el ancho de la tarjeta */
+}
+
+
+
+.max-width-card .form-item,
+.max-width-card .category-item,
+.max-width-card .language-item {
+  max-width: 100%; /* Establece el ancho máximo de los elementos individuales dentro de los contenedores */
+  white-space: nowrap; /* Evita que los elementos se envuelvan a la siguiente línea */
 }
 
 .card-actions {

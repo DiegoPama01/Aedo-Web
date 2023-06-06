@@ -83,7 +83,7 @@ export class OdiseaService {
       this.firestoreService
         .update(
           this.collection,
-          odiseaDto.getOdisea().toJSON(),
+          odiseaDto.getOdisea(),
           odiseaDto.getId()
         )
         .then(() => {

@@ -25,6 +25,8 @@ export class Reservation implements IReservation {
    */
   userReservations: number;
 
+  isEducativeReservation: boolean = false;
+
   /**
    * Creates an instance of the Reservation class.
    * @param language - The language associated with the reservation.

@@ -35,7 +35,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 interface LanguageInfo {
   language: string;
   dateType: string;
-  date?: Date;
+  date?: any;
 }
 
 @Component({
@@ -270,6 +270,7 @@ export class OdiseaFormComponent implements OnInit {
 
   submitThirdForm() {
     this.thirdStepForm.get('images')!.setValue(this.selectedFiles);
+    console.log(this.selectedFiles)
     if (this.thirdStepForm.valid) {
       this.stepper.next();
     } else {
@@ -330,9 +331,11 @@ export class OdiseaFormComponent implements OnInit {
           const odiseaDto = await this.odiseaService.getById(odiseaId);
           odiseaDto.setImage([
             ...odiseaDto.getImage(),
-            { assetID: 'images/' + odiseaId + '/L' + index },
+            { assetId: odiseaId + '/L' + index },
           ]);
+          console.log(odiseaDto.getLanguages())
           await this.odiseaService.update(odiseaDto);
+          console.log("Se hizo update")
         });
 
       this.selectedLanguages.forEach((language) => {
@@ -345,7 +348,9 @@ export class OdiseaFormComponent implements OnInit {
 
         if (language.dateType === 'frecuencia') {
           type = calendarType.frequencyDatesCalendar;
-          dates = language.date;
+          dates = Object.entries(language.date)
+            .filter(([day, value]) => value === true)
+            .map(([day, value]) => day);
         } else if (language.dateType === 'fecha-especifica') {
           type = calendarType.singleDateCalendar;
           dates = language.date;
@@ -354,11 +359,11 @@ export class OdiseaFormComponent implements OnInit {
           dates = language.date;
         }
         let calendar = new OdiseaCalendar(type, dates, odiseaLang, odiseaId);
-        this.odiseaCalendarService.create(calendar);
+        //this.odiseaCalendarService.create(calendar);
       });
     });
 
-    this.snackBar.open('Todo ha sido guardado', 'Cerrar');
-    this.router.navigate(['/home']);
+    //this.snackBar.open('Todo ha sido guardado', 'Cerrar');
+    //this.router.navigate(['/home']);
   }
 }
