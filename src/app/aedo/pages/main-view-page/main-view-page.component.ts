@@ -3,7 +3,7 @@ import { OdiseaService } from '../../services/models-services/odiseas.service';
 import { ImagesService } from '../../services/models-services/images.service';
 import { OdiseaDto } from '../../dto/odisea.dto';
 import { error } from 'jquery';
-import { forkJoin } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
 import { IOdisea } from '../../interfaces/odisea.interface';
 import { Router } from '@angular/router';
 
@@ -37,9 +37,9 @@ export class MainViewPageComponent implements OnInit {
     this.odiseaService.getCollection().subscribe((odiseas: OdiseaDto[]) => {
       this.odiseas = odiseas;
       const downloadRequests = odiseas.map((odisea) =>
-        this.imagesService.downloadImage(odisea.getImage().at(0).assetId)
+        this.imagesService.downloadImage(odisea.getImage().at(0).assetId).catch((error) => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png')
       );
-
+  
       forkJoin(downloadRequests).subscribe(
         (imageUrls: string[]) => {
           this.imageUrls = imageUrls;
@@ -51,29 +51,26 @@ export class MainViewPageComponent implements OnInit {
           this.isLoading = false;
         }
       );
-
+  
       this.selectedOdisea = this.odiseas?.at(0);
       this.selectedImg = this.imageUrls.at(0);
     });
   }
 
   onCardClick(eventData: { odisea: OdiseaDto; imageUrl: string }) {
-
-    if(this.isWideScreen){
+    if (this.isWideScreen) {
       const odisea = eventData.odisea;
       const imageUrl = eventData.imageUrl;
-  
+
       this.selectedOdisea = odisea;
       this.selectedImg = imageUrl;
+    } else {
+      this.router.navigate(['/home/odisea-profile', eventData.odisea.getId()]);
     }
-    else{
-      this.router.navigate(['/home/odisea-profile',eventData.odisea.getId()]);
-    }
-    
   }
 
   onButtonClick(odiseaId: string) {
     // Haz lo que desees con el valor del botón
-    this.router.navigate(['/home/odisea-profile',odiseaId]);
+    this.router.navigate(['/home/odisea-profile', odiseaId]);
   }
 }

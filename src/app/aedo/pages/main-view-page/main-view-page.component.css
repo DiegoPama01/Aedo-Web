@@ -42,3 +42,9 @@
 .overflow-auto::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual ancho */
+  gap: 10px; /* Agrega un espacio de 10px entre cada card */
+}
