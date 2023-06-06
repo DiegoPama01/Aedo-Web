@@ -1,3 +1,4 @@
+
 <mat-dialog-content>
   <header>
     <button mat-icon-button style="float: right" matDialogClose>
@@ -5,61 +6,55 @@
     </button>
     <h1>Iniciar sesión</h1>
   </header>
-</mat-dialog-content>
-
-<mat-dialog-content
-  style="
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  "
->
-  <mat-form-field style="width: 100%">
-    <mat-label>Correo electrónico</mat-label>
-    <input [formControl]="email" #correo matInput required />
-    <mat-error *ngIf="errorVisible">
-      Fallo al conectar
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%">
-    <mat-label>Contraseña</mat-label>
-    <input #password matInput [type]="hide ? 'password' : 'text'" required />
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide"
-    >
-      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
-  </mat-form-field>
-</mat-dialog-content>
-
-
-
-<mat-dialog-actions class="button-grid">
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="logInWithEmail(correo.value, password.value)"
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    "
   >
-    <mat-icon> login </mat-icon>
-    Iniciar sesión
-  </button>
-  <button mat-raised-button color="primary" (click)="openRegisterDialog()">
-    <mat-icon> personadd </mat-icon>
-    Registrarse
-  </button>
-</mat-dialog-actions>
+    <mat-form-field style="width: 100%">
+      <mat-label>Correo electrónico</mat-label>
+      <input [formControl]="email" #correo matInput required />
+      <mat-error *ngIf="errorVisible"> Fallo al conectar </mat-error>
+    </mat-form-field>
 
-<mat-dialog-actions class="button-grid">
-  <button mat-raised-button color="primary" (click)="logInWithGoogle()">
-    Google
-  </button>
-  <button mat-raised-button color="primary" (click)="logInWithFacebook()">
-    Facebook
-  </button>
-</mat-dialog-actions>
+    <mat-form-field style="width: 100%">
+      <mat-label>Contraseña</mat-label>
+      <input #password matInput [type]="hide ? 'password' : 'text'" required />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions class="button-grid">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="logInWithEmail(correo.value, password.value)"
+    >
+      <mat-icon> login </mat-icon>
+      Iniciar sesión
+    </button>
+    <button mat-raised-button color="primary" (click)="openRegisterDialog()">
+      <mat-icon> personadd </mat-icon>
+      Registrarse
+    </button>
+  </mat-dialog-actions>
+  
+  <mat-dialog-actions class="full-width">
+    <button mat-raised-button color="primary" (click)="logInWithGoogle()">
+      Google
+    </button>
+  </mat-dialog-actions>
+  
+</mat-dialog-content>
+
+

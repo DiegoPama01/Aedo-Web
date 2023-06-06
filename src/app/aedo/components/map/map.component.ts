@@ -10,6 +10,11 @@ export class MapComponent implements AfterViewInit {
   private map: any;
   private marker: any;
 
+  private icon = L.icon({
+    iconUrl: 'assets/marker-icon.png',
+    shadowUrl: 'assets/marker-shadow.png',
+  });
+
   @Output() markerSelected = new EventEmitter<any>();
 
   private initMap(): void {
@@ -44,7 +49,7 @@ export class MapComponent implements AfterViewInit {
             if (this.marker) {
               this.map.removeLayer(this.marker);
             }
-            this.marker = L.marker([lat, lng]).addTo(this.map);
+            this.marker = L.marker([lat, lng],{ icon: this.icon }).addTo(this.map);
 
 
             this.markerSelected.emit(this.marker);
