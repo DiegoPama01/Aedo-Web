@@ -10,6 +10,7 @@ import { ProfileViewPageComponent } from './pages/profile-view-page/profile-view
 import { OdiseaProfilePageComponent } from './pages/odisea-profile-page/odisea-profile.component';
 import { MainViewPageComponent } from './pages/main-view-page/main-view-page.component';
 import { ReservationPageComponent } from './pages/reservation-page/reservation-page.component';
+import { AdminAuthGuard } from './components/admin-auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home/main' },
@@ -25,7 +26,7 @@ const routes: Routes = [
       {
         path: 'administrator',
         component: AdministratorPageComponent,
-        ...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
+        canActivate: [AdminAuthGuard]
       },
       {
         path: 'registration',

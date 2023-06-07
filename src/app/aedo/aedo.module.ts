@@ -41,6 +41,7 @@ import { OdiseaItemCardComponent } from './components/odisea-item-card/odisea-it
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReservationPageComponent } from './pages/reservation-page/reservation-page.component';
 import { MaxCapacityDialogComponent } from './components/max-capacity-dialog/max-capacity-dialog.component';
+import { AdminAuthGuard } from './components/admin-auth.guard';
 
 @NgModule({
   declarations: [
@@ -89,5 +90,8 @@ import { MaxCapacityDialogComponent } from './components/max-capacity-dialog/max
     NgbAlertModule,
     ReactiveFormsModule,
   ],
+  providers: [
+    AdminAuthGuard // Agrega el guard aquí
+  ]
 })
 export class AedoModule {}
