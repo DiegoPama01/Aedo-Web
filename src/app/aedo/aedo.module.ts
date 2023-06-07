@@ -39,6 +39,8 @@ import { MainViewPageComponent } from './pages/main-view-page/main-view-page.com
 import { OdiseaDetailsMapCardComponent } from './components/odisea-details-map-card/odisea-details-map-card.component';
 import { OdiseaItemCardComponent } from './components/odisea-item-card/odisea-item-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReservationPageComponent } from './pages/reservation-page/reservation-page.component';
+import { MaxCapacityDialogComponent } from './components/max-capacity-dialog/max-capacity-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainViewPageComponent,
     OdiseaDetailsMapCardComponent,
     OdiseaItemCardComponent,
+    ReservationPageComponent,
+    MaxCapacityDialogComponent,
   ],
   imports: [
     AedoRoutingModule,

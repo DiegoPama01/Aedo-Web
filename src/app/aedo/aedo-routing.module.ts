@@ -9,6 +9,7 @@ import { OdiseaRegisterPageComponent } from './pages/odisea-register-page/odisea
 import { ProfileViewPageComponent } from './pages/profile-view-page/profile-view.component';
 import { OdiseaProfilePageComponent } from './pages/odisea-profile-page/odisea-profile.component';
 import { MainViewPageComponent } from './pages/main-view-page/main-view-page.component';
+import { ReservationPageComponent } from './pages/reservation-page/reservation-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home/main' },
@@ -41,12 +42,18 @@ const routes: Routes = [
         component: OdiseaProfilePageComponent,
       },
       {
+        path: 'odisea-profile/:id/reservate',
+        component: ReservationPageComponent,
+        ...canActivate(() => redirectUnauthorizedTo(['/home/main'])),
+      },
+      {
         path: 'main',
         component: MainViewPageComponent
       }
     ],
   },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

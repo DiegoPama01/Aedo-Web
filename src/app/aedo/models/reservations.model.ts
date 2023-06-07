@@ -52,7 +52,7 @@ export class Reservation implements IReservation {
    */
   toJSON() {
     return {
-      language: this.language,
+      language: { item: this.language.item, id: this.language.id },
       odiseaDateID: this.odiseaDateId,
       userID: this.userId,
       userReservations: this.userReservations,

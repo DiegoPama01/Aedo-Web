@@ -50,6 +50,35 @@ export class OdiseaDatesService {
     );
   }
 
+
+  getOdiseaDatesByCalendar(odiseaCalendarId: string, date: Date): Observable<OdiseaDatesDto | undefined> {
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+
+        const item = data.find((item) => {
+          const itemDate = item.date.toDate();
+          itemDate.setHours(0, 0, 0, 0); // Establecer la hora a las 0:00
+          date.setHours(0, 0, 0, 0); // Establecer la hora a las 0:00
+          return item.odiseaCalendarID === odiseaCalendarId && itemDate.getTime() === date.getTime();
+        });
+        
+        if (item) {
+          return new OdiseaDatesDto(
+            item.id,
+            item.date,
+            item.language,
+            item.maxCapacity,
+            item.numReservations,
+            item.odiseaCalendarID,
+            item.odiseaID
+          );
+        }
+        return undefined; // Si no se encuentra ningún objeto con el odiseaCalendarId proporcionado
+      })
+    );
+  }
+  
+
   /**
    * Removes an odyssey date.
    * @param odiseaDatesDto The OdiseaDatesDto object of the date to remove.

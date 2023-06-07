@@ -1,5 +1,8 @@
 <mat-card class="custom-card">
   <mat-card-header>
-    <mat-card-title>{{ odiseo?.userName }}</mat-card-title>
+    <div mat-card-avatar style="margin-bottom: 20px;">
+      <img style="height: 50px; width: 50px;"  [src]="avatarOdiseo" alt="Avatar">
+    </div>
+    <mat-card-title style="margin-left: 10px;">Aedo: {{odiseo?.userName }}</mat-card-title>
   </mat-card-header>
 </mat-card>

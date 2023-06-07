@@ -7,6 +7,7 @@ import { OdiseoService } from '../../services/models-services/odiseos.service';
 import { ImagesService } from '../../services/models-services/images.service';
 import { IComment } from '../../interfaces/comment.interface';
 import { CommentService } from '../../services/models-services/comments.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-odisea-profile',
@@ -18,6 +19,7 @@ export class OdiseaProfilePageComponent {
   odisea?: IOdisea;
   odiseo?: IOdiseo;
   comments?: IComment[] = [];
+  avatarUrl?: string = "";
 
   odiseaImgs: string[] = [];
 
@@ -26,7 +28,8 @@ export class OdiseaProfilePageComponent {
     private odiseaService: OdiseaService,
     private odiseoService: OdiseoService,
     private imageService: ImagesService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private storageService: StorageService
   ) {
     this.route.params.subscribe((params: any) => {
       this.id = params['id'];
@@ -38,6 +41,9 @@ export class OdiseaProfilePageComponent {
             .getById(this.odisea.uid)
             .then((odiseo) => {
               this.odiseo = odiseo.getOdiseo();
+              storageService.downloadFile("images/avatars/"+odiseo.getAvatar().assetId).then((url) => {
+                this.avatarUrl=url
+              })
             })
             .catch((error: any) => {
               console.error('Error al obtener el odiseo', error);

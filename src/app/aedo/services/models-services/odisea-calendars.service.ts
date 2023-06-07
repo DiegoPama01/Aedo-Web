@@ -48,6 +48,28 @@ export class OdiseaCalendarService {
     );
   }
 
+  getCollByOdiseaAndLang(id: string, langName: string): Observable<OdiseaCalendarDto | undefined> {
+    return this.firestoreService.getCollection(this.collection).pipe(
+      map((data: any[]) => {
+        const filteredData = data.filter((item) => item.odiseaID === id && item.language.item === langName);
+        if (filteredData.length > 0) {
+          const item = filteredData[0];
+          return new OdiseaCalendarDto(
+            item.id,
+            item.calendarType,
+            item.dates,
+            item.language,
+            item.odiseaID
+          );
+        } else {
+          return undefined;
+        }
+      })
+    );
+  }
+  
+  
+
   /**
    * Removes an odyssey calendar.
    * @param odiseaCalendarDto The OdiseaCalendarDto object of the calendar to remove.

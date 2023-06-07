@@ -359,11 +359,11 @@ export class OdiseaFormComponent implements OnInit {
           dates = language.date;
         }
         let calendar = new OdiseaCalendar(type, dates, odiseaLang, odiseaId);
-        //this.odiseaCalendarService.create(calendar);
+        this.odiseaCalendarService.create(calendar);
       });
     });
 
-    //this.snackBar.open('Todo ha sido guardado', 'Cerrar');
-    //this.router.navigate(['/home']);
+    this.snackBar.open('Todo ha sido guardado', 'Cerrar');
+    this.router.navigate(['/home']);
   }
 }

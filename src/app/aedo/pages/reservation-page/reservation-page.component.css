@@ -1,0 +1,37 @@
+.max-width-card {
+  max-width: 400px;
+  min-height: 300px;
+  margin: 0 auto;
+}
+.card-actions {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 16px;
+}
+.footer-content {
+  margin-left: auto;
+}
+
+.custom-radio-button {
+  font-size: xx-large !important;
+}
+
+.radio-button-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.radio-button {
+    margin-left: 20px;
+}
+
+.radio-button-label {
+  font-size: large;
+}

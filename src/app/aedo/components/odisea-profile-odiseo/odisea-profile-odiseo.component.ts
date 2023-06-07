@@ -8,5 +8,7 @@ import { IOdiseo } from '../../interfaces/odiseo.interface';
 })
 export class OdiseaProfileOdiseoComponent {
   @Input() odiseo?: IOdiseo;
+  @Input() avatarOdiseo?: string;
+
 
 }
