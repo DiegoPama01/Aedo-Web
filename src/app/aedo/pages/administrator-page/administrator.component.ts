@@ -20,13 +20,13 @@ export class AdministratorPageComponent {
           {
             title: 'Lista de usuarios',
             cols: 1,
-            rows: 1,
+            rows: 2,
             component: ListUserComponent,
           },
           {
             title: 'Idiomas',
             cols: 1,
-            rows: 1,
+            rows: 2,
             component: ListLanguagesComponent,
           },
           {
