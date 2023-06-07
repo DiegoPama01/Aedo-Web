@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ListLanguagesComponent } from '../../components/list-languages/list-languages.component';
 import { ListCategoriesComponent } from '../../components/list-categories/list-categories.component';
@@ -13,7 +13,7 @@ import { ListUserComponent } from '../../components/list-user/list-user.componen
 export class AdministratorPageComponent {
 
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  cards = this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
@@ -57,13 +57,14 @@ export class AdministratorPageComponent {
           component: ListCategoriesComponent,
         },
       ];
-    })
+    }),
+    distinctUntilChanged()
   );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   getColCount() {
-    return this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    return this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).pipe(
       map((result) => {
         if (result.matches) {
           return 1; // Una columna por fila si es un dispositivo móvil
