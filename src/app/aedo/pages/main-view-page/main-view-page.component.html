@@ -2,7 +2,7 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div  *ngIf="!isLoading" class="grid-container">
+<div *ngIf="!isLoading" class="grid-container">
   <div class="left-grid" *ngIf="isWideScreen">
     <app-odisea-details-map-card
       [odisea]="selectedOdisea"
@@ -14,19 +14,28 @@
 
   <div class="right-grid overflow-auto" style="overflow-y: auto">
     <mat-grid-list
-      [cols]="isWideScreen ? 2 : 1"
+      [cols]="numColumns"
       rowHeight="350px"
       gutterSize="16"
       fxLayout="row"
       fxLayout.xs="column"
+      [ngClass]="numColumns === 3 ? 'three-columns' : 'one-column'"
     >
       <mat-grid-tile *ngFor="let odisea of odiseas; let i = index">
-        <app-odisea-item-card
-          [odisea]="odisea"
-          [imageUrl]="imageUrls[i]"
-          [selected]="odisea == selectedOdisea"
-          (cardClick)="onCardClick($event)"
-        ></app-odisea-item-card>
+        <div style="width: 100%" class="tile-content">
+          <app-odisea-item-card
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [odisea]="odisea"
+            [imageUrl]="imageUrls[i]"
+            [selected]="odisea == selectedOdisea"
+            (cardClick)="onCardClick($event)"
+          ></app-odisea-item-card>
+        </div>
       </mat-grid-tile>
     </mat-grid-list>
   </div>

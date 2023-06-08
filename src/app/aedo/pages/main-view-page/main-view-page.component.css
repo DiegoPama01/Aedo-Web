@@ -30,6 +30,9 @@
   height: 100%;
 }
 
+
+
+
 .overflow-auto::-webkit-scrollbar {
   width: 0em;
   background-color: transparent;
@@ -43,8 +46,29 @@
   background-color: transparent;
 }
 
-.card-grid {
+/* Estilos para pantallas anchas */
+@media screen and (min-width: 768px) {
+  .three-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Estilos para pantallas estrechas */
+@media screen and (max-width: 767px) {
+  .one-column {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.card-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual ancho */
-  gap: 10px; /* Agrega un espacio de 10px entre cada card */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 16px;
+}
+
+.tile-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

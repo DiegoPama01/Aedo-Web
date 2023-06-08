@@ -3,9 +3,10 @@ import { OdiseaService } from '../../services/models-services/odiseas.service';
 import { ImagesService } from '../../services/models-services/images.service';
 import { OdiseaDto } from '../../dto/odisea.dto';
 import { error } from 'jquery';
-import { forkJoin, of } from 'rxjs';
+import { distinctUntilChanged, forkJoin, of } from 'rxjs';
 import { IOdisea } from '../../interfaces/odisea.interface';
 import { Router } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-main-view-page',
@@ -14,6 +15,8 @@ import { Router } from '@angular/router';
 })
 export class MainViewPageComponent implements OnInit {
   isExpanded: boolean = true;
+  isHandset: boolean = false;
+  numColumns: number = 2;
   odiseas?: OdiseaDto[];
   imageUrls: string[] = [];
   isWideScreen: boolean = true;
@@ -22,18 +25,37 @@ export class MainViewPageComponent implements OnInit {
   selectedOdisea?: OdiseaDto;
   selectedImg?: string;
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.isWideScreen = window.innerWidth >= 768; // Ajusta el valor según el ancho mínimo para considerar una pantalla como "ancha"
+  @HostListener('window:resize')
+  onResize() {
+    this.isWideScreen = window.innerWidth >= 768; // Ajusta el valor según el ancho mínimo para 
+    this.updateNumColumns();
+  }
+
+  updateNumColumns() {
+    this.breakpointObserver
+      .observe(Breakpoints.Handset)
+      .pipe(distinctUntilChanged())
+      .subscribe((result) => {
+        this.isHandset = result.matches;
+
+        if (this.isHandset) {
+          this.isWideScreen = window.innerWidth >= 768;
+          this.numColumns = 1; // Pantallas estrechas: 1 columna
+        } else {
+          this.numColumns = 2; // Pantallas anchas: 2 columnas
+        }
+      });
   }
 
   constructor(
     private odiseaService: OdiseaService,
     private imagesService: ImagesService,
-    private router: Router
+    private router: Router,
+    private breakpointObserver: BreakpointObserver
   ) {}
 
   ngOnInit() {
+    this.updateNumColumns();
     this.odiseaService.getCollection().subscribe((odiseas: OdiseaDto[]) => {
       this.odiseas = odiseas;
       const downloadRequests = odiseas.map((odisea) =>
