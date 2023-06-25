@@ -58,9 +58,13 @@ export class MainViewPageComponent implements OnInit {
     this.updateNumColumns();
     this.odiseaService.getCollection().subscribe((odiseas: OdiseaDto[]) => {
       this.odiseas = odiseas;
-      const downloadRequests = odiseas.map((odisea) =>
-        this.imagesService.downloadImage(odisea.getImage().at(0).assetId).catch((error) => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png')
-      );
+      const downloadRequests = odiseas.map((odisea) => {
+        if (odisea.getImage()?.at(0)?.assetId) {
+          return this.imagesService.downloadImage(odisea.getImage().at(0).assetId).catch((error) => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png');
+        } else {
+          return of('https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png');
+        }
+      });
   
       forkJoin(downloadRequests).subscribe(
         (imageUrls: string[]) => {

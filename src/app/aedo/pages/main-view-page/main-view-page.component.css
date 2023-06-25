@@ -9,6 +9,7 @@
   position: sticky;
   top: 0;
   display: flex;
+  max-width: 50vw;
 }
 
 .right-grid {

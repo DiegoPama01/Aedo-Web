@@ -1,8 +1,13 @@
-<mat-card [@fadeInOut] class="full-width-card" >
-  <mat-card-header class="background-color-primary-500 text-on-primary-background-500" style=" border-radius: 8px 8px 0 0;" >
-    <mat-card-title class="custom-typo-headline-2" style="margin-bottom: 20px">{{
-      odisea?.getName()
-    }}</mat-card-title>
+<mat-card [@fadeInOut] class="full-width-card">
+  <mat-card-header
+    class="background-color-primary-500 text-on-primary-background-500"
+    style="border-radius: 8px 8px 0 0"
+  >
+    <mat-card-title
+      class="custom-typo-headline-2"
+      style="margin-bottom: 20px"
+      >{{ odisea?.getName() }}</mat-card-title
+    >
   </mat-card-header>
   <div class="image-container">
     <img
@@ -15,12 +20,16 @@
   <mat-card-content style="margin-top: 20px">
     <p>{{ odisea?.getDescription() }}</p>
   </mat-card-content>
-  <mat-card-actions>
-    <div class="card-footer">
-      <div class="footer-content">
-        <div class="spacer"></div>
-        <button mat-button color="primary" (click)="onButtonClick()">Visitar</button>
+  <mat-card-footer>
+    <mat-card-actions>
+      <div class="card-footer">
+        <div class="footer-content">
+          <div class="spacer"></div>
+          <button mat-raised-button color="primary" (click)="onButtonClick()">
+            Visitar
+          </button>
+        </div>
       </div>
-    </div>
-  </mat-card-actions>
+    </mat-card-actions>
+  </mat-card-footer>
 </mat-card>
