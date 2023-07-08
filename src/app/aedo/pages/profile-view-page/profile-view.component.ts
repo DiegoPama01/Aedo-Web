@@ -45,7 +45,7 @@ export class ProfileViewPageComponent {
             this.userForm.setValue({
               name: this.odiseo.getName(),
               phoneNumber: this.odiseo.getPhoneNumber(),
-              birthday: new Date(this.odiseo.getBirthDate()),
+              birthday: new Date(this.odiseo.getBirthDate().seconds * 1000 + 3600 *24),
             });
             this.isLoading = false
           })
