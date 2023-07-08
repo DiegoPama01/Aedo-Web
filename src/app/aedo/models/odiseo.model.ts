@@ -112,7 +112,7 @@ export class Odiseo implements IOdiseo {
       name: this.name,
       phoneNumber: this.phoneNumber,
       userName: this.userName,
-      birthDate: this.birthDate.toISOString(),
+      birthDate: this.birthDate,
       isAdmin: this.isAdmin,
       isEducative: this.isEducative,
       avatar: this.avatar,
