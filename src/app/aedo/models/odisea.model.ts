@@ -105,10 +105,17 @@ export class Odisea implements IOdisea {
    * @returns The Odisea object in JSON format.
    */
   toJSON() {
+    const jsonResult = this.languages.map((language) => {
+      return {
+        id: language.id,
+        item: language.item
+      };
+    });
+
     return {
       description: this.description,
       images: this.images,
-      languages: this.languages.map((language) => language.toJSON()),
+      languages: jsonResult,
       maxCapacity: this.maxCapacity,
       name: this.name,
       numberVotes: this.numberVotes,

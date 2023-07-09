@@ -62,10 +62,12 @@ export class OdiseaCalendar implements IOdiseaCalendar {
    * @returns The OdiseaCalendar object in JSON format.
    */
   toJSON() {
+    let [id, item] = this.language.item.split(' - ');
+    console.log(id, item)
     return {
       calendarType: this.calendarType,
       dates: this.dates,
-      language: this.language.toJSON(),
+      language: { item: item, id: id.toUpperCase() },
       odiseaID: this.odiseaId,
     };
   }

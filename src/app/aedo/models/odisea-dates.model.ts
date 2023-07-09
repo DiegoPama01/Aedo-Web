@@ -66,9 +66,10 @@ export class OdiseaDates implements IOdiseaDates {
    * @returns The OdiseaDates object in JSON format.
    */
   toJSON() {
+    let [id, item] = this.language.item.split(' - ');
     return {
       date: this.date,
-      language: this.language.toJSON(),
+      language: { item: item, id: id.toUpperCase() },
       maxCapacity: this.maxCapacity,
       numReservations: this.numReservations,
       odiseaCalendarID: this.odiseaCalendarId,

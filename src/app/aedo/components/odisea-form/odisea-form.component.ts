@@ -296,6 +296,8 @@ export class OdiseaFormComponent implements OnInit {
 
     let languageList: Language[] = this.firstStepForm.get('languages')?.value;
 
+    console.log(languageList)
+
     let categoryList: Category[] = this.firstStepForm.get('tags')?.value;
     let arrayCategory = categoryList.map((category) => category.getName());
 

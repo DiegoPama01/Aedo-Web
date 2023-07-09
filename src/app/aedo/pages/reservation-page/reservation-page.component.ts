@@ -21,6 +21,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MaxCapacityDialogComponent } from '../../components/max-capacity-dialog/max-capacity-dialog.component';
 import { Language } from '../../models/language.model';
 import { take } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-page',
@@ -45,7 +46,8 @@ export class ReservationPageComponent implements OnInit {
     private reservationService: ReservationService,
     private authService: AuthenticationService,
     private odiseoService: OdiseoService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
@@ -163,7 +165,7 @@ export class ReservationPageComponent implements OnInit {
     const stepOneData = this.reservationForm?.get('stepOneData');
     if (stepOneData && stepOneData.valid) {
       this.odiseaCalendarService
-        .getCollByOdiseaAndLang(this.id!, stepOneData.get('idioma')?.value.item)
+        .getCollByOdiseaAndLang(this.id!, stepOneData.get('idioma')?.value.id)
         .subscribe(
           (result) => {
             this.odiseaCalendar = result;
@@ -244,6 +246,7 @@ export class ReservationPageComponent implements OnInit {
                 this.openDialog();
               }
               else{
+
                 let reservation = new Reservation(
                   odiseaDate.getLanguage(),
                   odiseaDate.getId(),
@@ -253,7 +256,9 @@ export class ReservationPageComponent implements OnInit {
                 console.log(reservation);
                 this.reservationService.create(reservation);
                 odiseaDate.setNumReservations(odiseaDate.getNumReservations() + 1)
+                console.log(odiseaDate);
                 this.odiseaDateService.update(odiseaDate);
+                this.router.navigate(['/']);
               }
 
             }
