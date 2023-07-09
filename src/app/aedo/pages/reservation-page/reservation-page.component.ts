@@ -193,6 +193,7 @@ export class ReservationPageComponent implements OnInit {
             let odiseaDate;
             if (result == undefined) {
               let timestamp = Timestamp.fromDate(this.selectedDate!);
+              
               let idioma = new Language(
                 this.reservationForm
                   ?.get('stepOneData')

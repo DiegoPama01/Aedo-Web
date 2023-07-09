@@ -130,6 +130,9 @@ export class ListLanguagesComponent {
       .split(' - ')[0]
       .toUpperCase();
     this.newLanguage.setId(id);
+
+    console.log(this.newLanguage)
+
     await this.languagesService.getById(id).then((res) => {
       try {
         if (res.getItem()) {
@@ -140,7 +143,9 @@ export class ListLanguagesComponent {
       } catch (error) {
         console.log(error);
       }
-    });
+    }).catch( (res) =>
+      this.languagesService.create(this.newLanguage.getLanguage())
+    );
   }
 
   public getSelectedLanguage(): LanguageDto {
