@@ -228,6 +228,7 @@ export class ReservationPageComponent implements OnInit {
                     1
                   );
                   console.log(reservation);
+                  this.router.navigate(['/home/main']);
                   return this.reservationService.create(reservation);
                 } else {
                   console.log('Error al obtener el objeto OdiseaDate');
@@ -242,7 +243,7 @@ export class ReservationPageComponent implements OnInit {
             } else {              
               odiseaDate = result;
 
-              if (odiseaDate.getMaxCapacity() - odiseaDate.getNumReservations() == 0){
+              if ((odiseaDate.getMaxCapacity() - odiseaDate.getNumReservations()) == 0){
                 this.openDialog();
               }
               else{
@@ -258,7 +259,7 @@ export class ReservationPageComponent implements OnInit {
                 odiseaDate.setNumReservations(odiseaDate.getNumReservations() + 1)
                 console.log(odiseaDate);
                 this.odiseaDateService.update(odiseaDate);
-                this.router.navigate(['/']);
+                this.router.navigate(['/home/main']);
               }
 
             }
